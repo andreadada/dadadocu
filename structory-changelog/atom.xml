@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://andreadada.github.io/dadadocu/structory-changelog</id>
-    <title>My Site Blog</title>
+    <title>DadaWiki Blog</title>
     <updated>2025-08-24T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://andreadada.github.io/dadadocu/structory-changelog"/>
-    <subtitle>My Site Blog</subtitle>
+    <subtitle>DadaWiki Blog</subtitle>
     <icon>https://andreadada.github.io/dadadocu/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Release 1.2.0 - PREMIUM]]></title>
@@ -41,7 +41,7 @@
 </ul>
 <hr>]]></content>
         <author>
-            <name>MrBast</name>
+            <name>Dada</name>
         </author>
         <category label="Premium" term="Premium"/>
     </entry>
@@ -62,7 +62,7 @@
 </ul>
 <hr>]]></content>
         <author>
-            <name>MrBast</name>
+            <name>Dada</name>
         </author>
         <category label="Free" term="Free"/>
     </entry>
@@ -86,7 +86,7 @@
 </ul>
 <hr>]]></content>
         <author>
-            <name>MrBast</name>
+            <name>Dada</name>
         </author>
         <category label="Premium" term="Premium"/>
     </entry>
@@ -103,7 +103,7 @@
 </ul>
 <hr>]]></content>
         <author>
-            <name>MrBast</name>
+            <name>Dada</name>
         </author>
         <category label="Premium" term="Premium"/>
     </entry>
@@ -120,7 +120,7 @@
 </ul>
 <hr>]]></content>
         <author>
-            <name>MrBast</name>
+            <name>Dada</name>
         </author>
         <category label="Premium" term="Premium"/>
     </entry>
@@ -138,7 +138,7 @@
 </ul>
 <hr>]]></content>
         <author>
-            <name>MrBast</name>
+            <name>Dada</name>
         </author>
         <category label="Premium" term="Premium"/>
     </entry>
@@ -158,7 +158,7 @@
 </ul>
 <hr>]]></content>
         <author>
-            <name>MrBast</name>
+            <name>Dada</name>
         </author>
         <category label="Premium" term="Premium"/>
     </entry>
