@@ -1,0 +1,9 @@
+structoryfree:
+  label: Free
+  permalink: /structoryfree
+  description: Free Structory tag
+
+structorypremium:
+  label: Premium
+  permalink: /structorypremium
+  description: Free Structory tag
