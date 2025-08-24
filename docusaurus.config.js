@@ -114,6 +114,12 @@ const config = {
             sidebarId: 'structorySidebar',
             position: 'left',
             label: 'Structory',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'dadaGravesSidebar',
+            position: 'left',
+            label: 'DadaGraves',
           }
           /*
           {to: '/blog', label: 'Blog', position: 'left'},
@@ -130,6 +136,10 @@ const config = {
               {
                 label: 'Structory',
                 to: '/docs/structory/intro',
+              },
+              {
+                label: 'DadaGraves',
+                to: '/docs/dadagraves/intro',
               },
             ],
           },
