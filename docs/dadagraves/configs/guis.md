@@ -106,5 +106,3 @@ Used as fallback visuals when no decoration is selected or when a decoration is 
 - You can preview GUI behavior by testing with a single slot and expanding gradually.
 
 ---
-
-For full YAML examples and customization tips, see the [Examples](/examples/guis) section.
