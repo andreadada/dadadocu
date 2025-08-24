@@ -10,7 +10,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'My Site',
+  title: 'DadaWiki',
   tagline: 'Dinosaurs are cool',
   favicon: 'img/favicon.ico',
 
@@ -50,9 +50,10 @@ const config = {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          //editUrl:
+          //  'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
+        /*
         blog: {
           showReadingTime: true,
           feedOptions: {
@@ -68,6 +69,7 @@ const config = {
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
         },
+        */
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -75,30 +77,48 @@ const config = {
     ],
   ],
 
+
+  plugins: [
+      [
+        "@docusaurus/plugin-content-blog",
+        /** @type {import('@docusaurus/plugin-content-blog').Options} */
+        {
+          id: "structoryChangelog", // Unique ID for this blog instance
+          path: "./structory-changelog", // Path to your developer blog folder
+          routeBasePath: "structory-changelog", // Base URL for these blog posts (e.g., yoursite.com/dev-blog/...)
+          showReadingTime: true,
+          blogTitle: "Developer Blog",
+          blogDescription: "Updates and articles for developers.",
+          // You can add more options specific to this blog, like:
+          // postsPerPage: 5,
+          // feedOptions: { type: 'all' },
+        },
+      ],
+    ],
+
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'My Site',
+        title: 'DadaWiki',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'DadaWiki Logo',
           src: 'img/logo.svg',
         },
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            sidebarId: 'structorySidebar',
             position: 'left',
-            label: 'Tutorial',
-          },
+            label: 'Structory',
+          }
+          /*
           {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
-          },
+          {to: '/structory-changelog', label: 'Structory Changelog', position: 'left'}
+          */
         ],
       },
       footer: {
@@ -108,25 +128,27 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Structory',
+                to: '/docs/structory/intro',
               },
             ],
           },
           {
             title: 'Community',
             items: [
+                /*
               {
                 label: 'Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/docusaurus',
               },
+                  */
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: 'https://discord.gg/KBNDByfjuC',
               },
               {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
+                label: 'Spigot',
+                href: 'https://www.spigotmc.org/members/mrbast.610454/',
               },
             ],
           },
@@ -139,7 +161,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/andreadada',
               },
             ],
           },
@@ -152,5 +174,7 @@ const config = {
       },
     }),
 };
+
+
 
 export default config;
