@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbast_docu=self.webpackChunkbast_docu||[]).push([[7017],{9716:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-blog","id":"structoryChangelog"}')}}]);
