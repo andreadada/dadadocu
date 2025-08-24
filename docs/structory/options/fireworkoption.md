@@ -7,7 +7,7 @@ title: Fireworks Option
 
 ## What is the Fireworks Option?
 
-The `firework` option allows you to spawn fireworks when a structure is created. You can customize the amount, colors, fade effects, and whether the fireworks flicker. This adds a celebratory or magical touch to your altars and structures.
+The `fireworks` option allows you to spawn fireworks when a structure is created. You can customize the amount, colors, fade effects, and whether the fireworks flicker. This adds a celebratory or magical touch to your altars and structures.
 
 ---
 
@@ -15,13 +15,13 @@ The `firework` option allows you to spawn fireworks when a structure is created.
 
 ```yaml
 options:
-  firework:
+  fireworks:
     type: RANDOM
     amount: 5
-    power: 2
-    colors: "RED, BLUE, YELLOW"
-    fade: "WHITE"
+    power: 5
     flicker: true
+    fade: PURPLE, BLACK, SILVER
+    colors: FUCHSIA, PURPLE, WHITE, BLACK
 ```
 
 ---
