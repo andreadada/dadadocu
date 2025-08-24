@@ -2,28 +2,164 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://andreadada.github.io/dadadocu/blog</id>
     <title>DadaWiki Blog</title>
-    <updated>2019-05-28T00:00:00.000Z</updated>
+    <updated>2025-08-24T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://andreadada.github.io/dadadocu/blog"/>
     <subtitle>DadaWiki Blog</subtitle>
     <icon>https://andreadada.github.io/dadadocu/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[First Blog Post]]></title>
-        <id>https://andreadada.github.io/dadadocu/blog/first-blog-post</id>
-        <link href="https://andreadada.github.io/dadadocu/blog/first-blog-post"/>
-        <updated>2019-05-28T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Lorem ipsum dolor sit amet...]]></summary>
-        <content type="html"><![CDATA[<p>Lorem ipsum dolor sit amet...</p>
-<p>...consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet</p>]]></content>
+        <title type="html"><![CDATA[Release 1.2.0 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/blog/release_1.2.0</id>
+        <link href="https://andreadada.github.io/dadadocu/blog/release_1.2.0"/>
+        <updated>2025-08-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[🛠️ Release Notes – Version 1.2.0]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-release-notes--version-120">🛠️ Release Notes – Version 1.2.0<a href="https://andreadada.github.io/dadadocu/blog/release_1.2.0#%EF%B8%8F-release-notes--version-120" class="hash-link" aria-label="Direct link to 🛠️ Release Notes – Version 1.2.0" title="Direct link to 🛠️ Release Notes – Version 1.2.0">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-features">New Features<a href="https://andreadada.github.io/dadadocu/blog/release_1.2.0#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features">​</a></h3>
+<ul>
+<li>Follow-up to Structory 1.1.5 – FREE</li>
+<li>Implemented compatibility for Craft Engine</li>
+<li>Introduced new animation system for crafting:<!-- -->
+<ul>
+<li>3 default animations</li>
+<li>Sequential ingredient crafting</li>
+<li>Configurable particle effects</li>
+</ul>
+</li>
+<li>New commands:<!-- -->
+<ul>
+<li><code>/structory layout item</code> – make held item magic</li>
+<li><code>/structory layout create</code> – generate layout config from selected region</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--improvements">Fixes &amp; Improvements<a href="https://andreadada.github.io/dadadocu/blog/release_1.2.0#fixes--improvements" class="hash-link" aria-label="Direct link to Fixes &amp; Improvements" title="Direct link to Fixes &amp; Improvements">​</a></h3>
+<ul>
+<li>Full compatibility with Minecraft 1.21.8</li>
+<li>Particle settings moved from crafting option to dedicated particle option</li>
+<li>Updated recipe discovery system</li>
+<li>Minor code optimizations</li>
+</ul>
+<hr>]]></content>
         <author>
-            <name>Sébastien Lorber</name>
-            <uri>https://sebastienlorber.com</uri>
+            <name>Dada</name>
         </author>
+        <category label="Premium" term="Premium"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Release 1.1.5 - FREE]]></title>
+        <id>https://andreadada.github.io/dadadocu/blog/release_1.1.5</id>
+        <link href="https://andreadada.github.io/dadadocu/blog/release_1.1.5"/>
+        <updated>2025-08-23T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[🛠️ Release Notes – Version 1.1.5]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-release-notes--version-115">🛠️ Release Notes – Version 1.1.5<a href="https://andreadada.github.io/dadadocu/blog/release_1.1.5#%EF%B8%8F-release-notes--version-115" class="hash-link" aria-label="Direct link to 🛠️ Release Notes – Version 1.1.5" title="Direct link to 🛠️ Release Notes – Version 1.1.5">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-features">New Features<a href="https://andreadada.github.io/dadadocu/blog/release_1.1.5#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features">​</a></h3>
+<ul>
+<li>Added new command /structory item replace name</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="compatibility">Compatibility<a href="https://andreadada.github.io/dadadocu/blog/release_1.1.5#compatibility" class="hash-link" aria-label="Direct link to Compatibility" title="Direct link to Compatibility">​</a></h3>
+<ul>
+<li>Extended compatibility with: up to 1.21.8 servers</li>
+</ul>
+<hr>]]></content>
         <author>
-            <name>Yangshun Tay</name>
-            <uri>https://linkedin.com/in/yangshun</uri>
+            <name>Dada</name>
         </author>
-        <category label="Hola" term="Hola"/>
-        <category label="Docusaurus" term="Docusaurus"/>
+        <category label="Free" term="Free"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Release 1.1.0 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/blog/release_1.1.0</id>
+        <link href="https://andreadada.github.io/dadadocu/blog/release_1.1.0"/>
+        <updated>2025-08-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[🛠️ Release Notes – Version 1.1.0]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-release-notes--version-110">🛠️ Release Notes – Version 1.1.0<a href="https://andreadada.github.io/dadadocu/blog/release_1.1.0#%EF%B8%8F-release-notes--version-110" class="hash-link" aria-label="Direct link to 🛠️ Release Notes – Version 1.1.0" title="Direct link to 🛠️ Release Notes – Version 1.1.0">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-features">New Features<a href="https://andreadada.github.io/dadadocu/blog/release_1.1.0#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features">​</a></h3>
+<ul>
+<li>Follow-up to Structory 1.1.4 – FREE</li>
+<li>Added <code>BagOption</code> and <code>BagIngredient</code> (see examples in arise recipe and forgery structure)</li>
+<li>Introduced <code>SummonResult</code></li>
+<li>New parameter system for Ingredients and Results</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/blog/release_1.1.0#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<ul>
+<li>RecipeSlot in main block now accessible via shift-click</li>
+</ul>
+<hr>]]></content>
+        <author>
+            <name>Dada</name>
+        </author>
+        <category label="Premium" term="Premium"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Release 1.0.4 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/blog/release_1.0.4</id>
+        <link href="https://andreadada.github.io/dadadocu/blog/release_1.0.4"/>
+        <updated>2025-07-03T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[🔧 Patch Notes – Version 1.0.4]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-patch-notes--version-104">🔧 Patch Notes – Version 1.0.4<a href="https://andreadada.github.io/dadadocu/blog/release_1.0.4#-patch-notes--version-104" class="hash-link" aria-label="Direct link to 🔧 Patch Notes – Version 1.0.4" title="Direct link to 🔧 Patch Notes – Version 1.0.4">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/blog/release_1.0.4#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<ul>
+<li>Minor follow-up adjustments to FREE version 1.1.3</li>
+</ul>
+<hr>]]></content>
+        <author>
+            <name>Dada</name>
+        </author>
+        <category label="Premium" term="Premium"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Release 1.0.3 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/blog/release_1.1.2</id>
+        <link href="https://andreadada.github.io/dadadocu/blog/release_1.1.2"/>
+        <updated>2025-06-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[🔧 Patch Notes – Version 1.0.3]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-patch-notes--version-103">🔧 Patch Notes – Version 1.0.3<a href="https://andreadada.github.io/dadadocu/blog/release_1.1.2#-patch-notes--version-103" class="hash-link" aria-label="Direct link to 🔧 Patch Notes – Version 1.0.3" title="Direct link to 🔧 Patch Notes – Version 1.0.3">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/blog/release_1.1.2#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<ul>
+<li>Minor follow-up adjustments to FREE version 1.1.2</li>
+</ul>
+<hr>]]></content>
+        <author>
+            <name>Dada</name>
+        </author>
+        <category label="Premium" term="Premium"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Release 1.0.2 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/blog/release_1.1.1</id>
+        <link href="https://andreadada.github.io/dadadocu/blog/release_1.1.1"/>
+        <updated>2025-06-25T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[🔧 Patch Notes – Version 1.0.2]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-patch-notes--version-102">🔧 Patch Notes – Version 1.0.2<a href="https://andreadada.github.io/dadadocu/blog/release_1.1.1#-patch-notes--version-102" class="hash-link" aria-label="Direct link to 🔧 Patch Notes – Version 1.0.2" title="Direct link to 🔧 Patch Notes – Version 1.0.2">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/blog/release_1.1.1#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<ul>
+<li>Fixed head display issue: skulls now correctly show textures</li>
+<li>Follow-up to FREE version 1.1.2</li>
+</ul>
+<hr>]]></content>
+        <author>
+            <name>Dada</name>
+        </author>
+        <category label="Premium" term="Premium"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Release 1.0.1 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/blog/release_1.0.1</id>
+        <link href="https://andreadada.github.io/dadadocu/blog/release_1.0.1"/>
+        <updated>2025-06-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[🛠️ Release Notes – Version 1.0.1]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="️-release-notes--version-101">🛠️ Release Notes – Version 1.0.1<a href="https://andreadada.github.io/dadadocu/blog/release_1.0.1#%EF%B8%8F-release-notes--version-101" class="hash-link" aria-label="Direct link to 🛠️ Release Notes – Version 1.0.1" title="Direct link to 🛠️ Release Notes – Version 1.0.1">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-features">New Features<a href="https://andreadada.github.io/dadadocu/blog/release_1.0.1#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features">​</a></h3>
+<ul>
+<li>Updated to Structory 1.1.0 – FREE</li>
+<li>New Crafting System GUI: choose between multiple recipes with same ingredients</li>
+<li>Recipe groups: recipes can now belong to multiple groups (see <code>godapple.yml</code>)</li>
+<li>Structure recipe list: define what a structure can craft via groups or specific recipes (see <code>elder.yml</code>)</li>
+</ul>
+<hr>]]></content>
+        <author>
+            <name>Dada</name>
+        </author>
+        <category label="Premium" term="Premium"/>
     </entry>
 </feed>

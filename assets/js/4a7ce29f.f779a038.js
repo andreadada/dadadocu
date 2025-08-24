@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbast_docu=self.webpackChunkbast_docu||[]).push([[4028],{3857:e=>{e.exports=JSON.parse('{"tags":[{"label":"Premium","permalink":"/dadadocu/blog/tags/structorypremium","description":"Free Structory tag","count":6},{"label":"Free","permalink":"/dadadocu/blog/tags/structoryfree","description":"Free Structory tag","count":1}]}')}}]);

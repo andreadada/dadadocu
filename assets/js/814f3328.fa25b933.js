@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkbast_docu=self.webpackChunkbast_docu||[]).push([[7472],{5513:s=>{s.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"First Blog Post","permalink":"/dadadocu/blog/first-blog-post","unlisted":false,"date":"2019-05-28T00:00:00.000Z"}]}')}}]);
