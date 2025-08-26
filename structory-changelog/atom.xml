@@ -2,11 +2,28 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://andreadada.github.io/dadadocu/structory-changelog</id>
     <title>DadaWiki Blog</title>
-    <updated>2025-08-24T00:00:00.000Z</updated>
+    <updated>2025-08-26T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://andreadada.github.io/dadadocu/structory-changelog"/>
     <subtitle>DadaWiki Blog</subtitle>
     <icon>https://andreadada.github.io/dadadocu/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 1.2.1 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.1</id>
+        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.1"/>
+        <updated>2025-08-26T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[🔧 Patch Notes – Version 1.2.1]]></summary>
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-patch-notes--version-121">🔧 Patch Notes – Version 1.2.1<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.1#-patch-notes--version-121" class="hash-link" aria-label="Direct link to 🔧 Patch Notes – Version 1.2.1" title="Direct link to 🔧 Patch Notes – Version 1.2.1">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--improvements">Fixes &amp; Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.1#fixes--improvements" class="hash-link" aria-label="Direct link to Fixes &amp; Improvements" title="Direct link to Fixes &amp; Improvements">​</a></h3>
+<ul>
+<li>Fixed displaying blockdisplay entities of DisplayOption</li>
+</ul>
+<hr>]]></content>
+        <author>
+            <name>Dada</name>
+        </author>
+        <category label="Premium" term="Premium"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 1.2.0 - PREMIUM]]></title>
         <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.0</id>
