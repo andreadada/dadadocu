@@ -16,7 +16,8 @@
         <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="-patch-notes--version-121">🔧 Patch Notes – Version 1.2.1<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.1#-patch-notes--version-121" class="hash-link" aria-label="Direct link to 🔧 Patch Notes – Version 1.2.1" title="Direct link to 🔧 Patch Notes – Version 1.2.1">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--improvements">Fixes &amp; Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.1#fixes--improvements" class="hash-link" aria-label="Direct link to Fixes &amp; Improvements" title="Direct link to Fixes &amp; Improvements">​</a></h3>
 <ul>
-<li>Fixed displaying blockdisplay entities of DisplayOption</li>
+<li>Fixed displaying blockdisplay entities of DisplayOption<br>
+<!-- -->now you can set more block displays, just create new sections inside <code>blockdisplay</code> option's section</li>
 </ul>
 <hr>]]></content>
         <author>
