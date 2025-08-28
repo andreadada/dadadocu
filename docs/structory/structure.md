@@ -3,7 +3,7 @@ sidebar_position: 1
 title: Structure
 ---
 
-# 🏗️ Structure Configuration
+# Structure Configuration
 
 ## What is a Structure?
 
@@ -13,7 +13,7 @@ Each structure is loaded from the `structures` folder. Every YAML file inside th
 
 ---
 
-## 🧨 How to Create a Structure In-Game
+## How to Create a Structure In-Game
 
 Once a structure is correctly built in the world, players can **activate it** by sneaking and right-clicking (`Shift + Right Click`) on the **check-block** defined in the configuration.
 
@@ -25,14 +25,14 @@ If the structure matches the layout and orientation, and the check-block is vali
 
 ---
 
-## 📂 How Are Structures Loaded?
+## How Are Structures Loaded?
 
 All structures are automatically loaded from the `structures` directory.  
 Each file in that folder can contain one or more structures, defined as separate root-level keys.
 
----
 
-## 🛠️ YAML Configuration Example
+<details>
+  <summary>Show YAML example</summary>
 
 For example, if you have a file called `altars.yml` like this:
 
@@ -63,20 +63,25 @@ altar_of_darkness:
 
 Both `altar_of_light` and `altar_of_darkness` will be loaded as separate structures.
 
-> 📁 Make sure each structure has a unique key and a valid `name` field.
+</details>
+
+
+
+
+> Make sure each structure has a unique key and a valid `name` field.
 
 ---
 
-## 🔍 Field Explanation
+## Field Explanation
 
-| Parameter     | Type     | Description                                                         | Default    |
-|---------------|----------|---------------------------------------------------------------------|------------|
-| *`name`       | String   | Unique name of the structure                                        | *          |
-| `check-block` | Material | Block used to validate the structure (e.g. `STONE`, `GLOWSTONE`)    | null       |
-| `main-block`  | Offset   | Offset from the center block, written as `"x y z"` (e.g. `"0 0 0"`) | 0 0 0      |  
-| `orientation` | Boolean  | Whether the structure can be validated on different orientations    | false      |
-| `options`     | Options  | Extra effects or behaviors  [Options](../category/options)          | empty      |
-| `layout`      | Layout   | Defines the shape and levels of the structure                       | empty      |
+| Parameter     | Type                           | Description                                                                       | Default    |
+|---------------|--------------------------------|-----------------------------------------------------------------------------------|------------|
+| *`name`       | String                         | Unique name of the structure                                                      | *          |
+| `check-block` | Material                       | Block used to validate the structure (e.g. `STONE`, `GLOWSTONE`)                  | null       |
+| `main-block`  | Offset                         | Offset from the center block, written as `"x y z"` (e.g. `"0 0 0"`)               | 0 0 0      |  
+| `orientation` | Boolean                        | Whether the structure can be validated on different orientations `EAST`by default | false      |
+| `options`     | [Options](../category/options) | Extra effects or behaviors  [Options](../category/options)                        | empty      |
+| `layout`      | Layout                         | Defines the shape and levels of the structure                                     | empty      |
 
 ---
 
