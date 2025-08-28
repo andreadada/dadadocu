@@ -26,6 +26,32 @@ It is composed by two important sections: [Ingredients](#ingredients-section) an
 | `result`      | [Results](#results-section)         | List of results produced when the recipe is crafted                                       | empty       |
 
 
+<details>
+  <summary>Show YAML example</summary>
+
+```yml
+nether_star:
+  name: nether_star
+  ingredients:
+    one:
+      type: item
+      material: WITHER_SKELETON_SKULL
+    two:
+      type: item
+      material: WITHER_SKELETON_SKULL
+    three:
+      type: item
+      material: WITHER_SKELETON_SKULL
+  result:
+    one:
+      type: item
+      offset: "0 0 0"
+      item:
+        material: NETHER_STAR
+        model: 10101
+```
+</details>
+
 --- 
 
 ## Ingredients Section
@@ -33,7 +59,7 @@ It is composed by two important sections: [Ingredients](#ingredients-section) an
 Each section inside the `ingredients` section will be registered as an Ingredient
 
 <details>
-  <summary>Show YAML example</summary>
+  <summary>Show Ingredients YAML example</summary>
 
 ```yml
 ingredients:
@@ -57,7 +83,7 @@ ingredients:
 Each section inside the `results` section will be registered as a Result
 
 <details>
-  <summary>Show YAML example</summary>
+  <summary>Show Results YAML example</summary>
 
 ```YAML
 result:
