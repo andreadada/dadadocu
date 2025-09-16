@@ -2,11 +2,44 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://andreadada.github.io/dadadocu/structory-changelog</id>
     <title>DadaWiki Blog</title>
-    <updated>2025-09-07T00:00:00.000Z</updated>
+    <updated>2025-09-16T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://andreadada.github.io/dadadocu/structory-changelog"/>
     <subtitle>DadaWiki Blog</subtitle>
     <icon>https://andreadada.github.io/dadadocu/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 1.1.7 - FREE]]></title>
+        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.7</id>
+        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.7"/>
+        <updated>2025-09-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Fixes & Improvements]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--improvements">Fixes &amp; Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.7#fixes--improvements" class="hash-link" aria-label="Direct link to Fixes &amp; Improvements" title="Direct link to Fixes &amp; Improvements">​</a></h3>
+<ul>
+<li>Fixed problem where players could not destroy structures</li>
+</ul>
+<hr>]]></content>
+        <author>
+            <name>Dada</name>
+        </author>
+        <category label="Free" term="Free"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Release 1.2.5 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.5</id>
+        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.5"/>
+        <updated>2025-09-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Fixes & Improvements]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--improvements">Fixes &amp; Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.5#fixes--improvements" class="hash-link" aria-label="Direct link to Fixes &amp; Improvements" title="Direct link to Fixes &amp; Improvements">​</a></h3>
+<ul>
+<li>Follow up 1.1.7 FREE</li>
+<li>Fixed problem where players could not destroy structures</li>
+</ul>
+<hr>]]></content>
+        <author>
+            <name>Dada</name>
+        </author>
+        <category label="Premium" term="Premium"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 1.2.4 - PREMIUM]]></title>
         <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.4</id>

@@ -4,10 +4,37 @@
         <title>DadaWiki Blog</title>
         <link>https://andreadada.github.io/dadadocu/structory-changelog</link>
         <description>DadaWiki Blog</description>
-        <lastBuildDate>Sun, 07 Sep 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 16 Sep 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 1.1.7 - FREE]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.7</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.7</guid>
+            <pubDate>Tue, 16 Sep 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Fixes & Improvements]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--improvements">Fixes &amp; Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.7#fixes--improvements" class="hash-link" aria-label="Direct link to Fixes &amp; Improvements" title="Direct link to Fixes &amp; Improvements">​</a></h3>
+<ul>
+<li>Fixed problem where players could not destroy structures</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Free</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.2.5 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.5</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.5</guid>
+            <pubDate>Tue, 16 Sep 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Fixes & Improvements]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--improvements">Fixes &amp; Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.5#fixes--improvements" class="hash-link" aria-label="Direct link to Fixes &amp; Improvements" title="Direct link to Fixes &amp; Improvements">​</a></h3>
+<ul>
+<li>Follow up 1.1.7 FREE</li>
+<li>Fixed problem where players could not destroy structures</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
         <item>
             <title><![CDATA[Release 1.2.4 - PREMIUM]]></title>
             <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.4</link>
