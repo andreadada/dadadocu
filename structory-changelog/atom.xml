@@ -2,11 +2,36 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://andreadada.github.io/dadadocu/structory-changelog</id>
     <title>DadaWiki Blog</title>
-    <updated>2025-11-12T00:00:00.000Z</updated>
+    <updated>2025-11-19T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://andreadada.github.io/dadadocu/structory-changelog"/>
     <subtitle>DadaWiki Blog</subtitle>
     <icon>https://andreadada.github.io/dadadocu/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 1.4 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4</id>
+        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4"/>
+        <updated>2025-11-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[New Features Requested by @Silentassassin9]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-features-requested-by-silentassassin9">New Features Requested by <code>@Silentassassin9</code><a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4#new-features-requested-by-silentassassin9" class="hash-link" aria-label="Direct link to new-features-requested-by-silentassassin9" title="Direct link to new-features-requested-by-silentassassin9">​</a></h3>
+<ul>
+<li>Added new Crafting system to allow different types of crafting, called listeners.  at the moment there are <code>manual</code> and <code>entity-death</code> which will trigger a craft event</li>
+<li>Add new section to Crafting option to register new listeners</li>
+</ul>
+<div class="language-YAML language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">options</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">crafting</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">listeners</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">entity-death</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token key atrule" style="color:#00a4db">range</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">15</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">interact</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">{</span><span class="token punctuation" style="color:#393A34">}</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">#if none specified, this is the only one</span><br></span></code></pre></div></div>
+<ul>
+<li>Now Recipes can be assigned to different Triggers (Listeners), by default they are assigned to Interact listener.</li>
+</ul>
+<div class="language-YAML language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">nether_star</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic"># Ingredient</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">name</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> nether_star</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">display_name</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"Nether Star"</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">listeners</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> entity</span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain">death</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">#   - interact</span><br></span></code></pre></div></div>
+<ul>
+<li>2 new Ingredients: 1) <code>killedentity</code> which is used to add conditions to the killed entity (if entity death event). 2) <code>entity</code> Check nearby entities, names, types and other conditions</li>
+<li>Check the wiki for more details</li>
+</ul>]]></content>
+        <author>
+            <name>Dada</name>
+        </author>
+        <category label="Premium" term="Premium"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 1.1.9 - FREE]]></title>
         <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.9</id>
@@ -368,25 +393,6 @@
 <ul>
 <li>Fixed head display issue: skulls now correctly show textures</li>
 <li>Follow-up to FREE version 1.1.2</li>
-</ul>
-<hr>]]></content>
-        <author>
-            <name>Dada</name>
-        </author>
-        <category label="Premium" term="Premium"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release 1.0.1 - PREMIUM]]></title>
-        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.0.1</id>
-        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.0.1"/>
-        <updated>2025-06-10T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[New Features]]></summary>
-        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-features">New Features<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.0.1#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features">​</a></h3>
-<ul>
-<li>Updated to Structory 1.1.0 – FREE</li>
-<li>New Crafting System GUI: choose between multiple recipes with same ingredients</li>
-<li>Recipe groups: recipes can now belong to multiple groups (see <code>godapple.yml</code>)</li>
-<li>Structure recipe list: define what a structure can craft via groups or specific recipes (see <code>elder.yml</code>)</li>
 </ul>
 <hr>]]></content>
         <author>
