@@ -1,0 +1,8 @@
+{
+  "label": "Ingredients",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "See every ingredients that you can use"
+  }
+}

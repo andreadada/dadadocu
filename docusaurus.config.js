@@ -120,6 +120,12 @@ const config = {
             sidebarId: 'dadaGravesSidebar',
             position: 'left',
             label: 'DadaGraves',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'dadaDndSidebar',
+            position: 'left',
+            label: 'DND',
           }
           /*
           {to: '/blog', label: 'Blog', position: 'left'},
