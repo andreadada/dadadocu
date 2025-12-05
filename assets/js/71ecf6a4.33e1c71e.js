@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkbast_docu=self.webpackChunkbast_docu||[]).push([[2068],{7616:a=>{a.exports=JSON.parse('{"authors":[{"name":"Dada","title":"Very clean title :)","page":{"permalink":"/dadadocu/structory-changelog/authors/mrbast"},"socials":{"github":"https://github.com/andreadada"},"key":"mrbast","count":22}]}')}}]);
