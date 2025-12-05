@@ -4,10 +4,24 @@
         <title>DadaWiki Blog</title>
         <link>https://andreadada.github.io/dadadocu/structory-changelog</link>
         <description>DadaWiki Blog</description>
-        <lastBuildDate>Wed, 19 Nov 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 05 Dec 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 1.1.10 - FREE]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.10</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.10</guid>
+            <pubDate>Fri, 05 Dec 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Improvements]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="improvements">Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.10#improvements" class="hash-link" aria-label="Direct link to Improvements" title="Direct link to Improvements">​</a></h3>
+<ul>
+<li>Improved text formatting</li>
+<li>Add /structory help commands</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Free</category>
+        </item>
         <item>
             <title><![CDATA[Release 1.4 - PREMIUM]]></title>
             <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4</link>
@@ -323,20 +337,6 @@
             <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.2#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
 <ul>
 <li>Minor follow-up adjustments to FREE version 1.1.2</li>
-</ul>
-<hr>]]></content:encoded>
-            <category>Premium</category>
-        </item>
-        <item>
-            <title><![CDATA[Release 1.0.2 - PREMIUM]]></title>
-            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.1</link>
-            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.1</guid>
-            <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Fixes]]></description>
-            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.1#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
-<ul>
-<li>Fixed head display issue: skulls now correctly show textures</li>
-<li>Follow-up to FREE version 1.1.2</li>
 </ul>
 <hr>]]></content:encoded>
             <category>Premium</category>
