@@ -6,7 +6,7 @@ title: OraxenItem
 
 Register an Oraxen item as ingredient.
 
-ingredient key: `oteim` (alias: `oraxen`)
+ingredient key: `oitem` (alias: `oraxen`)
 
 
 ## Recipe Configuration Fields
