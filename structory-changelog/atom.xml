@@ -8,12 +8,12 @@
     <subtitle>DadaWiki Blog</subtitle>
     <icon>https://andreadada.github.io/dadadocu/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[Release 1.4.1 - PREMIUM]]></title>
-        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.1</id>
-        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.1"/>
+        <title type="html"><![CDATA[Release 1.4.2 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.2</id>
+        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.2"/>
         <updated>2025-12-10T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[New Feature]]></summary>
-        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.1#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
+        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.2#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
 <ul>
 <li>Added new <code>nexo</code> Ingredient, works like <code>oraxen</code> and <code>craftengine</code></li>
 </ul>
@@ -46,9 +46,10 @@
         <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.1"/>
         <updated>2025-12-05T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Improvements]]></summary>
-        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.1#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
+        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="improvements">Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.1#improvements" class="hash-link" aria-label="Direct link to Improvements" title="Direct link to Improvements">​</a></h3>
 <ul>
-<li>Added new <code>nexo</code> Ingredient, works like <code>oraxen</code> and <code>craftengine</code></li>
+<li>Improved text formatting performance</li>
+<li>Add /structory help commands</li>
 </ul>
 <hr>]]></content>
         <author>
