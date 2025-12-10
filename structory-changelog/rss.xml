@@ -4,10 +4,23 @@
         <title>DadaWiki Blog</title>
         <link>https://andreadada.github.io/dadadocu/structory-changelog</link>
         <description>DadaWiki Blog</description>
-        <lastBuildDate>Fri, 05 Dec 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 10 Dec 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 1.4.1 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.1</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.1</guid>
+            <pubDate>Wed, 10 Dec 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[New Feature]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.1#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
+<ul>
+<li>Added new <code>nexo</code> Ingredient, works like <code>oraxen</code> and <code>craftengine</code></li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
         <item>
             <title><![CDATA[Release 1.1.10 - FREE]]></title>
             <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.10</link>
@@ -28,10 +41,9 @@
             <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.1</guid>
             <pubDate>Fri, 05 Dec 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Improvements]]></description>
-            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="improvements">Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.1#improvements" class="hash-link" aria-label="Direct link to Improvements" title="Direct link to Improvements">​</a></h3>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.1#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
 <ul>
-<li>Improved text formatting performance</li>
-<li>Add /structory help commands</li>
+<li>Added new <code>nexo</code> Ingredient, works like <code>oraxen</code> and <code>craftengine</code></li>
 </ul>
 <hr>]]></content:encoded>
             <category>Premium</category>
@@ -325,19 +337,6 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.0#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
 <ul>
 <li>RecipeSlot in main block now accessible via shift-click</li>
-</ul>
-<hr>]]></content:encoded>
-            <category>Premium</category>
-        </item>
-        <item>
-            <title><![CDATA[Release 1.0.4 - PREMIUM]]></title>
-            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.0.4</link>
-            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.0.4</guid>
-            <pubDate>Thu, 03 Jul 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Fixes]]></description>
-            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.0.4#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
-<ul>
-<li>Minor follow-up adjustments to FREE version 1.1.3</li>
 </ul>
 <hr>]]></content:encoded>
             <category>Premium</category>
