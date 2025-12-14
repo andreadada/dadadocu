@@ -4,10 +4,27 @@
         <title>DadaWiki Blog</title>
         <link>https://andreadada.github.io/dadadocu/structory-changelog</link>
         <description>DadaWiki Blog</description>
-        <lastBuildDate>Fri, 12 Dec 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 14 Dec 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 1.4.3 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3</guid>
+            <pubDate>Sun, 14 Dec 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[New Feature]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
+<ul>
+<li>Added MMOItems support</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="code-improvements">Code Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3#code-improvements" class="hash-link" aria-label="Direct link to Code Improvements" title="Direct link to Code Improvements">​</a></h3>
+<ul>
+<li>Made some changes to the code</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
         <item>
             <title><![CDATA[Release 1.4.3 - PREMIUM]]></title>
             <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3</link>
@@ -16,11 +33,11 @@
             <description><![CDATA[New Feature]]></description>
             <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
 <ul>
-<li>Added MythicMobs support, check <code>EntityChecker</code></li>
+<li>Added MMOItems support</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="code-improvements">Code Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3#code-improvements" class="hash-link" aria-label="Direct link to Code Improvements" title="Direct link to Code Improvements">​</a></h3>
 <ul>
-<li>Fixed problem with Adventure API on 1.21.10</li>
+<li>Made some changes to the code</li>
 </ul>
 <hr>]]></content:encoded>
             <category>Premium</category>
@@ -321,23 +338,6 @@
 </ul>
 <hr>]]></content:encoded>
             <category>Premium</category>
-        </item>
-        <item>
-            <title><![CDATA[Release 1.1.5 - FREE]]></title>
-            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.5</link>
-            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.5</guid>
-            <pubDate>Sat, 23 Aug 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[New Features]]></description>
-            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-features">New Features<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.5#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features">​</a></h3>
-<ul>
-<li>Added new command /structory item replace name</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="compatibility">Compatibility<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.5#compatibility" class="hash-link" aria-label="Direct link to Compatibility" title="Direct link to Compatibility">​</a></h3>
-<ul>
-<li>Extended compatibility with: up to 1.21.8 servers</li>
-</ul>
-<hr>]]></content:encoded>
-            <category>Free</category>
         </item>
     </channel>
 </rss>

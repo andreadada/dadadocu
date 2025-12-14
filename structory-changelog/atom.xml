@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://andreadada.github.io/dadadocu/structory-changelog</id>
     <title>DadaWiki Blog</title>
-    <updated>2025-12-12T00:00:00.000Z</updated>
+    <updated>2025-12-14T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://andreadada.github.io/dadadocu/structory-changelog"/>
     <subtitle>DadaWiki Blog</subtitle>
@@ -11,15 +11,35 @@
         <title type="html"><![CDATA[Release 1.4.3 - PREMIUM]]></title>
         <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3</id>
         <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3"/>
+        <updated>2025-12-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[New Feature]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
+<ul>
+<li>Added MMOItems support</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="code-improvements">Code Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3#code-improvements" class="hash-link" aria-label="Direct link to Code Improvements" title="Direct link to Code Improvements">​</a></h3>
+<ul>
+<li>Made some changes to the code</li>
+</ul>
+<hr>]]></content>
+        <author>
+            <name>Dada</name>
+        </author>
+        <category label="Premium" term="Premium"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Release 1.4.3 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3</id>
+        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3"/>
         <updated>2025-12-12T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[New Feature]]></summary>
         <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
 <ul>
-<li>Added MythicMobs support, check <code>EntityChecker</code></li>
+<li>Added MMOItems support</li>
 </ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="code-improvements">Code Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3#code-improvements" class="hash-link" aria-label="Direct link to Code Improvements" title="Direct link to Code Improvements">​</a></h3>
 <ul>
-<li>Fixed problem with Adventure API on 1.21.10</li>
+<li>Made some changes to the code</li>
 </ul>
 <hr>]]></content>
         <author>
@@ -377,25 +397,5 @@
             <name>Dada</name>
         </author>
         <category label="Premium" term="Premium"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release 1.1.5 - FREE]]></title>
-        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.5</id>
-        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.5"/>
-        <updated>2025-08-23T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[New Features]]></summary>
-        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-features">New Features<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.5#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features">​</a></h3>
-<ul>
-<li>Added new command /structory item replace name</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="compatibility">Compatibility<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.5#compatibility" class="hash-link" aria-label="Direct link to Compatibility" title="Direct link to Compatibility">​</a></h3>
-<ul>
-<li>Extended compatibility with: up to 1.21.8 servers</li>
-</ul>
-<hr>]]></content>
-        <author>
-            <name>Dada</name>
-        </author>
-        <category label="Free" term="Free"/>
     </entry>
 </feed>
