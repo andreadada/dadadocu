@@ -42,7 +42,7 @@ This requires 1 Zombie within 5 blocks of the recipe location.
 
 ## Using EntityChecker Filters
 
-The `check` section accepts all **EntityChecker** filters. For a complete list, see [EntityChecker Documentation](./entity-checker.md).
+The `check` section accepts all **EntityChecker** filters. For a complete list, see [EntityChecker](../../premium/entitychecker.md).
 
 ### Common Filter Examples
 

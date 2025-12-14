@@ -113,13 +113,17 @@ Filter entities based on their behavior.
 ```yaml
 # With artificial intelligence
 hasAI: true
+```
 
+```yaml
 # Without AI
 hasAI: false
 
 # Leashed
 isLeashed: true
+```
 
+```yaml
 # Not leashed
 isLeashed: false
 ```
@@ -140,10 +144,14 @@ gliding: true
 
 # Swimming
 swimming: true
+```
 
+```yaml
 # Invisible
 invisible: true
+```
 
+```yaml
 # Visible
 invisible: false
 ```
@@ -172,21 +180,27 @@ scoreboardTag: "mytag"
 
 # Does not have a tag
 notScoreboardTag: "mytag"
+```
 
+```yaml
 # Has at least one of the tags (OR mode)
 scoreboardTags:
   mode: any
   list:
     - tag1
     - tag2
+```
 
+```yaml
 # Has all tags (AND mode)
 scoreboardTags:
   mode: all
   list:
     - tag1
     - tag2
+```
 
+```yaml
 # Simple list (assumes OR)
 scoreboardTags:
   - tag1
