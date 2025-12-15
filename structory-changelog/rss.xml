@@ -4,10 +4,27 @@
         <title>DadaWiki Blog</title>
         <link>https://andreadada.github.io/dadadocu/structory-changelog</link>
         <description>DadaWiki Blog</description>
-        <lastBuildDate>Sun, 14 Dec 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 15 Dec 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 1.4.5 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.5</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.5</guid>
+            <pubDate>Mon, 15 Dec 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[New Feature]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.5#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
+<ul>
+<li>Added ItemsAdder support</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.5#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<ul>
+<li>Fixed problem with MMOItems</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
         <item>
             <title><![CDATA[Release 1.4.4 - PREMIUM]]></title>
             <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.4</link>
@@ -301,40 +318,6 @@
 <ul>
 <li>Fixed displaying blockdisplay entities of DisplayOption<br>
 <!-- -->now you can set more block displays, just create new sections inside <code>blockdisplay</code> option's section</li>
-</ul>
-<hr>]]></content:encoded>
-            <category>Premium</category>
-        </item>
-        <item>
-            <title><![CDATA[Release 1.2.0 - PREMIUM]]></title>
-            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.0</link>
-            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.0</guid>
-            <pubDate>Sun, 24 Aug 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[New Features]]></description>
-            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-features">New Features<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.0#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features">​</a></h3>
-<ul>
-<li>Follow-up to Structory 1.1.5 – FREE</li>
-<li>Implemented compatibility for Craft Engine</li>
-<li>Introduced new animation system for crafting:<!-- -->
-<ul>
-<li>3 default animations</li>
-<li>Sequential ingredient crafting</li>
-<li>Configurable particle effects</li>
-</ul>
-</li>
-<li>New commands:<!-- -->
-<ul>
-<li><code>/structory layout item</code> – make held item magic</li>
-<li><code>/structory layout create</code> – generate layout config from selected region</li>
-</ul>
-</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--improvements">Fixes &amp; Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.0#fixes--improvements" class="hash-link" aria-label="Direct link to Fixes &amp; Improvements" title="Direct link to Fixes &amp; Improvements">​</a></h3>
-<ul>
-<li>Full compatibility with Minecraft 1.21.8</li>
-<li>Particle settings moved from crafting option to dedicated particle option</li>
-<li>Updated recipe discovery system</li>
-<li>Minor code optimizations</li>
 </ul>
 <hr>]]></content:encoded>
             <category>Premium</category>
