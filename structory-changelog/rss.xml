@@ -4,10 +4,23 @@
         <title>DadaWiki Blog</title>
         <link>https://andreadada.github.io/dadadocu/structory-changelog</link>
         <description>DadaWiki Blog</description>
-        <lastBuildDate>Tue, 16 Dec 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 17 Dec 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 1.4.6 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.6</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.6</guid>
+            <pubDate>Wed, 17 Dec 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Fixes]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.6#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<ul>
+<li>Fixed <code>Crate Option</code> not loading commands when reloading with <code>/structory reload</code> command</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
         <item>
             <title><![CDATA[Release 1.1.11 - FREE]]></title>
             <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.11</link>
@@ -300,19 +313,6 @@
             <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.2</link>
             <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.2</guid>
             <pubDate>Sat, 30 Aug 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Fixes & Improvements]]></description>
-            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--improvements">Fixes &amp; Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.2#fixes--improvements" class="hash-link" aria-label="Direct link to Fixes &amp; Improvements" title="Direct link to Fixes &amp; Improvements">​</a></h3>
-<ul>
-<li>1.1.6 Follow up: Now each minecraft version load different default files</li>
-</ul>
-<hr>]]></content:encoded>
-            <category>Premium</category>
-        </item>
-        <item>
-            <title><![CDATA[Release 1.2.2 - PREMIUM]]></title>
-            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.2</link>
-            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.2</guid>
-            <pubDate>Wed, 27 Aug 2025 00:00:00 GMT</pubDate>
             <description><![CDATA[Fixes & Improvements]]></description>
             <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--improvements">Fixes &amp; Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.2#fixes--improvements" class="hash-link" aria-label="Direct link to Fixes &amp; Improvements" title="Direct link to Fixes &amp; Improvements">​</a></h3>
 <ul>
