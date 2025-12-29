@@ -2,11 +2,27 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://andreadada.github.io/dadadocu/structory-changelog</id>
     <title>DadaWiki Blog</title>
-    <updated>2025-12-22T00:00:00.000Z</updated>
+    <updated>2025-12-29T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://andreadada.github.io/dadadocu/structory-changelog"/>
     <subtitle>DadaWiki Blog</subtitle>
     <icon>https://andreadada.github.io/dadadocu/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 1.4.9 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.9</id>
+        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.9"/>
+        <updated>2025-12-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Fixes]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.9#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<ul>
+<li>Fixed some listener's priorities</li>
+</ul>
+<hr>]]></content>
+        <author>
+            <name>Dada</name>
+        </author>
+        <category label="Premium" term="Premium"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 1.4.8 - PREMIUM]]></title>
         <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.8</id>
@@ -357,28 +373,6 @@
 <ul>
 <li>Follow up 1.1.7 FREE</li>
 <li>Fixed problem where players could not destroy structures</li>
-</ul>
-<hr>]]></content>
-        <author>
-            <name>Dada</name>
-        </author>
-        <category label="Premium" term="Premium"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release 1.2.4 - PREMIUM]]></title>
-        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.4</id>
-        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.4"/>
-        <updated>2025-09-07T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[New Features]]></summary>
-        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-features">New Features<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.4#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features">​</a></h3>
-<ul>
-<li>New Result: <code>commands</code> Result type, works like <code>commands</code> Option, define the commands section and add lines to it<!-- -->
-<div class="language-YML language-yml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">type</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> commands</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token key atrule" style="color:#00a4db">commands</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"tell %player% you have crafted the best item"</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">#Executed by console</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"p:tell %player% i've crafted the best item"</span><span class="token plain"> </span><span class="token comment" style="color:#999988;font-style:italic">#Executed by player</span><br></span></code></pre></div></div>
-</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--improvements">Fixes &amp; Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.4#fixes--improvements" class="hash-link" aria-label="Direct link to Fixes &amp; Improvements" title="Direct link to Fixes &amp; Improvements">​</a></h3>
-<ul>
-<li>Fixed problem with crafting GUI: when closed without crafting, the crafting system does not work anymore</li>
 </ul>
 <hr>]]></content>
         <author>
