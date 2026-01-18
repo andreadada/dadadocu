@@ -10,6 +10,6 @@ Used to check player's balance
 
 | Field      | Type     | Description                                         | Default   |
 |------------|----------|-----------------------------------------------------|-----------|
-| `operator` | Operator | It can be ">=", ">", "<", "<=", "="                 | required  |
+| `operator` | Operator | It can be `>=`, `>`, `<`, `<=`, `=`                 | required  |
 | `value`    | Double   | The player's balance will be compared to this value | required  |
 
