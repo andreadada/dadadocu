@@ -2,11 +2,32 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://andreadada.github.io/dadadocu/structory-changelog</id>
     <title>DadaWiki Blog</title>
-    <updated>2026-01-18T00:00:00.000Z</updated>
+    <updated>2026-02-01T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://andreadada.github.io/dadadocu/structory-changelog"/>
     <subtitle>DadaWiki Blog</subtitle>
     <icon>https://andreadada.github.io/dadadocu/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 1.4.12 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.12</id>
+        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.12"/>
+        <updated>2026-02-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[New Ingredients]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-ingredients">New Ingredients<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.12#new-ingredients" class="hash-link" aria-label="Direct link to New Ingredients" title="Direct link to New Ingredients">​</a></h3>
+<ul>
+<li>Added <code>coinsengine</code> ingredient</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-results">New Results<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.12#new-results" class="hash-link" aria-label="Direct link to New Results" title="Direct link to New Results">​</a></h3>
+<ul>
+<li>Added <code>cewithdraw</code>, <code>cedeposit</code> results</li>
+</ul>
+<hr>
+<p>check wiki for updates</p>]]></content>
+        <author>
+            <name>Dada</name>
+        </author>
+        <category label="Premium" term="Premium"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 1.4.11 - PREMIUM]]></title>
         <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.11</id>
@@ -363,25 +384,5 @@
             <name>Dada</name>
         </author>
         <category label="Free" term="Free"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release 1.2.6 - PREMIUM]]></title>
-        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.6</id>
-        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.6"/>
-        <updated>2025-09-26T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[New Features]]></summary>
-        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-features">New Features<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.6#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features">​</a></h3>
-<ul>
-<li>Add direct support for <code>Oraxen</code>, just like <code>CraftEngine</code> tag is oraxen</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="follow-up">Follow up<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.2.6#follow-up" class="hash-link" aria-label="Direct link to Follow up" title="Direct link to Follow up">​</a></h3>
-<ul>
-<li>Follow up of 1.1.8 FREE</li>
-</ul>
-<hr>]]></content>
-        <author>
-            <name>Dada</name>
-        </author>
-        <category label="Premium" term="Premium"/>
     </entry>
 </feed>
