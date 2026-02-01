@@ -3,7 +3,12 @@ sidebar_position: 1
 title: Deposit
 ---
 
-Used to deposit money to a player
+
+Used for Vault's main currency
+
+Key: `deposit`
+
+Used to deposit money to a player 
 
 
 ## Result Configuration Fields

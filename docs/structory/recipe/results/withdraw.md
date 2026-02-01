@@ -3,6 +3,10 @@ sidebar_position: 1
 title: Withdraw
 ---
 
+Used for Vault's main currency
+
+Key: `withdraw`
+
 Used to withdraw money from a player
 
 

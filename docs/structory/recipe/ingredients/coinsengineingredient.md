@@ -1,11 +1,11 @@
 ---
 sidebar_position: 1
-title: Vault
+title: CoinsEngine
 ---
 
-Used for Vault's main currency
+Used for CoinsEngine's currencies
 
-Key: `vault`
+Key: `coinsengine`
 
 Used to check player's balance
 
@@ -16,4 +16,5 @@ Used to check player's balance
 |------------|----------|-----------------------------------------------------|-----------|
 | `operator` | Operator | It can be `>=`, `>`, `<`, `<=`, `=`                 | required  |
 | `value`    | Double   | The player's balance will be compared to this value | required  |
+| `currency` | Double   | The currency's id                                   | required  |
 
