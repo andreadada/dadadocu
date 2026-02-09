@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbast_docu=self.webpackChunkbast_docu||[]).push([[8285],{7745:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/dadadocu/structory-changelog","page":1,"postsPerPage":10,"totalPages":4,"totalCount":38,"nextPage":"/dadadocu/structory-changelog/page/2","blogDescription":"Updates and articles for developers.","blogTitle":"Developer Blog"}}')}}]);
