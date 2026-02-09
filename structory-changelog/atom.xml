@@ -36,6 +36,22 @@
         <category label="Premium" term="Premium"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Release 1.4.15 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.15</id>
+        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.15"/>
+        <updated>2026-02-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Fixed]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixed">Fixed<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.15#fixed" class="hash-link" aria-label="Direct link to Fixed" title="Direct link to Fixed">​</a></h3>
+<ul>
+<li>Someone forgot (me) to set the CoinsEngine' scope to Provided, so you got Structory Premium and Coinsengine in a single jar.</li>
+</ul>
+<hr>]]></content>
+        <author>
+            <name>Dada</name>
+        </author>
+        <category label="Premium" term="Premium"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Release 1.4.13 - PREMIUM]]></title>
         <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.13</id>
         <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.13"/>
@@ -342,20 +358,5 @@
             <name>Dada</name>
         </author>
         <category label="Free" term="Free"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release 1.3.2 - PREMIUM]]></title>
-        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.3.2</id>
-        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.3.2"/>
-        <updated>2025-11-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Follow up]]></summary>
-        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="follow-up">Follow up<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.3.2#follow-up" class="hash-link" aria-label="Direct link to Follow up" title="Direct link to Follow up">​</a></h3>
-<ul>
-<li>Following update of FREE 1.1.9</li>
-</ul>]]></content>
-        <author>
-            <name>Dada</name>
-        </author>
-        <category label="Premium" term="Premium"/>
     </entry>
 </feed>
