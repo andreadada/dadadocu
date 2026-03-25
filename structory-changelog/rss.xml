@@ -4,10 +4,23 @@
         <title>DadaWiki Blog</title>
         <link>https://andreadada.github.io/dadadocu/structory-changelog</link>
         <description>DadaWiki Blog</description>
-        <lastBuildDate>Mon, 09 Feb 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 25 Mar 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 1.4.17 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.17</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.17</guid>
+            <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Addons]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="addons">Addons<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.17#addons" class="hash-link" aria-label="Direct link to Addons" title="Direct link to Addons">​</a></h3>
+<ul>
+<li>Added support for ExecutableItems, ingredient and results.</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
         <item>
             <title><![CDATA[Release 1.1.12 - FREE]]></title>
             <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.12</link>
@@ -285,20 +298,6 @@
 <li>Check the wiki for more details</li>
 </ul>]]></content:encoded>
             <category>Premium</category>
-        </item>
-        <item>
-            <title><![CDATA[Release 1.1.9 - FREE]]></title>
-            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.9</link>
-            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.9</guid>
-            <pubDate>Wed, 12 Nov 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Fixes & Improvements]]></description>
-            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes--improvements">Fixes &amp; Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.9#fixes--improvements" class="hash-link" aria-label="Direct link to Fixes &amp; Improvements" title="Direct link to Fixes &amp; Improvements">​</a></h3>
-<ul>
-<li>Fixed problem when reloading the plugin</li>
-<li>Fixed problem with some anti-grief/break structure events (Bamboo/Natural Growth Event, Cauldron filling etc..)</li>
-</ul>
-<hr>]]></content:encoded>
-            <category>Free</category>
         </item>
     </channel>
 </rss>
