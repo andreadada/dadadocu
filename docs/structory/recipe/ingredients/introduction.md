@@ -24,6 +24,7 @@ ingredients:
 ## Ingredient Types
 
 The plugin supports several types of ingredients to make your crafting requirements flexible.
+Some examples: 
 
 ### 1. Item (`type: item`)
 This requires a standard Minecraft item.
