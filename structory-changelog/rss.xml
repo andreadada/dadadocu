@@ -4,10 +4,26 @@
         <title>DadaWiki Blog</title>
         <link>https://andreadada.github.io/dadadocu/structory-changelog</link>
         <description>DadaWiki Blog</description>
-        <lastBuildDate>Sat, 28 Mar 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 30 May 2026 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Release 1.4.20 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.20</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.20</guid>
+            <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Support]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="support">Support<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.20#support" class="hash-link" aria-label="Direct link to Support" title="Direct link to Support">​</a></h3>
+<ul>
+<li>Added support for the latest versions</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="optimization">Optimization<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.20#optimization" class="hash-link" aria-label="Direct link to Optimization" title="Direct link to Optimization">​</a></h3>
+<ul>
+<li>Reduced file size by almost half</li>
+</ul>]]></content:encoded>
+            <category>Premium</category>
+        </item>
         <item>
             <title><![CDATA[Release 1.4.19 - PREMIUM]]></title>
             <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.19</link>
@@ -272,20 +288,6 @@
 </ul>
 <hr>]]></content:encoded>
             <category>Premium</category>
-        </item>
-        <item>
-            <title><![CDATA[Release 1.1.10 - FREE]]></title>
-            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.10</link>
-            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.10</guid>
-            <pubDate>Fri, 05 Dec 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Improvements]]></description>
-            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="improvements">Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.10#improvements" class="hash-link" aria-label="Direct link to Improvements" title="Direct link to Improvements">​</a></h3>
-<ul>
-<li>Improved text formatting performance</li>
-<li>Add /structory help commands</li>
-</ul>
-<hr>]]></content:encoded>
-            <category>Free</category>
         </item>
     </channel>
 </rss>
