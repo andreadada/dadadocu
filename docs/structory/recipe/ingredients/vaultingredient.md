@@ -1,19 +1,53 @@
 ---
-sidebar_position: 1
-title: Vault
+sidebar_position: 5
+title: Vault Ingredient - Premium
 ---
 
-Used for Vault's main currency
+# Vault Ingredient
 
-Key: `vault`
+The `vault` ingredient requires money from the server's main Vault economy.
 
-Used to check player's balance
+This ingredient requires Vault and an economy plugin.
 
+## Example
 
-## Ingredient Configuration Fields
+```yaml
+ingredients:
+  money:
+    type: vault
+    value: 1000
+```
 
-| Field      | Type     | Description                                         | Default   |
-|------------|----------|-----------------------------------------------------|-----------|
-| `operator` | Operator | It can be `>=`, `>`, `<`, `<=`, `=`                 | required  |
-| `value`    | Double   | The player's balance will be compared to this value | required  |
+## With operator
 
+```yaml
+ingredients:
+  money:
+    type: vault
+    operator: ">="
+    value: 1000
+```
+
+## Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `value` | Number | Money amount. |
+| `operator` | Text | Comparison operator. Usually `>=`. |
+| `consume` | Boolean | If `true`, the money is withdrawn during crafting. |
+
+## Operators
+
+Common operators:
+
+| Operator | Meaning |
+|---|---|
+| `>=` | Player must have at least this value. |
+| `>` | Player must have more than this value. |
+| `<=` | Player must have at most this value. |
+| `<` | Player must have less than this value. |
+| `=` | Player must have exactly this value. |
+
+## Important note
+
+Vault must be installed and connected to an economy plugin. If Vault is installed but no economy provider is available, Vault ingredients and results will not work correctly.

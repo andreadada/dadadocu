@@ -1,33 +1,47 @@
 ---
-sidebar_position: 1
-title: OraxenItem
+sidebar_position: 16
+title: EcoItems Ingredient - Premium
 ---
 
+# EcoItems Ingredient - Premium
 
-Register an Oraxen item as ingredient.
+This ingredient requires a custom item from EcoItems.
 
-ingredient key: `ecoitems` (alias: `eitems`)
+Required dependency: EcoItems.
 
+## Type aliases
 
-## Recipe Configuration Fields
+You can use: `ecoitems`, `eitem`.
 
-| Field         | Type                                | Description            | Default     |
-|---------------|-------------------------------------|------------------------|-------------|
-| `key`         | String                              | The EcoItems item's Id | required    |
+## Basic example
 
-
-
-<details>
-  <summary>Show YAML example</summary>
-
-```yml
-example_recipe:
-  name: example_recipe
-  ingredients:
-    #....
-    two:
-      type: eitem
-      key: "chargedquartz"
-    #....
+```yaml
+ingredients:
+  custom_item:
+    type: ecoitems
+    key: "my_eco_item"
 ```
-</details>
+
+## With consume disabled
+
+```yaml
+ingredients:
+  custom_item:
+    type: ecoitems
+    key: "my_eco_item"
+    consume: false
+```
+
+## Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `key` | Text | Custom item ID from EcoItems. |
+| `consume` | Boolean | Whether the item is consumed. |
+| `enchantments` | Section | Optional enchantment checks when supported by the item type. |
+
+## Important notes
+
+- EcoItems must be installed and enabled.
+- The `key` must match the item ID used by EcoItems.
+- If the item is not detected, check the server console during startup to confirm Structory hooked into EcoItems.

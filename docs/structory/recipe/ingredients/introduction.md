@@ -1,75 +1,98 @@
 ---
-sidebar_position: 0
-title: Introduction
+sidebar_position: 1
+title: Ingredients
 ---
 
-# Recipe Ingredients
+# Ingredients
 
-In the crafting system, the `ingredients` section defines everything a player needs to provide to successfully craft a recipe. 
+Ingredients define what a recipe requires before it can craft.
 
-## Basic Configuration
-
-Every ingredient is placed inside the `ingredients` node of your recipe. Each ingredient requires an arbitrary, unique key (for example `one`, `two`, `4`, etc.). Inside this key, you must specify the `type` of the ingredient.
-
-### Simple Example
-```yaml
-ingredients:
-  one:
-    type: item
-    material: WITHER_SKELETON_SKULL
-```
-
----
-
-## Ingredient Types
-
-The plugin supports several types of ingredients to make your crafting requirements flexible.
-Some examples: 
-
-### 1. Item (`type: item`)
-This requires a standard Minecraft item.
-* **`material`**: The standard Bukkit material name (e.g., `WITHER_SKELETON_SKULL`).
-
-### 2. Saved Item (`type: saveditem`)
-This type allows you to require custom items that have been previously saved into the plugin using the `CustomItemIngredient` logic.
-
-### 3. Experience (`type: experience`)
-This requires the player to have a certain amount of experience levels.
-* **`level`**: The exact number of XP levels required (e.g., `9`).
-
-
-### **Those are just a bunch of ingredients**
----
-
-## Advanced Properties
-
-Every ingredient can be further customized using advanced configuration fields. These options allow you to change how items are processed during the crafting phase:
-
-* **`consume`** (Boolean): Determines whether the ingredient is removed/consumed when the crafting is completed. By default, this value is set to `true`.
-* **`animation`**: Allows you to define a specific consume animation for the ingredient (using the `ConsumeAnimation` system). If not specified, it defaults to a no-operation animation.
-* **`strategy`**: Defines the execution strategy for consuming the ingredient. By default, this is handled through a `ParallelExecutionStrategy`.
-
----
-
-## Full Example: Nether Star
-
-Here is a complete example of an `ingredients` section that requires three Wither Skeleton Skulls and 9 Experience levels:
+Every ingredient is placed under the recipe's `ingredients` section.
 
 ```yaml
 ingredients:
-  one:
+  apple:
     type: item
-    material: WITHER_SKELETON_SKULL
-  two:
-    type: item
-    material: WITHER_SKELETON_SKULL
-  three:
-    type: item
-    material: WITHER_SKELETON_SKULL
-  4:
+    material: APPLE
+  cost:
     type: experience
-    level: 9
+    level: 10
 ```
 
-Once the player provides all these ingredients, the recipe will be validated and the corresponding `result` will be executed!
+The names `apple` and `cost` are only labels. You can choose any clear name.
+
+## Common fields
+
+Most ingredients support these common fields:
+
+| Field | Description |
+|---|---|
+| `type` | Ingredient type. |
+| `consume` | If `false`, the ingredient is required but not removed. |
+| `animation` | Optional animation used when this ingredient is consumed. |
+| `strategy` | Optional consume strategy for this ingredient. |
+
+Example:
+
+```yaml
+ingredients:
+  catalyst:
+    type: item
+    material: NETHER_STAR
+    consume: true
+    animation:
+      type: particle
+      duration: 40
+      speed: 3
+    strategy:
+      type: sequential
 ```
+
+See [Animations and Consumption](../animations-and-consumption.md).
+
+## Ingredient groups
+
+Some advanced options, especially typed animations and typed strategies, use ingredient groups.
+
+| Group | Used by |
+|---|---|
+| `item` | Vanilla items, saved items, and supported custom item plugins. |
+| `experience` | Experience ingredient. |
+| `bag` | Bag and unordered bag ingredients. |
+| `entity` | Nearby entity ingredient. |
+| `entitykilled` | Killed entity ingredient. |
+| `vault` | Vault money ingredient. |
+| `coinsengine` | CoinsEngine ingredient. |
+
+## Choosing the right ingredient
+
+| Goal | Ingredient |
+|---|---|
+| Require a vanilla Minecraft item. | `item` |
+| Require an item saved with Structory. | `saveditem` |
+| Require player experience. | `experience` |
+| Require money through Vault. | `vault` |
+| Require CoinsEngine currency. | `coinsengine` |
+| Require a nearby entity. | `entity` |
+| Require a player to kill a specific entity near the structure. | `killedentity` with the `entity-death` listener |
+| Require bag contents. | `bag` or `unorderedbag` |
+
+## Important listener note
+
+Some ingredients need a specific listener.
+
+The most important case is `killedentity`. It only works when the recipe is triggered by `entity-death`.
+
+```yaml
+my_recipe:
+  name: my_recipe
+  listeners:
+    - entity-death
+  ingredients:
+    kill:
+      type: killedentity
+      entities:
+        - ZOMBIE
+```
+
+The structure must also enable `entity-death` in `options.crafting.listeners`.

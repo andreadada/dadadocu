@@ -1,48 +1,57 @@
 ---
-sidebar_position: 3
-title: BoxSized Particle
+sidebar_position: 2
+title: Box Sized Particle
 ---
 
-# 🧊 BoxSized Particle
+# Box Sized Particle
 
-The `BOXSIZED` creates a cube-shaped particle effect around your structure. It’s ideal for highlighting the boundaries of a structure or giving it a futuristic or magical frame.
+The `boxsized` decoration spawns particles randomly inside a 3D box.
 
-This particle is part of the `Particle Option` configuration and is activated automatically when the structure is created.
+It is useful for ambient effects around altars, portals, generators, and magical structures.
 
----
+## Example
 
-## ✨ What It Looks Like
+```yaml
+type: boxsized
+amount: 15
+particle:
+  type: particle
+  particle: PORTAL
+  amount: 1
+  speed: 0.1
+center-offset: "0 1 0"
+start-point-offset: "-2.5 -0.6 -2.5"
+end-point-offset: "2.5 0.5 2.5"
+```
 
-Particles form a box around your structure, based on the start and end points you define.
+## Fields
 
----
+| Field | Description |
+|---|---|
+| `amount` | Number of random positions generated each time the decoration plays. |
+| `particle` | Decoration played at each generated position. Usually a `particle` decoration. |
+| `center-offset` | Offset applied from the structure center. |
+| `start-point-offset` | First corner of the box. |
+| `end-point-offset` | Opposite corner of the box. |
 
-## 🛠️ YAML Configuration
+## Scheduled particle example
 
 ```yaml
 options:
   particle:
-    type: BOXSIZED
-    center-offset: "0 1 0"
-    start-point-offset: "-1 -1 -1"
-    end-point-offset: "1 1 1"
-    amount: 30
-    particle: ENCHANTMENT_TABLE
-    count: 3
-    speed: 0.05
+    scheduled:
+      type: boxsized
+      amount: 15
+      particle:
+        type: particle
+        particle: PORTAL
+        amount: 1
+        speed: 0.1
+      center-offset: "0 1 0"
+      start-point-offset: "-2 -1 -2"
+      end-point-offset: "2 1 2"
 ```
 
----
+## Performance advice
 
-## 🔍 Field Explanation
-
-| Field                | Description                                            |
-|----------------------|--------------------------------------------------------|
-| `type`               | Must be `BOXSIZED`                                     |
-| `center-offset`      | Position offset from the structure center              |
-| `start-point-offset` | Start corner of the box (relative to center)           |
-| `end-point-offset`   | End corner of the box (relative to center)             |
-| `amount`             | How many times the effect repeats                      |
-| `particle`           | The Minecraft particle type (e.g. `ENCHANTMENT_TABLE`) |
-| `count`              | Number of particles per burst                          |
-| `speed`              | Movement speed of the particles                        |
+Avoid very high `amount` values on many structures at the same time. Start with values between `5` and `20`.

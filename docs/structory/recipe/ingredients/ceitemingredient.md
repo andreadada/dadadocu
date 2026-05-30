@@ -1,32 +1,47 @@
 ---
-sidebar_position: 1
-title: CraftEngineItem
+sidebar_position: 11
+title: CraftEngine Item Ingredient - Premium
 ---
 
-Register an Craft Engine item as ingredient.
+# CraftEngine Item Ingredient - Premium
 
-ingredient key: `ceitem` (alias: `craftengine`)
+This ingredient requires a custom item from CraftEngine.
 
+Required dependency: CraftEngine.
 
-## Recipe Configuration Fields
+## Type aliases
 
-| Field         | Type                                | Description                | Default     |
-|---------------|-------------------------------------|----------------------------|-------------|
-| `key`         | String                              | The Craft Engine item's Id | required    |
+You can use: `ceitem`, `craftengine`.
 
+## Basic example
 
-
-<details>
-  <summary>Show YAML example</summary>
-
-```yml
-example_recipe:
-  name: example_recipe
-  ingredients:
-    #....
-    two:
-      type: ceitem
-      key: "chargedquartz"
-    #....
+```yaml
+ingredients:
+  custom_item:
+    type: ceitem
+    key: "default:topaz"
 ```
-</details>
+
+## With consume disabled
+
+```yaml
+ingredients:
+  custom_item:
+    type: ceitem
+    key: "default:topaz"
+    consume: false
+```
+
+## Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `key` | Text | Custom item ID from CraftEngine. |
+| `consume` | Boolean | Whether the item is consumed. |
+| `enchantments` | Section | Optional enchantment checks when supported by the item type. |
+
+## Important notes
+
+- CraftEngine must be installed and enabled.
+- The `key` must match the item ID used by CraftEngine.
+- If the item is not detected, check the server console during startup to confirm Structory hooked into CraftEngine.

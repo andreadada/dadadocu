@@ -1,292 +1,279 @@
 ---
-sidebar_position: 2
-title: EntityChecker
+sidebar_position: 1
+title: Entity Checker
 ---
 
-# EntityChecker
+# Entity Checker
 
-The **EntityChecker** system allows you to filter and select entities (creatures, players, objects) based on various characteristics such as type, health, equipment, tags, and much more.
+Entity Checker is used by entity-based ingredients to decide which entities are valid.
 
-## How It Works
+You will usually use it inside the `entity` ingredient.
 
-EntityChecker is a flexible tool that allows you to create complex filters by combining multiple conditions. If an entity meets **all** the specified filters, it will be considered a match.
-
-## Filter Categories
-
-EntityChecker offers several groups of filters:
-
-| Category              | Description                                             |
-|-----------------------|---------------------------------------------------------|
-| **Type**              | Filter by entity type (Zombie, Creeper, Player, etc.)   |
-| **Name**              | Filter by the entity's custom name                      |
-| **Health**            | Filter based on current or maximum health               |
-| **Attributes**        | Filter by Minecraft attributes (speed, strength, etc.)  |
-| **AI & Behavior**     | Filter by AI, leash, state                              |
-| **Status**            | Filter by invisibility, water, ground, flight, swimming |
-| **Equipment**         | Filter by equipped items (helmet, main hand, etc.)      |
-| **Persistent Data**   | Filter by custom data stored on the entity              |
-| **Scoreboard Tags**   | Filter by tags assigned via scoreboard                  |
-| **Age**               | Filter by baby or adult entities                        |
-| **MythicMobs**        | Filter by mobs managed by MythicMobs                    |
-
----
-
-## Available Filters
-
-### 🎯 Entity Type
-
-Select the type of entity you want to filter.
+## Basic example
 
 ```yaml
-# Single entity type
-type: ZOMBIE
-
-# Multiple types
-types:
-  - ZOMBIE
-  - CREEPER
-  - SKELETON
-
-# Exclude a type
-notType: PLAYER
+ingredients:
+  nearby_zombie:
+    type: entity
+    amount: 1
+    range: 5
+    check:
+      type: ZOMBIE
 ```
 
-### 🏷️ Custom Name
-
-Filter based on the visible name of the entity (for example, a name assigned with a command).
+## Multiple entity types
 
 ```yaml
-# Exact name
-displayName: "Evil Boss"
-
-# Name containing a keyword
-displayNameContains: "Boss"
-
-# Entities with any custom name
-hasAnyDisplayName: true
-
-# Entities WITHOUT a custom name
-hasNoDisplayName: true
+check:
+  types:
+    - ZOMBIE
+    - SKELETON
+    - CREEPER
 ```
 
-### ❤️ Health
-
-Filter entities based on their health.
+## Exclude an entity type
 
 ```yaml
-# Minimum health
-minHealth: 5
-
-# Maximum health
-maxHealth: 10
-
-# Health range
-healthBetween:
-  min: 5
-  max: 10
-
-# Entities at full health
-fullHealth: true
-
-# Damaged entities
-damaged: true
+check:
+  notType: PLAYER
 ```
 
-### ⚙️ Attributes
-
-Filter by Minecraft attributes such as speed, attack strength, etc.
+## Display name filters
 
 ```yaml
-attributes:
-  generic_max_health:
-    min: 20
-  generic_movement_speed:
-    max: 0.3
-```
-
-> 💡 **Common attributes**: `generic_max_health`, `generic_movement_speed`, `generic_attack_damage`, `generic_armor`, `generic_armor_toughness`
-
-### 🧠 AI & Behavior
-
-Filter entities based on their behavior.
-
-```yaml
-# With artificial intelligence
-hasAI: true
+check:
+  displayName: "Dungeon Boss"
 ```
 
 ```yaml
-# Without AI
-hasAI: false
-
-# Leashed
-isLeashed: true
-```
-
-```yaml
-# Not leashed
-isLeashed: false
-```
-
-### 💧 Status & Environment
-
-Filter based on the entity's status and environment.
-
-```yaml
-# In water
-inWater: true
-
-# On ground
-onGround: true
-
-# Flying/gliding
-gliding: true
-
-# Swimming
-swimming: true
-```
-
-```yaml
-# Invisible
-invisible: true
-```
-
-```yaml
-# Visible
-invisible: false
-```
-
-### 🎒 Equipment
-
-Filter entities that have equipment.
-
-```yaml
-# Has an item in main hand
-hasItemInMainHand: true
-
-# Wearing a helmet
-hasHelmet: true
-```
-
-> 💡 **Available types**: `STRING`, `INTEGER`, `DOUBLE`, `BYTE`, `LONG`, etc.
-
-### 🏷️ Scoreboard Tags
-
-Filter entities that have specific tags assigned.
-
-```yaml
-# Single tag
-scoreboardTag: "mytag"
-
-# Does not have a tag
-notScoreboardTag: "mytag"
-```
-
-```yaml
-# Has at least one of the tags (OR mode)
-scoreboardTags:
-  mode: any
-  list:
-    - tag1
-    - tag2
-```
-
-```yaml
-# Has all tags (AND mode)
-scoreboardTags:
-  mode: all
-  list:
-    - tag1
-    - tag2
-```
-
-```yaml
-# Simple list (assumes OR)
-scoreboardTags:
-  - tag1
-  - tag2
-```
-
-### 👶 Age
-
-Filter baby or adult entities.
-
-```yaml
-# Baby
-isBaby: true
-
-# Adults
-isAdult: true
-```
-
-### 👹 MythicMobs
-
-If you have the MythicMobs plugin installed, you can filter special mobs.
-
-```yaml
-# Any MythicMobs mob
-isanymythic: true
-
-# Specific mob by type
-ismythic:
-  key: "fire_dragon"
-```
-
----
-
-## Complete Examples
-
-### Example 1: Dangerous Boss
-
-```yaml
-boss_check:
+check:
   displayNameContains: "Boss"
-  minHealth: 50
-  type: ZOMBIE
-  isLeashed: false
-  hasAI: true
 ```
 
-Selects Zombies with "Boss" in the name, at least 50 health, with AI and not leashed.
-
-### Example 2: Wounded Creature
+```yaml
+check:
+  hasAnyDisplayName: true
+```
 
 ```yaml
-wounded_creature:
+check:
+  hasNoDisplayName: true
+```
+
+## Health filters
+
+```yaml
+check:
+  minHealth: 10
+```
+
+```yaml
+check:
+  maxHealth: 20
+```
+
+```yaml
+check:
+  healthBetween:
+    min: 5
+    max: 15
+```
+
+```yaml
+check:
+  fullHealth: true
+```
+
+```yaml
+check:
   damaged: true
-  minHealth: 1
-  maxHealth: 10
+```
+
+## Attribute filters
+
+```yaml
+check:
+  attributes:
+    GENERIC_MAX_HEALTH:
+      min: 20
+    GENERIC_MOVEMENT_SPEED:
+      max: 0.3
+```
+
+Use valid Bukkit attribute names for your server version.
+
+## AI and behavior filters
+
+```yaml
+check:
   hasAI: true
 ```
 
-Selects intelligent creatures that are damaged with health between 1 and 10.
+```yaml
+check:
+  isLeashed: false
+```
 
-
-### Example 5: Equipped War Horse
+## Status filters
 
 ```yaml
-war_horse:
-  type: HORSE
-  hasHelmet: true
+check:
+  inWater: true
+  onGround: true
+  invisible: false
+```
+
+Other supported status fields:
+
+```yaml
+check:
+  gliding: true
+  swimming: true
+```
+
+## Age filters
+
+```yaml
+check:
+  isBaby: true
+```
+
+```yaml
+check:
+  isAdult: true
+```
+
+## Equipment filters
+
+```yaml
+check:
   hasItemInMainHand: true
 ```
 
-Selects horses wearing a helmet and holding an item.
+```yaml
+check:
+  hasHelmet: true
+```
 
----
+## Scoreboard tag filters
 
-## Technical Notes
+Single required tag:
 
-- **All filters must match**: If you have 3 filters, the entity must pass all three
-- **Case sensitivity**: Filter names are not case-sensitive
-- **Entity types**: Use official Minecraft names in UPPERCASE (e.g., `ZOMBIE`, `CREEPER`, `PLAYER`)
-- **Health**: Health is expressed in "half hearts" (20 = 10 full hearts)
-- **Scoreboard tags**: Tags are case-sensitive
+```yaml
+check:
+  scoreboardTag: "altar_target"
+```
 
----
+Entity must not have a tag:
 
-## Frequently Asked Questions
+```yaml
+check:
+  notScoreboardTag: "blocked"
+```
 
-**Q: What's the difference between "any" and "all" for tags?**  
-A: - `any`: The entity must have **at least one** of the listed tags (OR logic)
-- `all`: The entity must have **all** the listed tags (AND logic)
+At least one tag:
+
+```yaml
+check:
+  scoreboardTags:
+    mode: any
+    list:
+      - tag1
+      - tag2
+```
+
+All tags required:
+
+```yaml
+check:
+  scoreboardTags:
+    mode: all
+    list:
+      - tag1
+      - tag2
+```
+
+## Persistent data filters
+
+Check that an entity has a persistent data key:
+
+```yaml
+check:
+  persistentData:
+    myplugin:custom_key: {}
+```
+
+Check a string value:
+
+```yaml
+check:
+  persistentData:
+    myplugin:custom_key:
+      value: "boss"
+```
+
+Check a typed value:
+
+```yaml
+check:
+  persistentData:
+    myplugin:level:
+      type: INTEGER
+      value: 5
+```
+
+## MythicMobs filters
+
+Any MythicMobs mob:
+
+```yaml
+check:
+  isanymythic: true
+```
+
+Specific MythicMobs mob:
+
+```yaml
+check:
+  ismythic:
+    key: "fire_dragon"
+```
+
+MythicMobs must be installed and enabled.
+
+## Complete example
+
+```yaml
+ingredients:
+  boss_nearby:
+    type: entity
+    amount: 1
+    range: 10
+    exclusive: false
+    consume: false
+    check:
+      type: ZOMBIE
+      displayNameContains: "Boss"
+      minHealth: 20
+      hasAI: true
+      scoreboardTag: "altar_boss"
+```
+
+## How filters combine
+
+All filters must match at the same time.
+
+For example:
+
+```yaml
+check:
+  type: ZOMBIE
+  minHealth: 20
+  scoreboardTag: "boss"
+```
+
+This means the entity must be:
+
+- a zombie;
+- at least 20 health;
+- tagged with `boss`.

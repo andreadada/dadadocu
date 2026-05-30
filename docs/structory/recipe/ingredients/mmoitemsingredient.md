@@ -1,36 +1,47 @@
 ---
-sidebar_position: 1
-title: KilledEntity
+sidebar_position: 14
+title: MMOItems Ingredient - Premium
 ---
 
-Register an Oraxen item as ingredient.
+# MMOItems Ingredient - Premium
 
-ingredient key: `mitem` (alias: `mmoitem`)
+This ingredient requires a custom item from MMOItems.
 
+Required dependency: MMOItems.
 
-## Recipe Configuration Fields
+## Type aliases
 
-| Field  | Type                                | Description         | Default   |
-|--------|-------------------------------------|---------------------|-----------|
-| `type` | String                              | Required to work    | `mmoitem` |
-| `key`  | String                              | The MMO item's Id   | required  |
-| `kind` | String                              | The MMO item's Type | required  |
+You can use: `mmoitem`, `mmoitems`, `mitem`.
 
+## Basic example
 
-
-
-<details>
-  <summary>Show YAML example</summary>
-
-```yml
-example_recipe:
-  name: example_recipe
-  ingredients:
-    #....
-    two:
-      type: mitem
-      kind: SWORD
-      key: "excalibur"
-    #....
+```yaml
+ingredients:
+  custom_item:
+    type: mmoitem
+    key: "SWORD:MYTHIC_BLADE"
 ```
-</details>
+
+## With consume disabled
+
+```yaml
+ingredients:
+  custom_item:
+    type: mmoitem
+    key: "SWORD:MYTHIC_BLADE"
+    consume: false
+```
+
+## Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `key` | Text | Custom item ID from MMOItems. |
+| `consume` | Boolean | Whether the item is consumed. |
+| `enchantments` | Section | Optional enchantment checks when supported by the item type. |
+
+## Important notes
+
+- MMOItems must be installed and enabled.
+- The `key` must match the item ID used by MMOItems.
+- If the item is not detected, check the server console during startup to confirm Structory hooked into MMOItems.

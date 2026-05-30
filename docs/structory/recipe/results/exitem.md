@@ -1,29 +1,38 @@
 ---
-sidebar_position: 1
-title: ExecutableItemsResult
+sidebar_position: 17
+title: ExecutableItems Result - Premium
 ---
 
-Drop an EX's item as a result
+# ExecutableItems Result - Premium
 
+This result creates a custom item from ExecutableItems.
 
-## Recipe Configuration Fields
+Required dependency: ExecutableItems.
 
-| Field         | Type                                | Description     | Default     |
-|---------------|-------------------------------------|-----------------|-------------|
-| `key`         | String                              | The EXItem's Id | required    |
+## Type aliases
 
+You can use: `exitem`, `exitems`, `executableitems`, `executableitemsitem`.
 
+## Example
 
-<details>
-  <summary>Show YAML example</summary>
-
-```yml
-custom_item:
-  #.... other stuff
-  result:
-    one:
-      type: exitem
-      offset: "0 0 0"
-      key: "custom_item"
+```yaml
+result:
+  custom_item:
+    type: exitem
+    key: "my_executable_item"
+    offset: "0 0 0"
 ```
-</details>
+
+## Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `key` | Text | Custom item ID from ExecutableItems. |
+| `offset` | Vector | Where the item appears, relative to the structure center. |
+| `kind` | Text | MMOItems item type. Used only by MMOItems results. |
+
+## Important notes
+
+- ExecutableItems must be installed and enabled.
+- The item key must exist in ExecutableItems.
+- If the result does not appear, check the server console for dependency hook messages.

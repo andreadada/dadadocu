@@ -1,33 +1,47 @@
 ---
-sidebar_position: 1
-title: OraxenItem
+sidebar_position: 12
+title: Oraxen Item Ingredient - Premium
 ---
 
+# Oraxen Item Ingredient - Premium
 
-Register an Oraxen item as ingredient.
+This ingredient requires a custom item from Oraxen.
 
-ingredient key: `oitem` (alias: `oraxen`)
+Required dependency: Oraxen.
 
+## Type aliases
 
-## Recipe Configuration Fields
+You can use: `oraxen`, `oitem`.
 
-| Field         | Type                                | Description          | Default     |
-|---------------|-------------------------------------|----------------------|-------------|
-| `key`         | String                              | The Oraxen item's Id | required    |
+## Basic example
 
-
-
-<details>
-  <summary>Show YAML example</summary>
-
-```yml
-example_recipe:
-  name: example_recipe
-  ingredients:
-    #....
-    two:
-      type: oitem
-      key: "chargedquartz"
-    #....
+```yaml
+ingredients:
+  custom_item:
+    type: oraxen
+    key: "my_custom_item"
 ```
-</details>
+
+## With consume disabled
+
+```yaml
+ingredients:
+  custom_item:
+    type: oraxen
+    key: "my_custom_item"
+    consume: false
+```
+
+## Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `key` | Text | Custom item ID from Oraxen. |
+| `consume` | Boolean | Whether the item is consumed. |
+| `enchantments` | Section | Optional enchantment checks when supported by the item type. |
+
+## Important notes
+
+- Oraxen must be installed and enabled.
+- The `key` must match the item ID used by Oraxen.
+- If the item is not detected, check the server console during startup to confirm Structory hooked into Oraxen.

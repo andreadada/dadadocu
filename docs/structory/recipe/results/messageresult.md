@@ -1,14 +1,43 @@
 ---
-sidebar_position: 1
-title: Message
+sidebar_position: 3
+title: Message Result
 ---
 
+# Message Result
 
-Used to send a custom message to a player
+The `message` result sends a message to the player after crafting finishes.
 
+Aliases:
 
-## Result Configuration Fields
+```text
+message, msg
+```
 
-| Field     | Type   | Description                                                           | Default   |
-|-----------|--------|-----------------------------------------------------------------------|-----------|
-| `message` | String | This can be any sort of String which uses MiniMessage and Expressions | required  |
+## Example
+
+```yaml
+result:
+  message:
+    type: message
+    message: "<yellow>You crafted a special item."
+```
+
+## Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `message` | Text | Message sent to the player. Supports placeholders and formatting. |
+
+## Placeholders
+
+Common placeholders:
+
+| Placeholder | Meaning |
+|---|---|
+| `%player%` | Player name. |
+| `%structure%` | Structure key. |
+| `%instanceuuid%` | Structure instance UUID. |
+| `%world%` | World name. |
+| `%center_x%` | Structure center X coordinate. |
+| `%center_y%` | Structure center Y coordinate. |
+| `%center_z%` | Structure center Z coordinate. |

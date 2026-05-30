@@ -1,8 +1,8 @@
 {
-  "label": "Particle Option",
+  "label": "Particles and Decorations",
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "Check every particle options"
+    "description": "Configure particles, sounds, and visual effects used by structure options."
   }
 }

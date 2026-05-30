@@ -1,131 +1,30 @@
 ---
-sidebar_position: 1
+sidebar_position: 6
 title: Structures
 ---
 
-# Structure Configuration
+# Structures
 
-## What is a Structure?
+A structure is a custom multi-block build that Structory can recognize in the world.
 
-A **structure** is a custom build that you can define in your configuration files. It can include a specific layout (a block grid map), a central interaction block, orientation rules, and a variety of optional effects like fireworks, particles, or crafting interactions. Structures are the core of this plugin.
+Structures are stored in:
 
-All structures are automatically loaded from the `structures` directory. Each YAML file inside that folder can contain **multiple structures**, each defined as a top-level (root) node.
+```text
+plugins/Structory/structures/
+```
 
----
+Each `.yml` file can contain one or more structures. Each structure is a top-level YAML section.
 
-## How to Activate a Structure In-Game
-
-Once a player has built the structure in the world so that it perfectly matches the required layout, they can **activate it** by sneaking and right-clicking (`Shift + Right Click`) on the **check-block** defined in your configuration.
-
-If the structure matches the layout, respects the orientation, and the check-block is valid, the plugin will:
-- Recognize and validate the structure.
-- Trigger all configured options or effects (e.g., opening a crafting GUI, sending messages, spawning particles, playing sounds, etc.).
-
-> 🧱 **Note:** Make sure the structure is 100% complete and the player interacts with the exact block defined as the `check-block`!
-
----
-
-## Main Parameters (Fields)
-
-Every structure is defined by some fundamental properties. Here is the explanation of all the main fields you can use:
-
-| Parameter | Type | Description | Default |
-|---|---|---|---|
-| **`name`** | String | **Required.** The unique identifier name of the structure. | *Null* |
-| `check-block` | Material | The exact block players must click (`Shift + Right Click`) to activate the structure (e.g., `CAULDRON`, `OBSIDIAN`). | *Null* |
-| `main-block` | Offset (Vector) | The offset from the center block, written as `"x y z"` (e.g., `"0 1 0"`). | `0 0 0` |
-| `center-offset` | Offset (Vector) | An optional offset to recalibrate the visual or logical center of the structure. | *Empty* |
-| `orientation` | Boolean | If set to `false`, it ignores orientation (perfect for symmetric structures). If `true`, it requires the structure to face a specific direction (defaults to `EAST`). | `false` |
-| `options` | [Options](../category/options) | Enables extra features like crafting, crates, particles, notifications, etc. | *Empty* |
-| `layout` | Layout | The "blueprint" of the structure, divided into levels (Y-axis) to determine the exact block positions. | *Empty* |
-
----
-
-## How to Design the Layout
-
-The `layout` is the blueprint of the blocks that make up your structure. It is built level by level (Y-axis) using a visual text-based grid.
-
-Each level requires:
-1. **`level`**: The relative height of the level (e.g., `0` for ground level, `-1` for underground blocks, `1` for the first floor).
-2. **`checkers.types`**: A legend mapping a letter (or symbol) to a Minecraft material (e.g., `X: BLACKSTONE_WALL`). The `*` (asterisk) symbol is generally used to ignore a block or indicate air.
-3. **`checkers.main`**: The actual grid that draws the shape.
-
-### Layout Example:
-
-Here is an example of a two-story layout, taken from the *Elder Altar* structure:
+## Basic format
 
 ```yaml
-  layout:
-    levels:
-      level0: # Ground level
-        level: 0
-        type: STANDARD
-        checkers:
-          types:
-            X: BLACKSTONE_WALL
-            C: CAULDRON
-          main:
-            - "***X***"
-            - "*X***X*"
-            - "*******"
-            - "X**C**X" # C is the cauldron in the center
-            - "*******"
-            - "*X***X*"
-            - "***X***"
-      level-1: # Underground level (-1)
-        level: -1
-        type: STANDARD
-        checkers:
-          types:
-            C: CRYING_OBSIDIAN
-            E: END_STONE
-            O: OBSIDIAN
-          main:
-            - "***C***"
-            - "*CEEEC*"
-            - "*EOEOE*"
-            - "CEECEEC"
-            - "*EOEOE*"
-            - "*CEEEC*"
-            - "***C***"
-````
-
------
-
-## Options Overview
-
-The `options` section brings your structure to life. From the config file, you can add many modules, including:
-
-* **`privacy`**: To restrict the use of the structure (e.g., owner only).
-* **`notify`**: To send chat or actionbar messages during creation or interaction.
-* **`crafting`**: To turn the structure into a fully customized crafting station, with recipes, slot positions, and advanced animations.
-* **`crate`**: To allow the structure to function as a "placeable" object via custom physical items (e.g., "Box: Elder Altar").
-* **`particle` & `fireworks`**: To visually decorate the activation or usage with scheduled fireworks and particles.
-
-*(To learn more about each option, check the [Options](https://www.google.com/search?q=../category/options) category)*
-
------
-
-<details>
-
-<summary>Click to see a complete YAML example (Elder Altar)</summary>
-
-```yaml
-elder_altar:
-  name: "Elder Altar"
+structure_key:
+  name: "Display Name"
   check-block: CAULDRON
   orientation: false
   options:
     notify:
-      message: "<white>You have created <light_purple>%structure%"
-      actionbar: "<white>Now you can craft <light_purple>serious<white> items"
-    fireworks:
-      type: RANDOM
-      amount: 5
-      power: 5
-      flicker: true
-      fade: PURPLE, BLACK, SILVER
-      colors: FUCHSIA, PURPLE, WHITE, BLACK
+      message: "<yellow>Structure created!"
   layout:
     levels:
       level0:
@@ -133,20 +32,204 @@ elder_altar:
         type: STANDARD
         checkers:
           types:
-            X: BLACKSTONE_WALL
             C: CAULDRON
+            X: BLACKSTONE_WALL
           main:
-            - "***X***"
-            - "*X***X*"
-            - "*******"
-            - "X**C**X"
-            - "*******"
-            - "*X***X*"
-            - "***X***"
+            - "X*X"
+            - "*C*"
+            - "X*X"
 ```
 
-</details>
+## Main fields
 
------
+| Field | Type | Required | Description |
+|---|---:|---:|---|
+| `name` | Text | Yes | Display name of the structure. |
+| `check-block` | Material or custom block key | Yes | Block that players activate with `Shift + Right Click`. |
+| `main-block` | Vector | No | Offset used to move the logical main block. Default is `0 0 0`. |
+| `center-offset` | Vector | No | Moves the logical center used by some effects and options. |
+| `orientation` | Boolean | No | If `true`, Structory checks orientation. If `false`, orientation is ignored. |
+| `options` | Section | No | Behavior attached to the structure. |
+| `layout` | Section | Yes | Shape of the structure. |
 
-*Need help designing your layout or choosing effects? Join our [Discord](https://discord.gg/KBNDByfjuC) and ask the community\!*
+## Structure keys
+
+Use simple keys:
+
+```yaml
+elder_altar:
+```
+
+Recommended style:
+
+- lowercase letters;
+- numbers if needed;
+- underscores instead of spaces;
+- no special characters.
+
+Good examples:
+
+```text
+elder_altar
+astral_forge
+generator_1
+magic_portal
+```
+
+## Check block
+
+The `check-block` is the block players interact with to create the structure.
+
+```yaml
+check-block: CAULDRON
+```
+
+For CraftEngine blocks, use the custom block key when supported by your setup:
+
+```yaml
+check-block: "default:palm_wood"
+```
+
+The clicked block must match the configured block.
+
+## Layout format
+
+The layout is placed under:
+
+```yaml
+layout:
+  levels:
+```
+
+Do not put `level0` directly under `layout`. Use `layout.levels.level0`.
+
+Correct:
+
+```yaml
+layout:
+  levels:
+    level0:
+      level: 0
+```
+
+Incorrect:
+
+```yaml
+layout:
+  level0:
+    level: 0
+```
+
+## Levels
+
+Each level represents a Y offset from the structure center.
+
+| Level value | Meaning |
+|---:|---|
+| `0` | Same height as the center/check block. |
+| `1` | One block above. |
+| `-1` | One block below. |
+
+Example:
+
+```yaml
+layout:
+  levels:
+    level0:
+      level: 0
+      type: STANDARD
+      checkers:
+        types:
+          C: CAULDRON
+        main:
+          - "C"
+    level-1:
+      level: -1
+      type: STANDARD
+      checkers:
+        types:
+          O: OBSIDIAN
+        main:
+          - "O"
+```
+
+## Checker legend
+
+`checkers.types` defines what each character means.
+
+```yaml
+checkers:
+  types:
+    C: CAULDRON
+    X: BLACKSTONE_WALL
+  main:
+    - "X*X"
+    - "*C*"
+    - "X*X"
+```
+
+In this example:
+
+| Character | Meaning |
+|---|---|
+| `C` | Must be a cauldron. |
+| `X` | Must be a blackstone wall. |
+| `*` | Ignored position. |
+
+`*` is useful when that position should not be checked.
+
+## Advanced checker format
+
+You can also define a character with a section.
+
+```yaml
+checkers:
+  types:
+    L:
+      type: craftengine
+      key: "default:palm_log"
+    W:
+      type: craftengine
+      key: "default:palm_wood"
+    G: GRASS_BLOCK
+```
+
+Common checker types:
+
+| Type | Use |
+|---|---|
+| simple material | Vanilla Minecraft block, such as `CAULDRON`. |
+| `craftengine` | CraftEngine custom block key. |
+| `none` | Allows empty or ignored matching depending on setup. |
+
+## Orientation
+
+Set `orientation` to `false` for symmetric structures:
+
+```yaml
+orientation: false
+```
+
+Set it to `true` when direction matters:
+
+```yaml
+orientation: true
+```
+
+When orientation is enabled, players must build the structure in a valid rotation. Use it only when the structure needs a front/back direction.
+
+## Structure protection
+
+After a structure is created, Structory tracks it as an instance. Protected structure blocks cannot usually be broken directly.
+
+To destroy a structure, a player may need to break the main block twice within the confirmation time configured in `config.yml`.
+
+## Instance files
+
+Created structures are saved in:
+
+```text
+plugins/Structory/instances/
+```
+
+Do not edit instance files manually unless you have a backup and understand what you are changing.

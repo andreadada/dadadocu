@@ -1,17 +1,29 @@
 ---
-sidebar_position: 1
-title: Withdraw
+sidebar_position: 8
+title: Vault Withdraw Result - Premium
 ---
 
-Used for Vault's main currency
+# Vault Withdraw Result
 
-Key: `withdraw`
+The `withdraw` result removes money from the player's Vault balance.
 
-Used to withdraw money from a player
+This result requires Vault and an economy plugin.
 
+## Example
 
-## Result Configuration Fields
+```yaml
+result:
+  money:
+    type: withdraw
+    value: 100
+```
 
-| Field   | Type   | Description            | Default   |
-|---------|--------|------------------------|-----------|
-| `value` | Double | The amount to withdraw | required  |
+## Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `value` | Number | Amount of money to withdraw. |
+
+## Warning
+
+Use this result carefully. Most recipes should use a Vault ingredient with `consume: true` instead of withdrawing money as a separate result.

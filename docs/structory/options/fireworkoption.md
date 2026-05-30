@@ -3,59 +3,57 @@ sidebar_position: 3
 title: Fireworks Option
 ---
 
-# 🎆 Fireworks Option
+# Fireworks Option
 
-## What is the Fireworks Option?
+The `fireworks` option launches fireworks when a structure is created.
 
-The `fireworks` option allows you to spawn fireworks when a structure is created. You can customize the amount, colors, fade effects, and whether the fireworks flicker. This adds a celebratory or magical touch to your altars and structures.
+## Basic example
 
----
+```yaml
+options:
+  fireworks:
+    type: RANDOM
+    amount: 3
+    power: 2
+```
 
-## 🛠️ YAML Configuration Example
+## Full example
 
 ```yaml
 options:
   fireworks:
     type: RANDOM
     amount: 5
-    power: 5
+    power: 2
     flicker: true
     fade: PURPLE, BLACK, SILVER
     colors: FUCHSIA, PURPLE, WHITE, BLACK
 ```
 
----
+## Fields
 
-## 🔍 Field Explanation
+| Field | Type | Description |
+|---|---|---|
+| `type` | Text | Firework type. `RANDOM` lets Structory choose a random effect. |
+| `amount` | Number | Number of fireworks to launch. |
+| `power` | Number | Firework power. Higher values fly longer. |
+| `colors` | Text | Comma-separated Bukkit color names. |
+| `fade` | Text | Comma-separated fade colors. |
+| `flicker` | Boolean | Adds flicker effect if `true`. |
 
-| Field     | Description                                                                 |
-|-----------|-----------------------------------------------------------------------------|
-| `type`    | Currently only supports `RANDOM`                                            |
-| `amount`  | Number of fireworks to spawn                                                |
-| `power`   | Explosion power (visual only, not damaging)                                 |
-| `colors`  | Comma-separated list of main colors (e.g. `RED, BLUE`)                      |
-| `fade`    | Comma-separated list of fade colors (e.g. `WHITE`)                          |
-| `flicker` | Whether the fireworks flicker when exploding (`true` or `false`)            |
+## Color examples
 
-> 🎨 Color names must be valid Minecraft color names (e.g. `RED`, `BLUE`, `WHITE`, `GREEN`, etc.)
+```yaml
+colors: RED, ORANGE, YELLOW
+fade: WHITE, SILVER
+```
 
----
+Use standard Bukkit color names such as:
 
-## ✅ When Does It Trigger?
+```text
+WHITE, SILVER, GRAY, BLACK, RED, MAROON, YELLOW, OLIVE, LIME, GREEN, AQUA, TEAL, BLUE, NAVY, FUCHSIA, PURPLE, ORANGE
+```
 
-Fireworks are automatically spawned when the structure is created. No commands or manual actions are needed.
+## When to use
 
-They appear at the center of the structure and detonate instantly for a visual effect.
-
----
-
-## 🎯 Use Cases
-
-- Celebrate the creation of an altar
-- Add magical effects to rituals
-- Create visual feedback for important structures
-- Surprise players with a burst of color
-
----
-
-Need help choosing colors or tweaking the effect? Join the [Discord](https://discord.gg/KBNDByfjuC) and ask the community!
+Fireworks are best for rare or important structures. Avoid using too many fireworks on frequently created structures to keep the server clean and readable for players.

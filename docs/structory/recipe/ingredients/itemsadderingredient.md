@@ -1,33 +1,47 @@
 ---
-sidebar_position: 1
-title: OraxenItem
+sidebar_position: 15
+title: ItemsAdder Ingredient - Premium
 ---
 
+# ItemsAdder Ingredient - Premium
 
-Register an Oraxen item as ingredient.
+This ingredient requires a custom item from ItemsAdder.
 
-ingredient key: `itemsadder` (alias: `iaitem`)
+Required dependency: ItemsAdder.
 
+## Type aliases
 
-## Recipe Configuration Fields
+You can use: `itemsadder`, `iaitem`.
 
-| Field         | Type                                | Description              | Default     |
-|---------------|-------------------------------------|--------------------------|-------------|
-| `key`         | String                              | The ItemsAdder item's Id | required    |
+## Basic example
 
-
-
-<details>
-  <summary>Show YAML example</summary>
-
-```yml
-example_recipe:
-  name: example_recipe
-  ingredients:
-    #....
-    two:
-      type: iaitem
-      key: "chargedquartz"
-    #....
+```yaml
+ingredients:
+  custom_item:
+    type: itemsadder
+    key: "namespace:item_id"
 ```
-</details>
+
+## With consume disabled
+
+```yaml
+ingredients:
+  custom_item:
+    type: itemsadder
+    key: "namespace:item_id"
+    consume: false
+```
+
+## Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `key` | Text | Custom item ID from ItemsAdder. |
+| `consume` | Boolean | Whether the item is consumed. |
+| `enchantments` | Section | Optional enchantment checks when supported by the item type. |
+
+## Important notes
+
+- ItemsAdder must be installed and enabled.
+- The `key` must match the item ID used by ItemsAdder.
+- If the item is not detected, check the server console during startup to confirm Structory hooked into ItemsAdder.

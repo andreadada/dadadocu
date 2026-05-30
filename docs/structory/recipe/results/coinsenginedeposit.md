@@ -1,19 +1,27 @@
 ---
-sidebar_position: 1
-title: CoinsEngineDeposit
+sidebar_position: 9
+title: CoinsEngine Deposit Result - Premium
 ---
 
+# CoinsEngine Deposit Result
 
-Used for CoinsEngine's currencies
+The `cedeposit` result adds a CoinsEngine currency amount to the player.
 
-Key: `cedeposit`
+This result requires CoinsEngine.
 
-Used to deposit money to a player's currency
+## Example
 
+```yaml
+result:
+  coins:
+    type: cedeposit
+    currency: coins
+    value: 100
+```
 
-## Result Configuration Fields
+## Fields
 
-| Field      | Type   | Description           | Default   |
-|------------|--------|-----------------------|-----------|
-| `value`    | Double | The amount to deposit | required  |
-| `currency` | String | The currency's id     | required  |
+| Field | Type | Description |
+|---|---|---|
+| `currency` | Text | CoinsEngine currency ID. |
+| `value` | Number | Amount to deposit. |

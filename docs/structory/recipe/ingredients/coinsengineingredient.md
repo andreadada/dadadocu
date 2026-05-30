@@ -1,20 +1,41 @@
 ---
-sidebar_position: 1
-title: CoinsEngine
+sidebar_position: 6
+title: CoinsEngine Ingredient - Premium
 ---
 
-Used for CoinsEngine's currencies
+# CoinsEngine Ingredient
 
-Key: `coinsengine`
+The `coinsengine` ingredient requires a CoinsEngine currency balance.
 
-Used to check player's balance
+This ingredient requires CoinsEngine.
 
+## Example
 
-## Ingredient Configuration Fields
+```yaml
+ingredients:
+  coins:
+    type: coinsengine
+    currency: coins
+    value: 100
+```
 
-| Field      | Type     | Description                                         | Default   |
-|------------|----------|-----------------------------------------------------|-----------|
-| `operator` | Operator | It can be `>=`, `>`, `<`, `<=`, `=`                 | required  |
-| `value`    | Double   | The player's balance will be compared to this value | required  |
-| `currency` | Double   | The currency's id                                   | required  |
+## Fields
 
+| Field | Type | Description |
+|---|---|---|
+| `currency` | Text | CoinsEngine currency ID. |
+| `value` | Number | Required amount. |
+| `operator` | Text | Comparison operator, such as `>=`. |
+| `consume` | Boolean | If `true`, currency is removed during crafting. |
+
+## Example with consume
+
+```yaml
+ingredients:
+  coins:
+    type: coinsengine
+    currency: tokens
+    value: 5
+    operator: ">="
+    consume: true
+```

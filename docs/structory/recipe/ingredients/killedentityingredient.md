@@ -1,104 +1,151 @@
 ---
-sidebar_position: 1
-title: KilledEntity
+sidebar_position: 8
+title: Killed Entity Ingredient - Premium
 ---
 
+# Killed Entity Ingredient
 
-# Killed Entity By Player Ingredient
+The `killedentity` ingredient requires that a specific type of entity has just been killed by a player.
 
-Check if a **player kills a specific entity type** to trigger the recipe.
+This is a premium ingredient.
 
-## Overview
+It must be used with the `entity-death` recipe listener. It is not a normal right-click ingredient.
 
-The **Killed Entity By Player Ingredient** is an **event-based ingredient** that triggers when a player kills a specific entity type. Unlike other ingredients that require static items or entities, this one monitors entity death events and checks if the killer was a player.
+## When to use it
 
-**To use this ingredient you must register a new Crafting listener to the structure (ASK on discord, WIKI is not updated)**
-**And the recipe must be usable in `deathevent` events** 
+Use `killedentity` for recipes such as:
 
-**Use case:**
-- Recipes that require defeating specific enemies
+- sacrifice altars;
+- mob-kill rituals;
+- recipes that craft only when a player kills a specific mob near the structure;
+- recipes that combine item slots with a nearby mob kill.
 
-## Configuration
+Do not use it when you only need a mob to be standing near the structure. For that, use the `entity` ingredient.
 
-| Field       | Type    | Description                                       | Default  |
-|-------------|---------|---------------------------------------------------|----------|
-| `type`      | String  |  **Must be:** `entitykilled`                      | required |
-| `entities`  | List    | Entity types that can be killed to trigger        | required |
-| `blacklist` | Boolean | If `true`, invert the logic (exclude these types) | false    |
+## Required structure setup
 
-## Entity Type List
-
-Valid entity types (common examples):
-- `ZOMBIE`, `SKELETON`, `CREEPER`, `SPIDER`
-- `ZOMBIE_PIGMAN`, `GHAST`, `WITHER`, `ENDERMAN`
-- `BLAZE`, `CAVE_SPIDER`, `SLIME`, `MAGMA_CUBE`
-- `PLAYER`, `ARMOR_STAND`, `VILLAGER`
-- And all other Minecraft entity types
-
-## Basic Usage
-
-### Kill Any Zombie
+The structure must enable the `entity-death` listener.
 
 ```yaml
-my_recipe:
+options:
+  crafting:
+    recipe: ["mob_sacrifice"]
+    listeners:
+      interact: {}
+      entity-death:
+        range: 8
+    recipe-slots:
+      offsets:
+        - "0 1 1"
+        - "0 1 -1"
+```
+
+`range` is the distance from the structure center. When an entity dies inside that range, Structory checks recipes registered for `entity-death`.
+
+`interact: {}` is optional. Keep it only if this structure should also support normal right-click recipes.
+
+## Required recipe setup
+
+The recipe must also use the `entity-death` listener.
+
+```yaml
+mob_sacrifice:
+  name: mob_sacrifice
+  listeners:
+    - entity-death
+  discovers: "mob_sacrifice"
   ingredients:
-    kill_zombie:
-      type: entitykilled
+    kill:
+      type: killedentity
       entities:
         - ZOMBIE
+  result:
+    reward:
+      type: item
+      offset: "0 0 0"
+      item:
+        material: DIAMOND
 ```
 
-When a player kills any Zombie, this ingredient is satisfied.
+This recipe checks whether the entity that just died was a zombie and whether it was killed by a player.
 
-### Kill Multiple Entity Types
+## Fields
+
+| Field | Type | Required | Description |
+|---|---:|---:|---|
+| `type` | Text | Yes | Must be `killedentity`. |
+| `entities` | List | Yes | Bukkit entity types allowed by this ingredient. |
+| `blacklist` | Boolean | No | If `true`, the listed entity types are blocked instead of required. |
+
+## Multiple allowed entities
 
 ```yaml
-my_recipe:
+ingredients:
+  kill:
+    type: killedentity
+    entities:
+      - ZOMBIE
+      - SKELETON
+      - WITHER_SKELETON
+```
+
+The recipe matches if the killed entity is one of the listed types.
+
+## Blacklist mode
+
+```yaml
+ingredients:
+  kill:
+    type: killedentity
+    blacklist: true
+    entities:
+      - PLAYER
+      - VILLAGER
+```
+
+With `blacklist: true`, the recipe matches when the killed entity is not in the list.
+
+## Combining killed entity with item slots
+
+You can require both a mob kill and items already placed in the structure slots.
+
+```yaml
+soul_recipe:
+  name: soul_recipe
+  listeners:
+    - entity-death
+  discovers: "soul_altar"
   ingredients:
-    kill_undead:
-      type: entitykilled
+    kill:
+      type: killedentity
       entities:
         - ZOMBIE
-        - SKELETON
-        - WITHER_SKELETON
+    catalyst:
+      type: item
+      material: AMETHYST_SHARD
+  result:
+    reward:
+      type: item
+      offset: "0 0 0"
+      item:
+        material: ECHO_SHARD
 ```
 
-When a player kills Zombie, Skeleton, or Wither Skeleton, the requirement is met.
+In this case, the player must place the item in the structure slot first. Then, when a zombie dies near the structure, Structory checks the recipe.
 
-## Whitelist vs Blacklist
+## Common mistakes
 
-### Whitelist Mode (default)
+| Problem | Cause |
+|---|---|
+| The recipe never crafts by right-clicking. | This ingredient needs `entity-death`, not normal `interact`. |
+| The recipe never crafts on mob kill. | The structure is missing `crafting.listeners.entity-death.range` or the recipe is missing `listeners: [entity-death]`. |
+| The entity type seems ignored. | Use exact Bukkit entity names such as `ZOMBIE`, `SKELETON`, `WITHER_SKELETON`. |
+| Natural deaths do not work. | The entity must have a player killer. |
+| The kill is too far away. | Increase `range` in the structure listener. |
 
-```yaml
-my_recipe:
-  ingredients:
-    kill_mob:
-      type: entitykilled
-      entities:
-        - CREEPER
-        - SPIDER
-      blacklist: false
-```
+## Difference between `killedentity` and `entity`
 
-Only killing **Creeper OR Spider** satisfies this. Other entities don't count.
-
-### Blacklist Mode
-
-```yaml
-my_recipe:
-  ingredients:
-    kill_anything_but_players:
-      type: entitykilled
-      entities:
-        - PLAYER
-        - ARMOR_STAND
-      blacklist: true
-```
-
-Killing **anything EXCEPT Player or Armor Stand** satisfies this. Perfect for "don't kill friendlies" mechanics.
-
-
-## Important Notes
-
-- **Event-based:** This ingredient only triggers when a player kills an entity and the structure listens to "entity death". It's not checked passively.
-- **Multiple recipes:** Multiple recipes can listen to the same entity kill event. ts
+| Ingredient | Meaning | Listener |
+|---|---|---|
+| `entity` | A matching entity is near the structure when crafting is checked. | Usually `interact`. |
+| `killedentity` | The entity that just died matches the configured type. | Requires `entity-death`. |

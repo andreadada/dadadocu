@@ -1,28 +1,29 @@
 ---
-sidebar_position: 2
+sidebar_position: 5
 title: Create Your First Structure
 ---
 
 # Create Your First Structure
 
-Welcome! In this tutorial, we will build a very simple **Magic Altar**. It will be a flat, 3x3 structure. When a player completes it and interacts with the center, it will send them a congratulatory message and launch some fireworks.
+This tutorial creates a simple 3x3 altar called `magic_altar`.
 
-By the end of this guide, you will understand the basics of creating and loading any structure.
+When a player builds it and activates the center block, Structory will recognize the structure, send a message, and launch fireworks.
 
----
+## Step 1: Create the file
 
-## Step 1: Create the File
+Open:
 
-All structures are loaded from the `structures` folder. 
-Navigate to your plugin's `structures` folder and create a new file named `magic_altar.yml`.
+```text
+plugins/Structory/structures/
+```
 
-Open the file in your favorite text editor (like VSCode or Notepad++).
+Create a new file:
 
----
+```text
+magic_altar.yml
+```
 
-## Step 2: The Basics
-
-Let's start by defining the core properties of our structure. Copy and paste this into your new file:
+## Step 2: Add the base structure
 
 ```yaml
 magic_altar:
@@ -31,18 +32,18 @@ magic_altar:
   orientation: false
 ```
 
-* **`magic_altar:`** This is the unique internal key for your structure.
-* **`name:`** The display name.
-* **`check-block:`** The block the player must `Shift + Right Click` to activate it. We are using a Diamond Block.
-* **`orientation: false`** Our altar will be symmetric, so the direction the player builds it doesn't matter.
+Explanation:
 
----
+| Field | Meaning |
+|---|---|
+| `magic_altar` | Internal structure key. Use lowercase names without spaces. |
+| `name` | Display name used in messages and GUIs. |
+| `check-block` | The block players must `Shift + Right Click` to create the structure. |
+| `orientation` | `false` means the structure can face any direction. |
 
-## Step 3: Draw the Blueprint (Layout)
+## Step 3: Add the layout
 
-Now we need to tell the plugin what the structure looks like. We will do this using the `layout` section.
-
-Add this right below the basics:
+The layout is the shape players must build.
 
 ```yaml
   layout:
@@ -60,21 +61,19 @@ Add this right below the basics:
             - "G*G"
 ```
 
-### What did we just do?
-* **`level: 0`**: We are building on the ground level (no underground or raised blocks for now).
-* **`types`**: We created a legend. `D` stands for a Diamond Block, and `G` stands for a Gold Block.
-* **`main`**: This is the 3x3 grid!
-    * The corners are Gold Blocks (`G`).
-    * The center is our Diamond Block (`D`), which is also our `check-block`.
-    * The `*` symbol represents any ignored block (or air), so players don't have to fill those spots.
+This creates a flat 3x3 structure:
 
----
+```text
+G * G
+* D *
+G * G
+```
 
-## Step 4: Add Some Magic (Options)
+`G` means `GOLD_BLOCK`, `D` means `DIAMOND_BLOCK`, and `*` means the position is ignored.
 
-A structure isn't very fun if nothing happens when you build it! Let's use the `options` section to add a chat message and some fireworks.
+## Step 4: Add options
 
-Add this section below `orientation` (and above `layout`):
+Options define what the structure does.
 
 ```yaml
   options:
@@ -86,11 +85,9 @@ Add this section below `orientation` (and above `layout`):
       power: 2
 ```
 
----
+This sends a message and launches three random fireworks.
 
-## The Complete Code
-
-If you followed the steps, your `magic_altar.yml` file should look exactly like this:
+## Complete file
 
 ```yaml
 magic_altar:
@@ -119,18 +116,20 @@ magic_altar:
             - "G*G"
 ```
 
-Save your file!
+## Step 5: Load and test
 
----
+1. Save the file.
+2. Restart the server or run `/structory reload`.
+3. In-game, place four gold blocks in the corners and one diamond block in the center.
+4. Sneak and right-click the diamond block.
 
-## Step 5: Test it In-Game!
+If the structure is valid, Structory creates the structure instance and runs the configured options.
 
-1. Restart your server or reload the plugin to load your new `magic_altar.yml` file.
-2. Go in-game and grab **4 Gold Blocks** and **1 Diamond Block**.
-3. Place them on the ground to match the 3x3 shape: Gold in the corners, Diamond in the exact center.
-4. **Sneak (`Shift`) and Right-Click** the Diamond Block in the center.
+## Common mistakes
 
-*Boom!* If you built it correctly, you should see your chat message and fireworks going off in the sky!
-
-🎉 **Congratulations! You have successfully created your first structure!**
-```
+| Problem | Fix |
+|---|---|
+| Nothing happens when clicking | Make sure you are sneaking and clicking the exact `check-block`. |
+| Structure is not detected | Check that the layout matches exactly. |
+| YAML error in console | Check indentation and remove tabs. |
+| Fireworks or message not working | Make sure `options` is aligned at the same level as `layout`. |

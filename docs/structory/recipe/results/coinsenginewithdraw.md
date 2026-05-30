@@ -1,18 +1,31 @@
 ---
-sidebar_position: 1
-title: CoinsEngineWithdraw
+sidebar_position: 10
+title: CoinsEngine Withdraw Result - Premium
 ---
 
-Used for CoinsEngine's currencies
+# CoinsEngine Withdraw Result
 
-Key: `cewithdraw`
+The `cewithdraw` result removes a CoinsEngine currency amount from the player.
 
-Used to withdraw money from a player's currency
+This result requires CoinsEngine.
 
+## Example
 
-## Result Configuration Fields
+```yaml
+result:
+  coins:
+    type: cewithdraw
+    currency: tokens
+    value: 5
+```
 
-| Field      | Type   | Description            | Default  |
-|------------|--------|------------------------|----------|
-| `value`    | Double | The amount to withdraw | required |
-| `currency` | String | The currency's id      | required |
+## Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `currency` | Text | CoinsEngine currency ID. |
+| `value` | Number | Amount to withdraw. |
+
+## Warning
+
+Use this result carefully. For crafting costs, prefer a `coinsengine` ingredient with `consume: true`.

@@ -3,6 +3,6 @@
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "Check the options that let you customize a structure's behavior"
+    "description": "Configure what a structure does after it is created or used."
   }
 }

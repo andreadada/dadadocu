@@ -3,45 +3,68 @@ sidebar_position: 2
 title: Notify Option
 ---
 
-# 📢 Notify Option
+# Notify Option
 
-## What is the Notify Option?
+The `notify` option sends feedback to the player when the structure is created.
 
-The `notify` option lets you send messages or visual notifications to the player when a structure is created. You can display chat messages, action bar text, and even titles with fade effects.
+It can send:
 
-This is useful for giving feedback, storytelling, or simply making your structures feel more interactive and alive.
+- chat messages;
+- titles;
+- subtitles;
+- action bars.
 
----
-
-## 🛠️ YAML Configuration Example
+## Basic example
 
 ```yaml
 options:
   notify:
-    message: "<yellow>You have created the &e{structure}"
-    actionbar: "<yellow>Structure activated!"
-    title: "<yellow>Welcome to the altar"
-    subtitle: "<yellow>Let the ritual begin"
-    duration: 40
-    fade_in: 10
-    fade_out: 10
+    message: "<white>You have created <yellow>%structure%<white>!"
 ```
----
 
-## 🔍 Field Explanation
+## Full example
 
-| Field       | Description                                      |
-|-------------|--------------------------------------------------|
-| `message`   | Chat message sent to the player                  |
-| `actionbar` | Text shown in the action bar (above hotbar)      |
-| `title`     | Title text shown in the center of the screen     |
-| `subtitle`  | Subtitle text shown below the title              |
-| `duration`  | How long the title stays visible (in ticks)      |
-| `fade_in`   | Fade-in duration for the title (in ticks)        |
-| `fade_out`  | Fade-out duration for the title (in ticks)       |
+```yaml
+options:
+  notify:
+    message: "<white>You have created <yellow>%structure%<white>!"
+    title: "<gold>Structure created"
+    subtitle: "<gray>Your altar is ready"
+    actionbar: "<green>Ready to use"
+    duration: 60
+    fade_in: 10
+    fade_out: 20
+```
 
----
+## Fields
 
-# ✅ When Does It Trigger?
-Notifies are automatically sent when the structure is created.
+| Field | Type | Description |
+|---|---|---|
+| `message` | Text | Sends a chat message. |
+| `title` | Text | Shows a title on screen. |
+| `subtitle` | Text | Shows a subtitle below the title. |
+| `actionbar` | Text | Shows a message above the hotbar. |
+| `duration` | Number | How long the title remains visible. |
+| `fade_in` | Number | Title fade-in time. |
+| `fade_out` | Number | Title fade-out time. |
 
+## Formatting
+
+Messages support MiniMessage-style tags, for example:
+
+```yaml
+message: "<white>You have created <light_purple>%structure%"
+```
+
+## Placeholders
+
+Common placeholders include:
+
+| Placeholder | Meaning |
+|---|---|
+| `%structure%` | Structure key. |
+| `%player%` | Player name when available. |
+| `%world%` | World name when available. |
+| `%center_x%` | Structure center X coordinate. |
+| `%center_y%` | Structure center Y coordinate. |
+| `%center_z%` | Structure center Z coordinate. |

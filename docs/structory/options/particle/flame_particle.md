@@ -1,45 +1,58 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 title: Flame Particle
 ---
 
-# 🔥 Flame Particle
+# Flame Particle
 
-The `FLAME` is a visual effect that displays flame-like particles around your structure. It’s perfect for altars, magical objects, or anything that needs a fiery touch.
+The `flame` decoration plays a small random spread of another particle decoration.
 
-This particle is part of the `Particle Option` configuration and is activated automatically when the structure is created.
+It is useful for fire, magic, soul flame, and forge effects.
 
----
+## Example
 
-## ✨ What It Looks Like
+```yaml
+type: flame
+amount: 10
+center-offset: "0 0.5 0"
+particle:
+  type: particle
+  particle: SOUL_FIRE_FLAME
+  amount: 1
+  speed: 0.05
+```
 
-Burst of particles
+## Fields
 
----
+| Field | Description |
+|---|---|
+| `amount` | Number of spread particles. |
+| `center-offset` | Offset from the base location. |
+| `particle` | Decoration spawned by the flame effect. |
 
-## 🛠️ YAML Configuration
+## Crafting consume example
 
 ```yaml
 options:
-  particle:
-    type: FLAME
-    center-offset: "0 1 0"
-    amount: 20
-    particle: FLAME
-    count: 5
-    speed: 0.1
+  crafting:
+    consume:
+      type: flame
+      amount: 10
+      particle:
+        type: particle
+        particle: SOUL_FIRE_FLAME
+        amount: 1
+        speed: 0.05
 ```
 
----
+## Recommended particles
 
-## 🔍 Field Explanation
+Good particles for this decoration include:
 
-| Field           | Description                                      |
-|----------------|--------------------------------------------------|
-| `type`          | Must be `FLAME`                                  |
-| `center-offset` | Position offset from the structure center        |
-| `amount`        | How many times the effect repeats                |
-| `particle`      | The Minecraft particle type (e.g. `FLAME`)       |
-| `count`         | Number of particles per burst                    |
-| `speed`         | Movement speed of the particles                  |
-
+```text
+FLAME
+SOUL_FIRE_FLAME
+CRIT_MAGIC
+ENCHANTMENT_TABLE
+PORTAL
+```

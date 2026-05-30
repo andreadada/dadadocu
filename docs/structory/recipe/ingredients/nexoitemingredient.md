@@ -1,32 +1,47 @@
 ---
-sidebar_position: 1
-title: NexoItem
+sidebar_position: 13
+title: Nexo Item Ingredient - Premium
 ---
 
-Register a Nexo item as ingredient.
+# Nexo Item Ingredient - Premium
 
-ingredient key: `nitem` (alias: `nexo`)
+This ingredient requires a custom item from Nexo.
 
+Required dependency: Nexo.
 
-## Recipe Configuration Fields
+## Type aliases
 
-| Field         | Type                                | Description        | Default     |
-|---------------|-------------------------------------|--------------------|-------------|
-| `key`         | String                              | The Mexo item's Id | required    |
+You can use: `nexo`, `nitem`.
 
+## Basic example
 
-
-<details>
-  <summary>Show YAML example</summary>
-
-```yml
-example_recipe:
-  name: example_recipe
-  ingredients:
-    #....
-    two:
-      type: nitem
-      key: "chargedquartz"
-    #....
+```yaml
+ingredients:
+  custom_item:
+    type: nexo
+    key: "my_custom_item"
 ```
-</details>
+
+## With consume disabled
+
+```yaml
+ingredients:
+  custom_item:
+    type: nexo
+    key: "my_custom_item"
+    consume: false
+```
+
+## Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `key` | Text | Custom item ID from Nexo. |
+| `consume` | Boolean | Whether the item is consumed. |
+| `enchantments` | Section | Optional enchantment checks when supported by the item type. |
+
+## Important notes
+
+- Nexo must be installed and enabled.
+- The `key` must match the item ID used by Nexo.
+- If the item is not detected, check the server console during startup to confirm Structory hooked into Nexo.

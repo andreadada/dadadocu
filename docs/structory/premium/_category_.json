@@ -1,8 +1,8 @@
 {
-  "label": "Premium",
-  "position": 4,
+  "label": "Premium Features",
+  "position": 6,
   "link": {
     "type": "generated-index",
-    "description": "Premium only features"
+    "description": "Features available in the premium version of Structory."
   }
 }
