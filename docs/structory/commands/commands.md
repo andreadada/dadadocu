@@ -65,6 +65,29 @@ Basic flow:
 5. Run `/structory layout create`.
 6. Copy the generated layout into your structure file and adjust it.
 
+
+## Admin GUI commands
+
+The Admin GUI is intended for server owners and trusted staff members.
+
+It helps you inspect saved items, loaded recipes and placed structure instances without manually typing every key.
+
+| Command | Permission | Description |
+|---|---|---|
+| `/structory admin` | `structory.cmd.admin.use` | Opens the main Admin GUI or shows the available admin sections. |
+| `/structory admin item` | `structory.cmd.admin.item` | Opens the saved item admin page. |
+| `/structory admin recipe` | `structory.cmd.admin.recipe` | Opens the recipe admin page. |
+| `/structory admin instance` | `structory.cmd.admin.instance` | Opens the structure instance admin page. |
+
+Recommended wildcard permissions:
+
+| Permission | Description |
+|---|---|
+| `structory.cmd.admin.*` | Gives access to every Admin GUI section. |
+| `structory.*` | Gives full Structory access. Use only for trusted administrators. |
+
+For a complete explanation, see the Admin GUI page.
+
 ## Crate command
 
 This command is part of the premium crate feature.

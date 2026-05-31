@@ -121,3 +121,16 @@ With `open-gui: ALWAYS`, the player can choose which recipe to craft.
 The current build exposes recipe display items through `item-display` and crafting behavior through `open-gui`.
 
 The picker layout itself is handled internally by Structory in the current build. Treat `item-display` as the stable customization point for server administrators.
+
+
+## Difference from the Admin GUI
+
+The Recipe Picker GUI is a player-facing GUI. It appears during crafting when more than one recipe can match the current ingredients.
+
+The Admin GUI is different. It is opened by staff with commands such as:
+
+```text
+/structory admin recipe
+```
+
+Use the Admin GUI to inspect recipes and configuration. Use the Recipe Picker GUI to let players choose what they want to craft.

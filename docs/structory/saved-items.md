@@ -84,3 +84,31 @@ upgrade_token
 ```
 
 Avoid spaces and special characters.
+
+
+## Managing saved items from the Admin GUI
+
+If your build includes the Admin GUI, you can inspect saved items from:
+
+```text
+/structory admin item
+```
+
+This is useful after saving or replacing an item because you can check that Structory loaded it correctly.
+
+The saved item admin page is mainly used to:
+
+- browse registered saved items;
+- check the item icon and name;
+- copy the saved item key;
+- use the key inside recipe files.
+
+Example usage inside a recipe:
+
+```yaml
+ingredients:
+  custom_core:
+    type: saveditem
+    item: strangeapple
+    amount: 1
+```

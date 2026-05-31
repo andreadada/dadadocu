@@ -29,6 +29,7 @@ These sections were missing or too vague before, and I have now documented them 
 - Migration notes for older configuration formats.
 - Better pages for crate, block display, bag, storage, and rebuild.
 - Troubleshooting for listener and recipe matching problems.
+- Admin GUI page with commands, permissions and usage flow.
 
 ## Things I am not documenting as stable yet
 
@@ -133,6 +134,41 @@ These are not wiki-only tasks, but they affect how confidently I can document th
 6. Test storage persistence and the normal player/admin access flow.
 7. Confirm bag checker support for custom block plugins.
 8. Test reload safety after changing recipes, listeners, and dependency hooks.
+
+
+
+## Admin GUI notes to verify before final release
+
+I added the Admin GUI page to the public wiki because the feature is now part of the direction of the plugin, but I still want to verify the final command and permission names directly in the released build before considering the page completely stable.
+
+The page currently documents these intended commands:
+
+```text
+/structory admin
+/structory admin item
+/structory admin recipe
+/structory admin instance
+```
+
+and these intended permissions:
+
+```text
+structory.cmd.admin.use
+structory.cmd.admin.item
+structory.cmd.admin.recipe
+structory.cmd.admin.instance
+structory.cmd.admin.*
+```
+
+Before publishing the final wiki, I should check that the released `plugin.yml`, command tree and tab completer expose the same names. If I change the command names in code, I need to update the wiki immediately.
+
+I also need to do a final in-game pass for the three admin pages:
+
+1. Saved Item Admin GUI: check that saved items are listed correctly and that copyable keys are useful.
+2. Recipe Admin GUI: check that recipes use their configured recipe item and not a generic fallback when `item-display` exists.
+3. Structure Instance Admin GUI: check what information is actually shown and avoid documenting actions that are not implemented yet.
+
+For now I kept the public page focused on safe usage: open the GUI, inspect data, copy keys and debug configuration. I did not document destructive actions such as deleting instances or editing files from the GUI, because I do not want to promise them unless they are definitely implemented and tested.
 
 ## Final test pass before publishing the wiki
 
