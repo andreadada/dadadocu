@@ -2,11 +2,55 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://andreadada.github.io/dadadocu/structory-changelog</id>
     <title>DadaWiki Blog</title>
-    <updated>2026-05-30T00:00:00.000Z</updated>
+    <updated>2026-05-31T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://andreadada.github.io/dadadocu/structory-changelog"/>
     <subtitle>DadaWiki Blog</subtitle>
     <icon>https://andreadada.github.io/dadadocu/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 1.5.0 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.5.0</id>
+        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.5.0"/>
+        <updated>2026-05-31T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Admin]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="admin">Admin<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.5.0#admin" class="hash-link" aria-label="Direct link to Admin" title="Direct link to Admin">​</a></h3>
+<ul>
+<li>Added a new admin system with <code>/structory admin</code></li>
+<li>Added an admin item to inspect and manage structures in-game</li>
+<li>Added admin views for instances, recipes and structures</li>
+<li>Added tab completion for recipes, instances and structures</li>
+<li>Added instance management with owner info, UUID, location, teleport and delete actions</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="recipe-editor">Recipe Editor<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.5.0#recipe-editor" class="hash-link" aria-label="Direct link to Recipe Editor" title="Direct link to Recipe Editor">​</a></h3>
+<ul>
+<li>Added in-game recipe creation and editing</li>
+<li>Added separated editors for ingredients, results and listeners</li>
+<li>Added support for adding, editing, deleting and changing ingredient/result types</li>
+<li>Added listener editing with configurable parameters</li>
+<li>Added recipe display item support using the real recipe item</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="structure-editor">Structure Editor<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.5.0#structure-editor" class="hash-link" aria-label="Direct link to Structure Editor" title="Direct link to Structure Editor">​</a></h3>
+<ul>
+<li>Added in-game structure editor</li>
+<li>Added structure options editor</li>
+<li>Added support for instance-specific option values</li>
+<li>Added safer save behavior that updates only modified values</li>
+<li>Added clearer descriptions for sections, buttons and options</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="effects-and-animations">Effects and Animations<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.5.0#effects-and-animations" class="hash-link" aria-label="Direct link to Effects and Animations" title="Direct link to Effects and Animations">​</a></h3>
+<ul>
+<li>Added structure effect editor</li>
+<li>Added support for editing particles, sounds, flames, box effects and composed decorations</li>
+<li>Added support for structure effect references such as <code>insert</code>, <code>place</code>, <code>take</code>, <code>consume</code>, <code>result</code>, <code>primary</code> and <code>secondary</code></li>
+<li>Added lore explaining when each effect reference is used</li>
+<li>Added animation and strategy editors</li>
+<li>Added support for disabling effects when needed</li>
+</ul>]]></content>
+        <author>
+            <name>Dada</name>
+        </author>
+        <category label="Premium" term="Premium"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 1.4.20 - PREMIUM]]></title>
         <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.20</id>
@@ -325,22 +369,6 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
 <ul>
 <li>Fixed problem with Adventure API on 1.21.10</li>
-</ul>
-<hr>]]></content>
-        <author>
-            <name>Dada</name>
-        </author>
-        <category label="Premium" term="Premium"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release 1.4.2 - PREMIUM]]></title>
-        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.2</id>
-        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.2"/>
-        <updated>2025-12-10T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[New Feature]]></summary>
-        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.2#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
-<ul>
-<li>Added new <code>nexo</code> Ingredient, works like <code>oraxen</code> and <code>craftengine</code></li>
 </ul>
 <hr>]]></content>
         <author>
