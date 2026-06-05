@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbast_docu=self.webpackChunkbast_docu||[]).push([[4001],{571:e=>{e.exports=JSON.parse('{"authors":[{"name":"mrbast","title":"DadaGraves Developer","url":"https://www.spigotmc.org/members/mrbast.610454/","key":"mrbast","page":null,"count":1}]}')}}]);

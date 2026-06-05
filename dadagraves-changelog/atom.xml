@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://andreadada.github.io/dadadocu/dadagraves-changelog</id>
+    <title>DadaWiki Blog</title>
+    <updated>2026-06-05T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://andreadada.github.io/dadadocu/dadagraves-changelog"/>
+    <subtitle>DadaWiki Blog</subtitle>
+    <icon>https://andreadada.github.io/dadadocu/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 1.6.0 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.6.0</id>
+        <link href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.6.0"/>
+        <updated>2026-06-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Newest version compatibility]]></summary>
+        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="newest-version-compatibility">Newest version compatibility<a href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.6.0#newest-version-compatibility" class="hash-link" aria-label="Direct link to Newest version compatibility" title="Direct link to Newest version compatibility">​</a></h3>
+<ul>
+<li>Added support up to Minecraft 26.1.2.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="commands">Commands<a href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.6.0#commands" class="hash-link" aria-label="Direct link to Commands" title="Direct link to Commands">​</a></h3>
+<ul>
+<li>Added <code>/graves graveyard set</code>.</li>
+<li>Added <code>/graves graveyard tp</code>.</li>
+<li>Added tab completion for the new graveyard commands.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="graveyard">Graveyard<a href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.6.0#graveyard" class="hash-link" aria-label="Direct link to Graveyard" title="Direct link to Graveyard">​</a></h3>
+<ul>
+<li>Added the graveyard system.</li>
+<li>When a player respawns after dying, they are teleported to the graveyard if one has been configured.</li>
+<li>If no graveyard is configured, DadaGraves does not change the player's respawn location.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="holograms">Holograms<a href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.6.0#holograms" class="hash-link" aria-label="Direct link to Holograms" title="Direct link to Holograms">​</a></h3>
+<ul>
+<li>Improved hologram cleanup when a gravestone is removed.</li>
+<li>Removed hologram leftovers more reliably when a grave expires or is deleted.</li>
+</ul>]]></content>
+        <author>
+            <name>mrbast</name>
+            <uri>https://www.spigotmc.org/members/mrbast.610454/</uri>
+        </author>
+        <category label="dadagraves" term="dadagraves"/>
+    </entry>
+</feed>

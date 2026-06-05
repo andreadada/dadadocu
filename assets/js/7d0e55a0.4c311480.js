@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbast_docu=self.webpackChunkbast_docu||[]).push([[8266],{3405:a=>{a.exports=JSON.parse('{"metadata":{"permalink":"/dadadocu/dadagraves-changelog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Release notes and updates for DadaGraves.","blogTitle":"DadaGraves Changelog"}}')}}]);
