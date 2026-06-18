@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkbast_docu=self.webpackChunkbast_docu||[]).push([[1360],{5937:a=>{a.exports=JSON.parse('{"tags":[{"label":"dadagraves","permalink":"/dadadocu/dadagraves-changelog/tags/dadagraves","count":1}]}')}}]);

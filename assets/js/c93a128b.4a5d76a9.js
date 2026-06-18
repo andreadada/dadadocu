@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkbast_docu=self.webpackChunkbast_docu||[]).push([[7748],{9433:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Release 1.6.0 - PREMIUM","permalink":"/dadadocu/dadagraves-changelog/release_1.6.0","unlisted":false,"date":"2026-06-05T00:00:00.000Z"}]}')}}]);

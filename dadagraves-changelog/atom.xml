@@ -2,11 +2,48 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://andreadada.github.io/dadadocu/dadagraves-changelog</id>
     <title>DadaWiki Blog</title>
-    <updated>2026-06-05T00:00:00.000Z</updated>
+    <updated>2026-06-18T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://andreadada.github.io/dadadocu/dadagraves-changelog"/>
     <subtitle>DadaWiki Blog</subtitle>
     <icon>https://andreadada.github.io/dadadocu/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 1.7.0 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.7.0</id>
+        <link href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.7.0"/>
+        <updated>2026-06-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This update adds a player-facing Active Gravestones menu and new controls for limiting how many graves a player can keep.]]></summary>
+        <content type="html"><![CDATA[<p>This update adds a player-facing Active Gravestones menu and new controls for limiting how many graves a player can keep.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="active-gravestones-gui">Active Gravestones GUI<a href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.7.0#active-gravestones-gui" class="hash-link" aria-label="Direct link to Active Gravestones GUI" title="Direct link to Active Gravestones GUI">​</a></h3>
+<ul>
+<li>Added <code>/graves history</code>.</li>
+<li>Added a personal GUI button that opens the active gravestones menu.</li>
+<li>The menu shows each active grave with useful information such as location, creation time, decay time, lock time, and stored items.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="history-actions">History actions<a href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.7.0#history-actions" class="hash-link" aria-label="Direct link to History actions" title="Direct link to History actions">​</a></h3>
+<ul>
+<li>Added <code>gravestone.cmd.history</code> for opening the history menu.</li>
+<li>Added <code>gravestone.history.open-distance</code> for opening a grave from the history menu.</li>
+<li>Added <code>gravestone.history.teleport</code> for shift left-click teleport from the history menu.</li>
+<li>History item lore now only shows actions the player is allowed to use.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="grave-limits">Grave limits<a href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.7.0#grave-limits" class="hash-link" aria-label="Direct link to Grave limits" title="Direct link to Grave limits">​</a></h3>
+<ul>
+<li>Added <code>max-graves</code> to permission groups.</li>
+<li>Added <code>max-graves-action</code>.</li>
+<li><code>DROP</code> removes the oldest grave and drops its contents.</li>
+<li><code>DELETE</code> removes the oldest grave together with its contents.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="compatibility">Compatibility<a href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.7.0#compatibility" class="hash-link" aria-label="Direct link to Compatibility" title="Direct link to Compatibility">​</a></h3>
+<ul>
+<li>Updated internal platform and text-formatting libraries for the current release line.</li>
+</ul>]]></content>
+        <author>
+            <name>mrbast</name>
+            <uri>https://www.spigotmc.org/members/mrbast.610454/</uri>
+        </author>
+        <category label="dadagraves" term="dadagraves"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 1.6.0 - PREMIUM]]></title>
         <id>https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.6.0</id>
