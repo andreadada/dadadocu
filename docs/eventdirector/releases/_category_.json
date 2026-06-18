@@ -1,0 +1,8 @@
+{
+  "label": "Releases",
+  "position": 8,
+  "link": {
+    "type": "generated-index",
+    "description": "Release notes and update checklists."
+  }
+}

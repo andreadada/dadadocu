@@ -83,15 +83,24 @@ const config = {
         "@docusaurus/plugin-content-blog",
         /** @type {import('@docusaurus/plugin-content-blog').Options} */
         {
-          id: "structoryChangelog", // Unique ID for this blog instance
-          path: "./structory-changelog", // Path to your developer blog folder
-          routeBasePath: "structory-changelog", // Base URL for these blog posts (e.g., yoursite.com/dev-blog/...)
+          id: "structoryChangelog",
+          path: "./structory-changelog",
+          routeBasePath: "structory-changelog",
           showReadingTime: true,
-          blogTitle: "Developer Blog",
-          blogDescription: "Updates and articles for developers.",
-          // You can add more options specific to this blog, like:
-          // postsPerPage: 5,
-          // feedOptions: { type: 'all' },
+          blogTitle: "Structory Changelog",
+          blogDescription: "Release notes and updates for Structory.",
+        },
+      ],
+      [
+        "@docusaurus/plugin-content-blog",
+        /** @type {import('@docusaurus/plugin-content-blog').Options} */
+        {
+          id: "dadaGravesChangelog",
+          path: "./dadagraves-changelog",
+          routeBasePath: "dadagraves-changelog",
+          showReadingTime: false,
+          blogTitle: "DadaGraves Changelog",
+          blogDescription: "Release notes and updates for DadaGraves.",
         },
       ],
     ],
@@ -123,9 +132,21 @@ const config = {
           },
           {
             type: 'docSidebar',
+            sidebarId: 'dadaProgressionsSidebar',
+            position: 'left',
+            label: 'DadaProgressions',
+          },
+          {
+            type: 'docSidebar',
             sidebarId: 'dadaDndSidebar',
             position: 'left',
             label: 'DND',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'dadaEventDirectorSidebar',
+            position: 'left',
+            label: 'EventDirector'
           }
           /*
           {to: '/blog', label: 'Blog', position: 'left'},
@@ -146,6 +167,14 @@ const config = {
               {
                 label: 'DadaGraves',
                 to: '/docs/dadagraves/intro',
+              },
+              {
+                label: 'DadaProgressions',
+                to: '/docs/dadaprogressions/intro',
+              },
+              {
+                label: 'EventDirector',
+                to: '/docs/eventdirector/intro',
               },
             ],
           },
@@ -172,8 +201,12 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: 'Structory Changelog',
+                to: '/structory-changelog',
+              },
+              {
+                label: 'DadaGraves Changelog',
+                to: '/dadagraves-changelog',
               },
               {
                 label: 'GitHub',

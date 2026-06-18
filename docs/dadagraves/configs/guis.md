@@ -3,88 +3,183 @@ sidebar_position: 3
 title: guis.yml
 ---
 
-# 🖼️ guis.yml Guide
+# guis.yml
 
-The `guis.yml` file defines the layout and behavior of all graphical interfaces used by the plugin. It allows full customization of menus such as gravestone info, decoration selection, and item recovery.
+The `guis.yml` file controls the menus shown to players.
 
-Each GUI is defined under a named section (`personal-gui`, `selector-gui`, `grave`) and includes a `layout` and `ingredients`.
+You can change titles, layouts, filler items, buttons, names, lore, and menu icons without editing the plugin code.
 
----
+## How layouts work
 
-## 🔠 Layout System
+A GUI layout is made of rows of characters. Each character is linked to an item in the `ingredients` section.
 
-The layout is defined using character mapping. Each character corresponds to a specific ingredient type defined in the `ingredients` section.
+Example:
 
-Example layout:
-```
-- "x x x x x x x x x"
-- "x x x x x x x x x"
-- "x x x x x x x x x"
-- "x x x x x x x x x"
-- "# # y y y y y # #"
-- "Q E # # # # # # C"
+```yaml
+layout:
+  - "# # # # # # # # #"
+  - "# S F F F F F C #"
+  - "# # # # # # # # #"
 ```
 
-🧩 Ingredient Types (Overview)
+In this example:
 
-Each ingredient type defines the behavior of a slot in the GUI. These are parsed internally and linked to specific logic:
+- `#` is the border.
+- `S` is the selected decoration button.
+- `H` can be used for the active gravestones button.
+- `F` is filler glass.
+- `C` is the close button.
 
-**Common Types**
+Every character used in the layout should have a matching ingredient.
 
-- `Item`: Static visual item (e.g. border or filler). Uses `DadaItemBuilder` to define material, name, and lore.
-- `close`: Closes the GUI. Uses a `CloseItem` object with optional lore and styling.
+## Common item fields
 
----
+Most GUI items support fields like these:
 
-## 🧍 Section: `personal-gui`
+```yaml
+item:
+  material: BLACK_STAINED_GLASS_PANE
+  name: ""
+  lore: "<gray>Example lore"
+```
 
-This section configures the interface shown to players when viewing their gravestone info.
+Common fields:
 
-**Ingredient types:**
-- `Selected`: Highlights the current decoration
-- `Item`: Used for borders and fillers
+| Field | Description |
+| --- | --- |
+| `material` | Minecraft material used as the icon. |
+| `name` | Display name of the item. |
+| `lore` | Text shown under the item name. Use `<br>` for new lines. |
 
-Supports dynamic lore with `%decoration%` and conditional formatting.
+## Main GUI sections
 
----
+### `personal-gui`
 
-## 🧩 Section: `selector-gui`
+This is the menu opened by:
 
-Used to let players browse and select available decorations.
+```text
+/graves
+```
 
+It shows the player's current decoration and lets them open the decoration selector.
 
-**Ingredient types:**
-- `Item`: For borders and background
-- `Back`, `Forward`: For page navigation
+Useful placeholders:
 
-**Placeholders:**
-- `%decoration%`: Decoration name
-- `%currentpage%`, `%maxpage%`: Pagination info
+| Placeholder | Meaning |
+| --- | --- |
+| `%decoration%` | The name of the selected decoration. |
 
----
+Common ingredient types:
 
-## ⚰️ Section: `grave`
+| Type | Purpose |
+| --- | --- |
+| `Selected` | Shows the selected decoration. |
+| `History` | Opens the player's Active Gravestones GUI. |
+| `Item` | Static item, usually border or filler. |
+| `Close` | Closes the menu. |
 
-This GUI is shown when a player interacts with their gravestone. It allows them to recover items, XP, and view decorations.
+Example history button:
 
-**Ingredient types:**
-- `QuickAccess`: Retrieves all stored items. Supports `empty-item` fallback and updates GUI state.
-- `xp`: Retrieves stored experience. Also supports empty fallback and GUI updates.
-- `Item`: Used for borders
+```yaml
+history:
+  char: 'H'
+  type: History
+  item:
+    material: MAP
+    name: "<gold>Active Gravestones"
+    lore: "<br><gray>Click to view your active gravestones"
+```
 
-**Behavior Notes**
+### `selector-gui`
 
-- `QuickAccess` and `xp` support left-click and right-click actions:
-  - Left-click: Take all
-  - Right-click: Drop everything
-- GUI updates are handled via internal lists (`updategui`) to refresh content dynamically.
-- `%owner%` placeholder is available in the GUI title.
+This is the decoration selection menu.
 
----
+Players use this menu to browse available decorations and choose one.
 
-## 🧱 Default Items
+Useful placeholders:
 
-Defined at the top level of `guis.yml`:
+| Placeholder | Meaning |
+| --- | --- |
+| `%decoration%` | Decoration name. |
+| `%currentpage%` | Current page number. |
+| `%maxpage%` | Last page number. |
+
+Common ingredient types:
+
+| Type | Purpose |
+| --- | --- |
+| `Back` | Previous page button. |
+| `Forward` | Next page button. |
+| `Item` | Static item, usually border or filler. |
+| `Close` | Closes the menu. |
+
+### `grave`
+
+This is the menu opened when a player interacts with a grave.
+
+It lets the player recover items and experience.
+
+Useful placeholders:
+
+| Placeholder | Meaning |
+| --- | --- |
+| `%owner%` | Name of the player who owns the grave. |
+
+Common ingredient types:
+
+| Type | Purpose |
+| --- | --- |
+| `QuickAccess` | Takes or drops the stored items. |
+| `XP` | Takes or drops the stored experience. |
+| `Item` | Static item, usually border or filler. |
+| `Close` | Closes the menu. |
+
+## Grave item recovery behavior
+
+In the default grave GUI:
+
+- Left-click on `QuickAccess` takes all stored items.
+- Right-click on `QuickAccess` drops the stored items on the ground.
+- Left-click on `XP` takes the stored experience.
+- Right-click on `XP` drops the stored experience.
+
+If there is not enough space in the player inventory, extra items are dropped instead of being lost.
+
+### `grave-history`
+
+This is the Active Gravestones menu opened by:
+
+```text
+/graves history
+```
+
+It can also be opened from the personal GUI if you keep the `History` button enabled.
+
+Each grave item can show:
+
+| Placeholder | Meaning |
+| --- | --- |
+| `%index%` | Grave number in the list. |
+| `%owner%` | Grave owner. |
+| `%world%` | Grave world. |
+| `%x%`, `%y%`, `%z%` | Grave block coordinates. |
+| `%created%` | When the grave was created. |
+| `%timeleft%` | Remaining time before the grave expires. |
+| `%lock%` | Remaining lock time. |
+| `%items%` | Total item amount. |
+| `%stacks%` | Stack count. |
+| `%actions%` | Permission-based action hints. |
+
+`%actions%` is useful because the lore changes depending on permissions.
+
+- Players with `gravestone.history.open-distance` see `Click to open`.
+- Players with `gravestone.history.teleport` see `Shift Left-Click to teleport`.
+
+If a player does not have those permissions, those action lines are not shown.
+
+## Default fallback items
+
+At the top of `guis.yml`, you can set fallback icons:
 
 ```yaml
 default-decoration-item:
@@ -94,15 +189,12 @@ default-not-unlocked-item:
   material: GRAY_STAINED_GLASS_PANE
 ```
 
-Used as fallback visuals when no decoration is selected or when a decoration is locked.
+These are used when a decoration has no custom display item or when a decoration is locked.
 
----
+## Editing tips
 
-## 📝 Tips for Beginners
-
-- Every character in the layout must be defined in `ingredients`, or it will be ignored.
-- Use `<gold>`, `<gray>`, `<br>` for styled text and lore.
-- If you're unsure what a type does, start with `Item` and `close`, then experiment with `selected`, `back`, `forward`, `QuickAccess`, and `xp`.
-- You can preview GUI behavior by testing with a single slot and expanding gradually.
-
----
+- Keep each layout row at 9 slots.
+- Use simple materials when testing.
+- Change one menu at a time.
+- If a menu does not open after editing, check the server console for YAML formatting errors.
+- Do not use tabs in YAML files. Use spaces only.

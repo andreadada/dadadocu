@@ -1,25 +1,33 @@
 ---
-sidebar_position: 4
+sidebar_position: 5
 title: Decorations
 ---
 
-# 🪦 Decorations Guide
+# Decorations
 
-Decorations are visual elements that players can choose to represent their gravestone. Each decoration is a named structure composed of multiple visual components, such as blocks, items, text, or player heads.
+Decorations are the visual styles players can choose for their graves.
 
+Each decoration is stored as a YAML file inside the `decorations/` folder. The plugin loads these files when the server starts.
 
-All decoration files are automatically loaded from the `/decorations` directory when the plugin starts. You can add, remove, or modify decorations simply by editing the files in that folder—no manual registration needed.
+## What a decoration can contain
 
----
+A decoration can be made from one or more visual parts:
 
-## 🧱 Structure of a Decoration
+- display block models
+- player heads
+- the item the player was holding
+- floating text
 
-Each decoration is defined by a unique key and contains one or more components. Here's an example:
+Modern display features are used when the server supports them. If the server does not support modern display entities, the plugin falls back where possible so the grave can still work.
+
+## Basic decoration example
 
 ```yaml
 base_gravestone:
   base: true
   name: "Gravestone"
+  display-item:
+    material: PAPER
   decorations:
     one:
       type: displayblock
@@ -35,53 +43,88 @@ base_gravestone:
       offset: "0.0 -0.2 0.0"
 ```
 
-### 🔍 Explanation
+## Main fields
 
-- `base_gravestone`: Unique ID of the decoration
-- `base: true`: Nothing to worry about now
-- `name`: Display name shown in GUIs
-- `decorations`: List of components that make up the decoration
+| Field | Description |
+| --- | --- |
+| Decoration id | The top-level name, for example `base_gravestone`. Must be unique. |
+| `base` | Marks a built-in or base decoration. |
+| `name` | Name shown to players in the GUI. |
+| `display-item` | Icon shown in the decoration selector. |
+| `permission` | Optional permission required to use this decoration. |
+| `decorations` | The visual parts that make up the decoration. |
 
-Each component (`one`, `two`, `three`, etc.) defines a visual element with a specific `type`.
+## Display item
 
----
+The `display-item` is the icon players see in the decoration selector.
 
-## 🎨 Available Component Types
+Example:
 
-Each decoration can include one or more of the following types:
+```yaml
+display-item:
+  material: CHEST
+```
 
-### 🧱 `displayblock`
+If no display item is set, the plugin uses the default item from `guis.yml`.
 
-Displays a block at the gravestone location.
+## Decoration permission
+
+You can lock a decoration behind a permission.
+
+Example:
+
+```yaml
+permission: gravestone.decorate.vip
+```
+
+Only players with that permission can select the decoration.
+
+If no permission is set, the decoration is available normally.
+
+## Component types
+
+### `displayblock`
+
+Shows a custom display model from the `blockdisplay/` folder.
 
 ```yaml
 type: displayblock
 key: gravestone
 ```
 
-- `key`: Refers to a predefined block model or asset
+`key` must match a model file name without `.json`.
 
-### 🪙 `helditem`
+Example:
 
-Displays the held item of the player
-
-```yaml
-type: helditem
+```text
+blockdisplay/gravestone.json
 ```
 
-### 🧑 `playerhead`
+is used with:
 
-Displays the player’s head.
+```yaml
+key: gravestone
+```
+
+### `playerhead`
+
+Shows the head of the player who died.
 
 ```yaml
 type: playerhead
 ```
 
-- Automatically uses the skin of the player who died
+### `helditem`
 
-### 📝 `textdisplay`
+Shows the item the player was holding.
 
-Displays floating text near the gravestone.
+```yaml
+type: helditem
+```
+
+### `textdisplay`
+
+Shows floating text as part of the decoration.
 
 ```yaml
 type: textdisplay
@@ -91,18 +134,30 @@ scale: 0.8
 offset: "0.0 -0.2 0.0"
 ```
 
-- `text`: Can include placeholders like `%player%`
-- `yaw`: Rotation angle
-- `scale`: Size of the text
-- `offset`: Position relative to the gravestone (`x y z`)
+Fields:
 
----
+| Field | Description |
+| --- | --- |
+| `text` | Text to show. Supports `%player%`. |
+| `yaw` | Rotation. |
+| `scale` | Text size. |
+| `offset` | Position from the grave location, written as `x y z`. |
 
-## 🧩 Notes for Beginners
+## Included decorations
 
-- You can define as many decorations as you want, each with a unique name
-- Decorations are selectable via the GUI (`selector-gui`)
-- `%player%` is a placeholder that shows the name of the deceased player
-- Make sure each `key` used in `displayblock` or `helditem` refers to a valid asset or material
+The default setup includes examples such as:
 
----
+- `base_player_head`
+- `base_gravestone`
+- `base_chest`
+- `base_chicken`
+
+You can use them as templates for your own decorations.
+
+## Tips
+
+- Use a unique id for each decoration.
+- Start by copying an existing decoration and changing one thing at a time.
+- Make sure every `displayblock` key exists in the `blockdisplay/` folder.
+- If a decoration does not appear, check the server console for a YAML error or an invalid material.
+- Avoid using very large models on busy servers.
