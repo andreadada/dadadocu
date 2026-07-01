@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>DadaWiki Blog</title>
+        <link>https://andreadada.github.io/dadadocu/dadaprogressions-changelog</link>
+        <description>DadaWiki Blog</description>
+        <lastBuildDate>Wed, 01 Jul 2026 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[DadaProgressions Beta 26.1]]></title>
+            <link>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.1</link>
+            <guid>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.1</guid>
+            <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Beta 26.1 makes goals much more flexible and improves how progress notifications are delivered during busy sessions.]]></description>
+            <content:encoded><![CDATA[<p>Beta 26.1 makes goals much more flexible and improves how progress notifications are delivered during busy sessions.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="modular-goals">Modular goals<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.1#modular-goals" class="hash-link" aria-label="Direct link to Modular goals" title="Direct link to Modular goals">​</a></h2>
+<p>Goals can now contain multiple criteria joined with <code>AND</code> or <code>OR</code>. Each criterion keeps its own progress, so a goal can ask players to complete several different tasks or let them choose between alternatives.</p>
+<p>Filters are available for materials, entities, worlds, game modes, permissions, commands, damage causes, and player attribution. Point rules can also assign fixed values or multipliers to specific actions.</p>
+<p>Existing single-type goals continue to work without changes.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="goal-chains">Goal chains<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.1#goal-chains" class="hash-link" aria-label="Direct link to Goal chains" title="Direct link to Goal chains">​</a></h2>
+<p>Goals can depend on other goals. A prerequisite may require the player to have completed a goal during the current period or at any point in the past.</p>
+<p>Invalid chains, missing prerequisites, and circular dependencies are reported when goals are loaded.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="new-community-goal-examples">New community goal examples<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.1#new-community-goal-examples" class="hash-link" aria-label="Direct link to New community goal examples" title="Direct link to New community goal examples">​</a></h2>
+<p>The default configuration now includes four examples built with the modular goal engine:</p>
+<ul>
+<li><code>community_daily_supply_run</code></li>
+<li><code>community_weekly_beast_cleanup</code></li>
+<li><code>community_weekly_breeding_festival</code></li>
+<li><code>community_monthly_monument_project</code></li>
+</ul>
+<p>Animal breeding is now tracked automatically, including attribution for older server versions.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="clearer-goal-list">Clearer goal list<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.1#clearer-goal-list" class="hash-link" aria-label="Direct link to Clearer goal list" title="Direct link to Clearer goal list">​</a></h2>
+<p>Goal entries now show a short description of the actual objective. Their lore supports live progress and target placeholders, while the more technical details remain in the individual goal view.</p>
+<p>Extended state lore is hidden by default. It can be restored with <code>gui.list.goal-item.show-state-lore</code>.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="notification-queues">Notification queues<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.1#notification-queues" class="hash-link" aria-label="Direct link to Notification queues" title="Direct link to Notification queues">​</a></h2>
+<p>Chat, action bar, title, and boss bar notifications now use separate queues. Repeated updates for the same goal are combined, preserving the starting value and total progress gained instead of filling the screen with one message per action.</p>
+<p>Queue timing, size, and channel limits can be configured globally, for a specific event, or for an individual goal.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="chat-batching">Chat batching<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.1#chat-batching" class="hash-link" aria-label="Direct link to Chat batching" title="Direct link to Chat batching">​</a></h2>
+<p>Updates from several goals can be grouped into a single chat message while keeping their original order. The separator and maximum number of entries are configurable; setting <code>chat-batch.max-entries</code> to <code>0</code> includes every pending entry.</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Daily Builder: 35 -&gt; 45/128 (+10) | Community Weekly Build: 40 -&gt; 50/5000 (+10)</span><br></span></code></pre></div></div>
+<p>Chat batching is enabled by default and can be overridden globally, per event, or per goal.</p>]]></content:encoded>
+            <category>dadaprogressions</category>
+        </item>
+    </channel>
+</rss>

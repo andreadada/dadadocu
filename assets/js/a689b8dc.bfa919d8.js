@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbast_docu=self.webpackChunkbast_docu||[]).push([[918],{60521:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"DadaProgressions Beta 26.1","permalink":"/dadadocu/dadaprogressions-changelog/beta-26.1","unlisted":false,"date":"2026-07-01T00:00:00.000Z"}]}')}}]);
