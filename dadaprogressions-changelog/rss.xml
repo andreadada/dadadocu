@@ -13,30 +13,30 @@
             <link>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.2</link>
             <guid>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.2</guid>
             <pubDate>Sat, 04 Jul 2026 00:00:00 GMT</pubDate>
-            <description><![CDATA[Beta 26.2 adds a complete visual goal-editing workflow, makes configuration reloads transactional, and updates the bundled platform runtime.]]></description>
-            <content:encoded><![CDATA[<p>Beta 26.2 adds a complete visual goal-editing workflow, makes configuration reloads transactional, and updates the bundled platform runtime.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="visual-goal-editor">Visual goal editor<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.2#visual-goal-editor" class="hash-link" aria-label="Direct link to Visual goal editor" title="Direct link to Visual goal editor">​</a></h2>
-<p><code>/dp admin editor</code> now opens a hierarchical editor for goals, composite criteria, modular filters, and prerequisite chains.</p>
+            <description><![CDATA[Beta 26.2 is mainly focused on making goal management easier and safer for server owners.]]></description>
+            <content:encoded><![CDATA[<p>Beta 26.2 is mainly focused on making goal management easier and safer for server owners.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="a-better-goal-editor">A better goal editor<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.2#a-better-goal-editor" class="hash-link" aria-label="Direct link to A better goal editor" title="Direct link to A better goal editor">​</a></h2>
+<p>The <code>/dp admin editor</code> menu has been expanded quite a bit. You can now manage most parts of a goal without having to edit the YAML by hand.</p>
 <ul>
-<li>Rename, duplicate, enable, disable, or safely delete a goal.</li>
-<li>Change scope, period, event type, exact criterion targets, and the root <code>AND</code>/<code>OR</code> operator.</li>
-<li>Add or remove composite criteria.</li>
-<li>Add, edit, or remove global and per-criterion filters.</li>
-<li>Select achievement prerequisites and switch between <code>ALL</code> and <code>ANY</code> modes.</li>
+<li>Rename, duplicate, enable, disable, or delete goals.</li>
+<li>Change the scope, period, event type, and target.</li>
+<li>Add and remove criteria from composite goals.</li>
+<li>Configure global filters or filters for a specific criterion.</li>
+<li>Switch composite goals between <code>AND</code> and <code>OR</code>.</li>
+<li>Add prerequisites and choose between <code>ALL</code> and <code>ANY</code>.</li>
 </ul>
-<p>Numeric fields use an in-GUI keypad. Materials, entities, worlds, game modes, damage causes, attribution values, and prerequisite goals use paginated selectors. Private chat remains available for free-form or custom values.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="safe-writes-validation-and-reload">Safe writes, validation, and reload<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.2#safe-writes-validation-and-reload" class="hash-link" aria-label="Direct link to Safe writes, validation, and reload" title="Direct link to Safe writes, validation, and reload">​</a></h2>
-<p>Every visual edit is written atomically and checked against the complete goal set. If validation fails, DadaProgressions restores both the previous file and the previous runtime registry.</p>
-<p><code>/dp admin validate</code> now re-reads every goal file without applying the candidate configuration. <code>/dp admin reload</code> is transactional: one invalid goal cannot replace a working runtime setup with a partial registry.</p>
-<p>Validation reports malformed YAML, invalid and duplicate IDs, incompatible filters and values, missing prerequisites, missing tiers, and prerequisite cycles.</p>
+<p>Targets can be entered with a small in-game keypad. Materials, entities, worlds, game modes, damage causes, attribution values, and prerequisite goals have their own paginated selection menus. Chat input is still available when you need to enter a custom value.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="safer-editing-and-reloads">Safer editing and reloads<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.2#safer-editing-and-reloads" class="hash-link" aria-label="Direct link to Safer editing and reloads" title="Direct link to Safer editing and reloads">​</a></h2>
+<p>Changes made through the editor are validated before they are kept. If something is wrong, the plugin restores the previous file and keeps the working goals loaded.</p>
+<p><code>/dp admin validate</code> checks the goal files without applying them. <code>/dp admin reload</code> also keeps the current configuration active when one of the new files contains an error.</p>
+<p>The validation report now covers malformed YAML, duplicate or invalid IDs, unsupported filter values, missing prerequisites, missing tiers, and circular prerequisite chains.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="dadaplatform-262">DadaPlatform 26.2<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.2#dadaplatform-262" class="hash-link" aria-label="Direct link to DadaPlatform 26.2" title="Direct link to DadaPlatform 26.2">​</a></h2>
-<p>The shaded runtime has been updated from DadaPlatform 26.0 to 26.2, updating the shared API used for chat, action bars, and MiniMessage formatting while preserving safe legacy fallbacks.</p>
-<p>The platform runtime includes Folia-aware messaging and scheduler primitives. DadaProgressions Beta 26.2 does not yet declare full Folia support, because its recurring progression and storage tasks still use Bukkit scheduler APIs.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="integration-notes">Integration notes<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.2#integration-notes" class="hash-link" aria-label="Direct link to Integration notes" title="Direct link to Integration notes">​</a></h2>
-<p>The Maven API version is now <code>beta-26.2</code>. Integrations use <code>com.dadaprogressions:dadaprogressions-api</code> and the <code>com.dadaprogressions.api.DadaProgressionsApi</code> Bukkit service.</p>
-<p>Composite goals can be updated through <code>addCriterionProgress(goalId, criterionId, player, amount)</code> or its UUID overload. Existing simple-goal integrations can continue using <code>addProgress</code>.</p>
-<p>Install only <code>DadaProgressions-beta-26.2.jar</code> on the server. The API artifact belongs on an integration plugin's compile classpath with <code>provided</code> scope and must not be installed as a standalone plugin.</p>
-<p>The release jar remains verified as Java 8 bytecode. The server must still run on the Java version required by its Minecraft/Spigot/Paper release.</p>]]></content:encoded>
+<p>DadaPlatform has been updated from 26.0 to 26.2. This update improves the shared handling of chat messages, action bars, and MiniMessage formatting while keeping the fallbacks used by older servers.</p>
+<p>Some groundwork for Folia is included in the platform layer, but DadaProgressions does not claim full Folia support yet.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="updating">Updating<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.2#updating" class="hash-link" aria-label="Direct link to Updating" title="Direct link to Updating">​</a></h2>
+<p>Stop the server, replace the old plugin with <code>DadaProgressions-beta-26.2.jar</code>, and start it again. Your existing simple goals do not need to be changed.</p>
+<p>As always, make a backup first and run <code>/dp admin validate</code> after updating.</p>
+<p>The plugin jar is still built for Java 8. Your server may require a newer Java version depending on the Minecraft version you are running.</p>]]></content:encoded>
             <category>dadaprogressions</category>
         </item>
         <item>
