@@ -2,45 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://andreadada.github.io/dadadocu/dadaprogressions-changelog</id>
     <title>DadaWiki Blog</title>
-    <updated>2026-07-04T00:00:00.000Z</updated>
+    <updated>2026-07-08T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog"/>
     <subtitle>DadaWiki Blog</subtitle>
     <icon>https://andreadada.github.io/dadadocu/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[DadaProgressions Beta 26.2]]></title>
-        <id>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.2</id>
-        <link href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.2"/>
-        <updated>2026-07-04T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Beta 26.2 is mainly focused on making goal management easier and safer for server owners.]]></summary>
-        <content type="html"><![CDATA[<p>Beta 26.2 is mainly focused on making goal management easier and safer for server owners.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="a-better-goal-editor">A better goal editor<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.2#a-better-goal-editor" class="hash-link" aria-label="Direct link to A better goal editor" title="Direct link to A better goal editor">​</a></h2>
-<p>The <code>/dp admin editor</code> menu has been expanded quite a bit. You can now manage most parts of a goal without having to edit the YAML by hand.</p>
+        <title type="html"><![CDATA[DadaProgressions Beta 26.3]]></title>
+        <id>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/2026/07/08/beta-26.3</id>
+        <link href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/2026/07/08/beta-26.3"/>
+        <updated>2026-07-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[This update finishes the point-rule workflow. The calculation system was already flexible, but configuring and checking a long rule list still meant spending too much time in YAML. Beta 26.3 makes that part visible in the editor and much easier to diagnose on a live server.]]></summary>
+        <content type="html"><![CDATA[<p>This update finishes the point-rule workflow. The calculation system was already flexible, but configuring and checking a long rule list still meant spending too much time in YAML. Beta 26.3 makes that part visible in the editor and much easier to diagnose on a live server.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="point-rules">Point rules<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/2026/07/08/beta-26.3#point-rules" class="hash-link" aria-label="Direct link to Point rules" title="Direct link to Point rules">​</a></h2>
+<p>Every point rule can now choose how its own conditions are combined:</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">points</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">base</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">rules</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token punctuation" style="color:#393A34">-</span><span class="token plain"> </span><span class="token key atrule" style="color:#00a4db">when-mode</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> ALL</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">when</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token key atrule" style="color:#00a4db">material</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">[</span><span class="token plain">DIAMOND_ORE</span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">        </span><span class="token key atrule" style="color:#00a4db">world</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">[</span><span class="token plain">survival</span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">set</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">10</span><br></span></code></pre></div></div>
+<p><code>ALL</code> requires every condition in that rule. <code>ANY</code> accepts it as soon as one condition passes. This setting is local to the point rule; the goal or criterion keeps its own independent <code>filter-mode</code>.</p>
+<p>Rules are still evaluated from top to bottom and the first match wins. If none match, the configured base amount is left unchanged.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="visual-editor">Visual editor<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/2026/07/08/beta-26.3#visual-editor" class="hash-link" aria-label="Direct link to Visual editor" title="Direct link to Visual editor">​</a></h2>
+<p>The criterion editor now has a dedicated <strong>Point rules</strong> screen. From there an administrator can:</p>
 <ul>
-<li>Rename, duplicate, enable, disable, or delete goals.</li>
-<li>Change the scope, period, event type, and target.</li>
-<li>Add and remove criteria from composite goals.</li>
-<li>Configure global filters or filters for a specific criterion.</li>
-<li>Switch composite goals between <code>AND</code> and <code>OR</code>.</li>
-<li>Add prerequisites and choose between <code>ALL</code> and <code>ANY</code>.</li>
+<li>choose <code>EVENT_AMOUNT</code> or a fixed base;</li>
+<li>change rounding;</li>
+<li>add <code>SET</code> and <code>MULTIPLY</code> rules;</li>
+<li>edit values and <code>ALL</code>/<code>ANY</code> matching;</li>
+<li>reorder or remove rules;</li>
+<li>enter the rule conditions through private chat.</li>
 </ul>
-<p>Targets can be entered with a small in-game keypad. Materials, entities, worlds, game modes, damage causes, attribution values, and prerequisite goals have their own paginated selection menus. Chat input is still available when you need to enter a custom value.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="safer-editing-and-reloads">Safer editing and reloads<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.2#safer-editing-and-reloads" class="hash-link" aria-label="Direct link to Safer editing and reloads" title="Direct link to Safer editing and reloads">​</a></h2>
-<p>Changes made through the editor are validated before they are kept. If something is wrong, the plugin restores the previous file and keeps the working goals loaded.</p>
-<p><code>/dp admin validate</code> checks the goal files without applying them. <code>/dp admin reload</code> also keeps the current configuration active when one of the new files contains an error.</p>
-<p>The validation report now covers malformed YAML, duplicate or invalid IDs, unsupported filter values, missing prerequisites, missing tiers, and circular prerequisite chains.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="dadaplatform-262">DadaPlatform 26.2<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.2#dadaplatform-262" class="hash-link" aria-label="Direct link to DadaPlatform 26.2" title="Direct link to DadaPlatform 26.2">​</a></h2>
-<p>DadaPlatform has been updated from 26.0 to 26.2. This update improves the shared handling of chat messages, action bars, and MiniMessage formatting while keeping the fallbacks used by older servers.</p>
-<p>Some groundwork for Folia is included in the platform layer, but DadaProgressions does not claim full Folia support yet.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="updating">Updating<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.2#updating" class="hash-link" aria-label="Direct link to Updating" title="Direct link to Updating">​</a></h2>
-<p>Stop the server, replace the old plugin with <code>DadaProgressions-beta-26.2.jar</code>, and start it again. Your existing simple goals do not need to be changed.</p>
-<p>As always, make a backup first and run <code>/dp admin validate</code> after updating.</p>
-<p>The plugin jar is still built for Java 8. Your server may require a newer Java version depending on the Minecraft version you are running.</p>]]></content>
-        <author>
-            <name>mrbast</name>
-            <uri>https://www.spigotmc.org/members/mrbast.610454/</uri>
-        </author>
-        <category label="dadaprogressions" term="dadaprogressions"/>
+<p>Condition input uses a compact form such as:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">material=DIAMOND_ORE,DEEPSLATE_DIAMOND_ORE; world.exclude=lobby</span><br></span></code></pre></div></div>
+<p>As with the rest of the goal editor, a change is validated before it becomes active. An invalid edit is rolled back instead of leaving half-written configuration behind.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="better-event-debugging">Better event debugging<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/2026/07/08/beta-26.3#better-event-debugging" class="hash-link" aria-label="Direct link to Better event debugging" title="Direct link to Better event debugging">​</a></h2>
+<p>The one-shot debug command now reports the winning point rule, its operation and matching mode, followed by the base-to-final point calculation:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">/dp admin debug &lt;goalId&gt; &lt;onlinePlayer&gt; [timeoutSeconds]</span><br></span></code></pre></div></div>
+<p>The default timeout is 60 seconds and can be set from 5 to 600 seconds. A pending trace can be removed with:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">/dp admin debug cancel &lt;onlinePlayer&gt;</span><br></span></code></pre></div></div>
+<p>This makes it much clearer whether an event was rejected by the goal filters, accepted by a point rule, blocked by a prerequisite, or stopped by a cooldown.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="yaml-assistance">YAML assistance<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/2026/07/08/beta-26.3#yaml-assistance" class="hash-link" aria-label="Direct link to YAML assistance" title="Direct link to YAML assistance">​</a></h2>
+<p>A JSON Schema is now included for goal files. Compatible editors can suggest keys and enum values and flag common structural mistakes while the file is being written. Server-side <code>/dp admin validate</code> is still the final check, since it also knows about the installed Bukkit version and the other goal files.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="compatibility">Compatibility<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/2026/07/08/beta-26.3#compatibility" class="hash-link" aria-label="Direct link to Compatibility" title="Direct link to Compatibility">​</a></h2>
+<p>Existing point rules do not need to be changed. A rule without <code>when-mode</code> continues to behave as <code>ALL</code>, which is the same matching behavior used before this release.</p>]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[DadaProgressions Beta 26.1]]></title>
@@ -74,7 +75,13 @@
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="chat-batching">Chat batching<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.1#chat-batching" class="hash-link" aria-label="Direct link to Chat batching" title="Direct link to Chat batching">​</a></h2>
 <p>Updates from several goals can be grouped into a single chat message while keeping their original order. The separator and maximum number of entries are configurable; setting <code>chat-batch.max-entries</code> to <code>0</code> includes every pending entry.</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Daily Builder: 35 -&gt; 45/128 (+10) | Community Weekly Build: 40 -&gt; 50/5000 (+10)</span><br></span></code></pre></div></div>
-<p>Chat batching is enabled by default and can be overridden globally, per event, or per goal.</p>]]></content>
+<p>Chat batching is enabled by default and can be overridden globally, per event, or per goal.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="platform-compatibility">Platform compatibility<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.1#platform-compatibility" class="hash-link" aria-label="Direct link to Platform compatibility" title="Direct link to Platform compatibility">​</a></h2>
+<p>The release jar uses the shared Java 8 platform layer and selects its backend at runtime. Spigot receives legacy-compatible messages, Paper uses native Adventure where available, and Folia uses entity, region, global, and asynchronous schedulers according to the operation.</p>
+<p>Chat messages, action bars, titles, subtitles, and MiniMessage formatting therefore use one API across the supported server platforms.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="integration-notes">Integration notes<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26.1#integration-notes" class="hash-link" aria-label="Direct link to Integration notes" title="Direct link to Integration notes">​</a></h2>
+<p>The Maven API version is now <code>beta-26.1</code>. Existing integrations can continue using the historical <code>com.dadaachievements.api</code> package and <code>DadaAchievementsApi</code> service name.</p>
+<p>Install only <code>DadaProgressions-beta-26.1.jar</code> on the server. The API artifact belongs on an integration plugin's compile classpath with <code>provided</code> scope and must not be installed as a standalone plugin.</p>]]></content>
         <author>
             <name>mrbast</name>
             <uri>https://www.spigotmc.org/members/mrbast.610454/</uri>

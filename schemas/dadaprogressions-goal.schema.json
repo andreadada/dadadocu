@@ -1,0 +1,216 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://andreadada.github.io/dadadocu/schemas/dadaprogressions-goal.schema.json",
+  "title": "DadaProgressions goal file",
+  "description": "Schema for plugins/DadaProgressions/goals/*.yml in Beta 26.3.",
+  "type": "object",
+  "properties": {
+    "goals": {
+      "description": "Optional container for the goals in this file.",
+      "type": "object",
+      "patternProperties": {"^[A-Za-z0-9_-]{1,64}$": {"$ref": "#/$defs/goal"}},
+      "additionalProperties": false
+    }
+  },
+  "patternProperties": {"^(?!goals$)[A-Za-z0-9_-]{1,64}$": {"$ref": "#/$defs/goal"}},
+  "additionalProperties": false,
+  "$defs": {
+    "mode": {"type": "string", "enum": ["ALL", "ANY"]},
+    "goalType": {
+      "type": "string",
+      "enum": ["BLOCK_BREAK", "BLOCK_PLACE", "MOB_KILL", "PLAYER_KILL", "FISH_CAUGHT", "ITEM_CRAFT", "PLAYTIME_MINUTES", "COMMAND_RUN", "ITEM_PICKUP", "ITEM_DROP", "ITEM_ENCHANT", "ITEM_SMELT", "ANIMAL_BREED", "DEATH", "LOGIN", "DAMAGE_DEALT", "DAMAGE_TAKEN", "VOTE", "CUSTOM"]
+    },
+    "stringOrList": {
+      "oneOf": [
+        {"type": ["string", "number", "boolean"]},
+        {"type": "array", "items": {"type": ["string", "number", "boolean"]}, "minItems": 1, "uniqueItems": true}
+      ]
+    },
+    "filterValue": {
+      "oneOf": [
+        {"$ref": "#/$defs/stringOrList"},
+        {
+          "type": "object",
+          "description": "Include is an allow-list; exclude is a veto-list. If a value appears in both, exclude wins.",
+          "properties": {
+            "include": {"$ref": "#/$defs/stringOrList"},
+            "exclude": {"$ref": "#/$defs/stringOrList"}
+          },
+          "additionalProperties": false,
+          "minProperties": 1
+        }
+      ]
+    },
+    "numericBound": {
+      "description": "Exactly one numeric limit. Numeric bounds do not support exclude.",
+      "oneOf": [
+        {"type": "number"},
+        {"type": "string", "pattern": "^-?[0-9]+(?:\\.[0-9]+)?$"},
+        {"type": "array", "items": {"type": ["number", "string"]}, "minItems": 1, "maxItems": 1},
+        {"type": "object", "required": ["include"], "properties": {"include": {"oneOf": [{"type": "number"}, {"type": "string"}, {"type": "array", "items": {"type": ["number", "string"]}, "minItems": 1, "maxItems": 1}]}}, "additionalProperties": false}
+      ]
+    },
+    "filters": {
+      "type": "object",
+      "description": "Event filters. Availability depends on the goal type.",
+      "properties": {
+        "material": {"$ref": "#/$defs/filterValue", "description": "Bukkit material names."},
+        "entity-type": {"$ref": "#/$defs/filterValue", "description": "Bukkit entity type names."},
+        "world": {"$ref": "#/$defs/filterValue", "description": "Exact Bukkit world names."},
+        "game-mode": {"$ref": "#/$defs/filterValue", "description": "SURVIVAL, CREATIVE, ADVENTURE or SPECTATOR when supported by the server."},
+        "permission": {"$ref": "#/$defs/filterValue", "description": "Permission nodes checked on the acting player."},
+        "command": {"$ref": "#/$defs/filterValue", "description": "Command labels without the leading slash; only for COMMAND_RUN."},
+        "damage-cause": {"$ref": "#/$defs/filterValue", "description": "Bukkit DamageCause values; only for damage goals."},
+        "attribution": {"$ref": "#/$defs/filterValue", "description": "DIRECT, BREEDING_ITEM or NEARBY; only for ANIMAL_BREED."},
+        "biome": {"$ref": "#/$defs/filterValue", "description": "Biome name reported by Bukkit."},
+        "min-y": {"$ref": "#/$defs/numericBound"},
+        "max-y": {"$ref": "#/$defs/numericBound"},
+        "min-amount": {"$ref": "#/$defs/numericBound"},
+        "max-amount": {"$ref": "#/$defs/numericBound"}
+      },
+      "additionalProperties": false
+    },
+    "pointRule": {
+      "type": "object",
+      "properties": {
+        "when-mode": {"$ref": "#/$defs/mode", "description": "Combines only this rule's when conditions. Default: ALL."},
+        "when": {"$ref": "#/$defs/filters", "description": "Conditions for this point rule. Empty matches every event."},
+        "set": {"type": "integer", "minimum": 0, "description": "Replace the base with an exact number of points."},
+        "multiply": {"type": "number", "minimum": 0, "description": "Multiply the base; rounding is applied afterwards."}
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        {"required": ["set"], "not": {"required": ["multiply"]}},
+        {"required": ["multiply"], "not": {"required": ["set"]}}
+      ]
+    },
+    "points": {
+      "type": "object",
+      "properties": {
+        "base": {
+          "description": "EVENT_AMOUNT uses the listener amount; an integer supplies a fixed base.",
+          "oneOf": [{"const": "EVENT_AMOUNT"}, {"type": "integer", "minimum": 0}]
+        },
+        "rounding": {"type": "string", "enum": ["UP", "DOWN", "CEILING", "FLOOR", "HALF_UP", "HALF_DOWN", "HALF_EVEN", "UNNECESSARY"], "default": "FLOOR"},
+        "rules": {"type": "array", "items": {"$ref": "#/$defs/pointRule"}}
+      },
+      "additionalProperties": false
+    },
+    "cooldown": {
+      "type": "object",
+      "properties": {
+        "enabled": {"type": "boolean", "default": true},
+        "scope": {"type": "string", "enum": ["PLAYER", "SHARED"], "default": "PLAYER"},
+        "mode": {"type": "string", "enum": ["DAILY", "WEEKLY", "MONTHLY", "DURATION"], "default": "DURATION"},
+        "duration": {"type": "string", "pattern": "^[1-9][0-9]*(?:s|m|h|d)$", "default": "24h"},
+        "progress-per-acquire": {"type": "integer", "minimum": 1, "default": 1}
+      },
+      "additionalProperties": false
+    },
+    "eventCriterion": {
+      "type": "object",
+      "required": ["type", "target"],
+      "properties": {
+        "type": {"$ref": "#/$defs/goalType"},
+        "target": {"type": "integer", "minimum": 1},
+        "weight": {"type": "number", "exclusiveMinimum": 0, "default": 1},
+        "filter-mode": {"$ref": "#/$defs/mode", "description": "Combines this criterion's filters. Default: ALL."},
+        "filters": {"$ref": "#/$defs/filters"},
+        "points": {"$ref": "#/$defs/points"},
+        "cooldown": {"$ref": "#/$defs/cooldown"},
+        "progress-cooldown": {"$ref": "#/$defs/cooldown", "description": "Legacy alias for cooldown."}
+      },
+      "additionalProperties": false
+    },
+    "compositeCriterion": {
+      "type": "object",
+      "required": ["operator", "children"],
+      "properties": {
+        "operator": {"type": "string", "enum": ["AND", "OR"]},
+        "weight": {"type": "number", "exclusiveMinimum": 0, "default": 1},
+        "children": {
+          "type": "object",
+          "minProperties": 1,
+          "maxProperties": 64,
+          "patternProperties": {"^[A-Za-z0-9_-]{1,64}$": {"oneOf": [{"$ref": "#/$defs/eventCriterion"}, {"$ref": "#/$defs/compositeCriterion"}]}},
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "display": {
+      "type": "object",
+      "properties": {
+        "name": {"type": "string"},
+        "material": {"type": "string"},
+        "lore": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "prerequisites": {
+      "type": "object",
+      "required": ["requirements"],
+      "properties": {
+        "mode": {"$ref": "#/$defs/mode"},
+        "requirements": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "state": {"type": "string", "enum": ["COMPLETED", "TIER_CLAIMED"], "default": "COMPLETED"},
+              "history": {"type": "string", "enum": ["CURRENT", "EVER"], "default": "EVER"},
+              "tier": {"type": "integer", "minimum": 1}
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "tiers": {
+      "type": "object",
+      "patternProperties": {
+        "^[1-9][0-9]*%?$": {
+          "type": "object",
+          "properties": {
+            "name": {"type": "string"},
+            "reward-commands": {"type": "array", "items": {"type": "string"}}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "goal": {
+      "type": "object",
+      "properties": {
+        "enabled": {"type": "boolean", "default": true},
+        "scope": {"type": "string", "enum": ["PLAYER", "COMMUNITY"]},
+        "period": {"type": "string", "enum": ["DAILY", "WEEKLY", "MONTHLY", "PERMANENT"]},
+        "type": {"$ref": "#/$defs/goalType"},
+        "target": {"type": "integer", "minimum": 1},
+        "criteria": {"$ref": "#/$defs/compositeCriterion"},
+        "filter-mode": {"$ref": "#/$defs/mode", "description": "Combines global goal filters. Default: ALL."},
+        "filters": {"$ref": "#/$defs/filters"},
+        "points": {"$ref": "#/$defs/points"},
+        "cooldown": {"$ref": "#/$defs/cooldown"},
+        "progress-cooldown": {"$ref": "#/$defs/cooldown", "description": "Legacy alias for cooldown."},
+        "display": {"$ref": "#/$defs/display"},
+        "tiers": {"$ref": "#/$defs/tiers"},
+        "prerequisites": {"$ref": "#/$defs/prerequisites"},
+        "notifications": {"type": "object", "description": "Optional per-goal notification overrides; see the notifications guide."},
+        "claim-mode": {"type": "string", "enum": ["MANUAL", "AUTO"], "default": "MANUAL"},
+        "completion-broadcast": {"type": "string"},
+        "reset-settings": {"type": "object", "properties": {"timezone": {"type": "string", "description": "IANA timezone, for example Europe/Rome."}}, "additionalProperties": false},
+        "reward-commands": {"type": "array", "items": {"type": "string"}, "description": "Legacy completion rewards; tiers are preferred."},
+        "rewardCommands": {"type": "array", "items": {"type": "string"}, "description": "Legacy camelCase alias for reward-commands."}
+      },
+      "additionalProperties": false,
+      "oneOf": [
+        {"not": {"required": ["criteria"]}},
+        {"required": ["criteria"], "not": {"anyOf": [{"required": ["type"]}, {"required": ["target"]}, {"required": ["points"]}]}}
+      ]
+    }
+  }
+}
