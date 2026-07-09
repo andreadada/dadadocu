@@ -2,11 +2,162 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://andreadada.github.io/dadadocu/structory-changelog</id>
     <title>DadaWiki Blog</title>
-    <updated>2026-05-31T00:00:00.000Z</updated>
+    <updated>2026-07-09T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://andreadada.github.io/dadadocu/structory-changelog"/>
     <subtitle>DadaWiki Blog</subtitle>
     <icon>https://andreadada.github.io/dadadocu/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Release 26.1 - FREE]]></title>
+        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_free</id>
+        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_free"/>
+        <updated>2026-07-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Structory Free 26.1 is not a flashy feature dump. It is the cleanup release that makes the free version easier to trust, easier to build, and much harder to accidentally mix with Premium-only code.]]></summary>
+        <content type="html"><![CDATA[<p>Structory Free 26.1 is not a flashy feature dump. It is the cleanup release that makes the free version easier to trust, easier to build, and much harder to accidentally mix with Premium-only code.</p>
+<p>If you are coming from the old 1.x line, this is the first release built from the new public Free repository.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-changed-for-server-owners">What changed for server owners<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_free#what-changed-for-server-owners" class="hash-link" aria-label="Direct link to What changed for server owners" title="Direct link to What changed for server owners">​</a></h2>
+<ul>
+<li>The Free plugin is now its own clean project.</li>
+<li>The core structure/crafting code is shared through <code>structory-core</code>.</li>
+<li>Premium-only systems are no longer bundled into the Free codebase.</li>
+<li>The plugin version and default <code>config.yml</code> version are both <code>26.1</code>.</li>
+<li><code>folia-supported: true</code> is now declared in <code>plugin.yml</code>.</li>
+<li>The build uses the updated DadaPlatform release with the ActionBar fix.</li>
+</ul>
+<p>The important part: Free still does what Free is supposed to do. It keeps the normal multiblock/crafting workflow without dragging in the bigger Premium editor and option stack.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="free-features-kept-intact">Free features kept intact<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_free#free-features-kept-intact" class="hash-link" aria-label="Direct link to Free features kept intact" title="Direct link to Free features kept intact">​</a></h2>
+<p>Free still includes the core Structory experience:</p>
+<ul>
+<li>multiblock structure detection;</li>
+<li>structure-based crafting;</li>
+<li>physical recipe slots;</li>
+<li>saved item ingredients and results;</li>
+<li>notify/actionbar/title messages;</li>
+<li>basic particle and firework options;</li>
+<li>recipe picker GUI;</li>
+<li>custom recipe files;</li>
+<li>config, messages and GUI resources;</li>
+<li>saved custom items through <code>/structory item ...</code>.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="folia-and-scheduler-work">Folia and scheduler work<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_free#folia-and-scheduler-work" class="hash-link" aria-label="Direct link to Folia and scheduler work" title="Direct link to Folia and scheduler work">​</a></h2>
+<p>This release moves the Free build onto the newer DadaPlatform scheduler layer.</p>
+<p>That means Structory no longer relies on the old Bukkit scheduler paths for the parts that were already migrated. It is a better base for Folia servers and modern Paper servers.</p>
+<p>Still, do not read this as "every plugin combination is magically Folia-safe". If your setup uses other addons, those addons must also behave correctly on Folia.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="actionbar-fix">ActionBar fix<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_free#actionbar-fix" class="hash-link" aria-label="Direct link to ActionBar fix" title="Direct link to ActionBar fix">​</a></h2>
+<p>ActionBar messages should now be sent as real action bars instead of falling back into chat.</p>
+<p>For example, messages like:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Now you can craft serious items</span><br></span></code></pre></div></div>
+<p>should appear in the action bar area, not as a normal chat line.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="update-notes">Update notes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_free#update-notes" class="hash-link" aria-label="Direct link to Update notes" title="Direct link to Update notes">​</a></h2>
+<p>Back up your <code>plugins/Structory/</code> folder before updating.</p>
+<p>Structory compares the version in <code>config.yml</code> with the plugin version. If your existing server config still says an old version, Structory may create a backup and regenerate the default config. That is expected.</p>
+<p>If you have already checked your config and want to avoid another backup, make sure this line is present:</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">version</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">26.1</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="for-developers">For developers<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_free#for-developers" class="hash-link" aria-label="Direct link to For developers" title="Direct link to For developers">​</a></h2>
+<p>The Free repository now has two Maven modules:</p>
+<ul>
+<li><code>structory-core</code></li>
+<li><code>structory-free</code></li>
+</ul>
+<p><code>structory-core</code> is also the artifact used by Premium. This keeps the shared behavior in one place instead of copying classes between two branches.</p>]]></content>
+        <author>
+            <name>Dada</name>
+        </author>
+        <category label="Free" term="Free"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Release 26.1 - PREMIUM]]></title>
+        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_premium</id>
+        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_premium"/>
+        <updated>2026-07-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Structory Premium 26.1 is a big maintenance and usability release. The main goal was simple: keep the power of Premium, but make it feel less like editing a pile of YAML blindfolded.]]></summary>
+        <content type="html"><![CDATA[<p>Structory Premium 26.1 is a big maintenance and usability release. The main goal was simple: keep the power of Premium, but make it feel less like editing a pile of YAML blindfolded.</p>
+<p>If you are updating from 1.5.0, this release is the point where Structory Premium becomes a separate private project built on top of the shared Free/core code.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="new-project-layout">New project layout<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_premium#new-project-layout" class="hash-link" aria-label="Direct link to New project layout" title="Direct link to New project layout">​</a></h2>
+<p>Premium is now separated from the public Free repository.</p>
+<p>The shared code lives in <code>structory-core</code>; Premium depends on that core and keeps Premium-only systems in the private Premium repository.</p>
+<p>This makes the project cleaner and safer:</p>
+<ul>
+<li>less duplicated code;</li>
+<li>fewer painful branch merges;</li>
+<li>less risk of shipping Premium code in the Free build;</li>
+<li>clearer difference between Free features and Premium features.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="new-editor-dashboard">New editor dashboard<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_premium#new-editor-dashboard" class="hash-link" aria-label="Direct link to New editor dashboard" title="Direct link to New editor dashboard">​</a></h2>
+<p>The Premium admin/editor GUI has been expanded into a proper dashboard.</p>
+<p>You can open it with:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">/structory editor</span><br></span></code></pre></div></div>
+<p>or:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">/structory admin editor</span><br></span></code></pre></div></div>
+<p>From there you can reach the main Structory admin tools:</p>
+<ul>
+<li>structures;</li>
+<li>placed instances;</li>
+<li>recipes;</li>
+<li>config files;</li>
+<li>loaded options;</li>
+<li>loaded addons;</li>
+<li>GUI definitions;</li>
+<li>health/validation checks.</li>
+</ul>
+<p>The idea is that you should be able to inspect and fix most Structory setup problems in-game before jumping into files.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="better-structure-recipe-and-option-editing">Better structure, recipe and option editing<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_premium#better-structure-recipe-and-option-editing" class="hash-link" aria-label="Direct link to Better structure, recipe and option editing" title="Direct link to Better structure, recipe and option editing">​</a></h2>
+<p>The editor is now more modular.</p>
+<p>Each option can describe how it wants to be edited. When an option provides its own editor fields, the GUI uses those. Generic/reflection-style editing is still there as a fallback, but it is not the main design anymore.</p>
+<p>This matters because Premium options are not all the same. A crate, a privacy rule, a block display and a particle decoration do not deserve the same generic editor.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="config-editing-from-gui">Config editing from GUI<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_premium#config-editing-from-gui" class="hash-link" aria-label="Direct link to Config editing from GUI" title="Direct link to Config editing from GUI">​</a></h2>
+<p>The admin editor now has safer editing flows for files like:</p>
+<ul>
+<li><code>config.yml</code>;</li>
+<li><code>messages.yml</code>;</li>
+<li><code>gui.yml</code>;</li>
+<li>recipes;</li>
+<li>structures.</li>
+</ul>
+<p>Edits are draft-based where possible, and saves create backups for sensitive files. It is still YAML underneath, but the GUI should make small fixes much less painful.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="particle-and-animation-cleanup">Particle and animation cleanup<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_premium#particle-and-animation-cleanup" class="hash-link" aria-label="Direct link to Particle and animation cleanup" title="Direct link to Particle and animation cleanup">​</a></h2>
+<p>Particles, sounds and reusable decorations now belong to the <code>particle</code> option.</p>
+<p>Crafting animations remain part of crafting behavior.</p>
+<p>That split is important:</p>
+<ul>
+<li><code>particle</code> owns reusable effects such as <code>consume</code>, <code>result</code>, <code>insert</code>, <code>place</code>, <code>take</code>, sounds and decorations;</li>
+<li>crafting animation decides how the crafting process behaves or plays over time.</li>
+</ul>
+<p>The editor now avoids showing particle/decoration editors on structures that do not have a particle option configured. In that case it points you to add the particle option first instead of opening a confusing empty editor.</p>
+<p>Old configs that still put <code>consume</code> or <code>result</code> effects directly under <code>crafting</code> should be migrated to:</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">options</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">particle</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token key atrule" style="color:#00a4db">consume</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">type</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> particle</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token key atrule" style="color:#00a4db">particle</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> FLAME</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="crate-editor-cleanup">Crate editor cleanup<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_premium#crate-editor-cleanup" class="hash-link" aria-label="Direct link to Crate editor cleanup" title="Direct link to Crate editor cleanup">​</a></h2>
+<p>The crate editor received a usability pass.</p>
+<p>Crate settings are now easier to understand from the GUI, including placement behavior, actionbar messages, item data, sound settings and build settings.</p>
+<p>The goal is not to hide every YAML detail, but to make common edits possible without guessing what each random item in the inventory means.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="folia-work">Folia work<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_premium#folia-work" class="hash-link" aria-label="Direct link to Folia work" title="Direct link to Folia work">​</a></h2>
+<p>Premium now declares:</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">folia-supported</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">true</span><br></span></code></pre></div></div>
+<p>The plugin was moved onto the updated DadaPlatform scheduling layer, with Folia-aware scheduling paths where possible.</p>
+<p>Important note: this means Structory itself has been moved in the right direction. Optional dependencies still matter. If an external plugin or addon is not Folia-safe, that plugin can still cause problems in a Folia setup.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="actionbar-fix">ActionBar fix<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_premium#actionbar-fix" class="hash-link" aria-label="Direct link to ActionBar fix" title="Direct link to ActionBar fix">​</a></h2>
+<p>DadaPlatform was updated so <code>sendActionbar</code>/<code>sendActionBar</code> sends a real action bar instead of falling back into chat.</p>
+<p>This fixes cases where messages such as:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Now you can craft serious items</span><br></span></code></pre></div></div>
+<p>were appearing as normal chat messages.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="dependency-cleanup">Dependency cleanup<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_premium#dependency-cleanup" class="hash-link" aria-label="Direct link to Dependency cleanup" title="Direct link to Dependency cleanup">​</a></h2>
+<p>Premium now uses:</p>
+<ul>
+<li>DadaGUIRework only;</li>
+<li>DadaPlatform 26.3;</li>
+<li>shared <code>structory-core</code> 26.1.</li>
+</ul>
+<p>The old DadaGUI path is not part of the Premium GUI work anymore.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="update-notes">Update notes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_premium#update-notes" class="hash-link" aria-label="Direct link to Update notes" title="Direct link to Update notes">​</a></h2>
+<p>Back up your full <code>plugins/Structory/</code> folder before updating.</p>
+<p>Make sure the generated or existing <code>config.yml</code> contains:</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">version</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">26.1</span><br></span></code></pre></div></div>
+<p>If Structory detects an older config version, it may create a backup and regenerate the default config. That is normal, but you should compare your old file before copying custom settings back.</p>]]></content>
+        <author>
+            <name>Dada</name>
+        </author>
+        <category label="Premium" term="Premium"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Release 1.5.0 - PREMIUM]]></title>
         <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.5.0</id>
@@ -329,46 +480,6 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.5#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
 <ul>
 <li>Fixed problem with MMOItems</li>
-</ul>
-<hr>]]></content>
-        <author>
-            <name>Dada</name>
-        </author>
-        <category label="Premium" term="Premium"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release 1.4.4 - PREMIUM]]></title>
-        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.4</id>
-        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.4"/>
-        <updated>2025-12-14T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[New Feature]]></summary>
-        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.4#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
-<ul>
-<li>Added MMOItems support</li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="code-improvements">Code Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.4#code-improvements" class="hash-link" aria-label="Direct link to Code Improvements" title="Direct link to Code Improvements">​</a></h3>
-<ul>
-<li>Made some changes to the code</li>
-</ul>
-<hr>]]></content>
-        <author>
-            <name>Dada</name>
-        </author>
-        <category label="Premium" term="Premium"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Release 1.4.3 - PREMIUM]]></title>
-        <id>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3</id>
-        <link href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3"/>
-        <updated>2025-12-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[New Feature]]></summary>
-        <content type="html"><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
-<ul>
-<li>Added MythicMobs support, check <code>EntityChecker</code></li>
-</ul>
-<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
-<ul>
-<li>Fixed problem with Adventure API on 1.21.10</li>
 </ul>
 <hr>]]></content>
         <author>
