@@ -140,14 +140,6 @@
 <p>This fixes cases where messages such as:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Now you can craft serious items</span><br></span></code></pre></div></div>
 <p>were appearing as normal chat messages.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="dependency-cleanup">Dependency cleanup<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_premium#dependency-cleanup" class="hash-link" aria-label="Direct link to Dependency cleanup" title="Direct link to Dependency cleanup">​</a></h2>
-<p>Premium now uses:</p>
-<ul>
-<li>DadaGUIRework only;</li>
-<li>DadaPlatform 26.3;</li>
-<li>shared <code>structory-core</code> 26.1.</li>
-</ul>
-<p>The old DadaGUI path is not part of the Premium GUI work anymore.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="update-notes">Update notes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_26.1_premium#update-notes" class="hash-link" aria-label="Direct link to Update notes" title="Direct link to Update notes">​</a></h2>
 <p>Back up your full <code>plugins/Structory/</code> folder before updating.</p>
 <p>Make sure the generated or existing <code>config.yml</code> contains:</p>
