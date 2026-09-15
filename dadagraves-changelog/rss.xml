@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>DadaWiki Blog</title>
+        <link>https://andreadada.github.io/dadadocu/dadagraves-changelog</link>
+        <description>DadaWiki Blog</description>
+        <lastBuildDate>Thu, 18 Jun 2026 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Release 1.7.0 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.7.0</link>
+            <guid>https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.7.0</guid>
+            <pubDate>Thu, 18 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[This update adds a player-facing Active Gravestones menu and new controls for limiting how many graves a player can keep.]]></description>
+            <content:encoded><![CDATA[<p>This update adds a player-facing Active Gravestones menu and new controls for limiting how many graves a player can keep.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="active-gravestones-gui">Active Gravestones GUI<a href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.7.0#active-gravestones-gui" class="hash-link" aria-label="Direct link to Active Gravestones GUI" title="Direct link to Active Gravestones GUI">​</a></h3>
+<ul>
+<li>Added <code>/graves history</code>.</li>
+<li>Added a personal GUI button that opens the active gravestones menu.</li>
+<li>The menu shows each active grave with useful information such as location, creation time, decay time, lock time, and stored items.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="history-actions">History actions<a href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.7.0#history-actions" class="hash-link" aria-label="Direct link to History actions" title="Direct link to History actions">​</a></h3>
+<ul>
+<li>Added <code>gravestone.cmd.history</code> for opening the history menu.</li>
+<li>Added <code>gravestone.history.open-distance</code> for opening a grave from the history menu.</li>
+<li>Added <code>gravestone.history.teleport</code> for shift left-click teleport from the history menu.</li>
+<li>History item lore now only shows actions the player is allowed to use.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="grave-limits">Grave limits<a href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.7.0#grave-limits" class="hash-link" aria-label="Direct link to Grave limits" title="Direct link to Grave limits">​</a></h3>
+<ul>
+<li>Added <code>max-graves</code> to permission groups.</li>
+<li>Added <code>max-graves-action</code>.</li>
+<li><code>DROP</code> removes the oldest grave and drops its contents.</li>
+<li><code>DELETE</code> removes the oldest grave together with its contents.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="compatibility">Compatibility<a href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.7.0#compatibility" class="hash-link" aria-label="Direct link to Compatibility" title="Direct link to Compatibility">​</a></h3>
+<ul>
+<li>Updated internal platform and text-formatting libraries for the current release line.</li>
+</ul>]]></content:encoded>
+            <category>dadagraves</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.6.0 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.6.0</link>
+            <guid>https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.6.0</guid>
+            <pubDate>Fri, 05 Jun 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Newest version compatibility]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="newest-version-compatibility">Newest version compatibility<a href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.6.0#newest-version-compatibility" class="hash-link" aria-label="Direct link to Newest version compatibility" title="Direct link to Newest version compatibility">​</a></h3>
+<ul>
+<li>Added support up to Minecraft 26.1.2.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="commands">Commands<a href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.6.0#commands" class="hash-link" aria-label="Direct link to Commands" title="Direct link to Commands">​</a></h3>
+<ul>
+<li>Added <code>/graves graveyard set</code>.</li>
+<li>Added <code>/graves graveyard tp</code>.</li>
+<li>Added tab completion for the new graveyard commands.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="graveyard">Graveyard<a href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.6.0#graveyard" class="hash-link" aria-label="Direct link to Graveyard" title="Direct link to Graveyard">​</a></h3>
+<ul>
+<li>Added the graveyard system.</li>
+<li>When a player respawns after dying, they are teleported to the graveyard if one has been configured.</li>
+<li>If no graveyard is configured, DadaGraves does not change the player's respawn location.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="holograms">Holograms<a href="https://andreadada.github.io/dadadocu/dadagraves-changelog/release_1.6.0#holograms" class="hash-link" aria-label="Direct link to Holograms" title="Direct link to Holograms">​</a></h3>
+<ul>
+<li>Improved hologram cleanup when a gravestone is removed.</li>
+<li>Removed hologram leftovers more reliably when a grave expires or is deleted.</li>
+</ul>]]></content:encoded>
+            <category>dadagraves</category>
+        </item>
+    </channel>
+</rss>

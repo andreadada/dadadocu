@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>DadaWiki Blog</title>
+        <link>https://andreadada.github.io/dadadocu/structory-changelog</link>
+        <description>DadaWiki Blog</description>
+        <lastBuildDate>Sun, 31 May 2026 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Release 1.5.0 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.5.0</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.5.0</guid>
+            <pubDate>Sun, 31 May 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Admin]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="admin">Admin<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.5.0#admin" class="hash-link" aria-label="Direct link to Admin" title="Direct link to Admin">​</a></h3>
+<ul>
+<li>Added a new admin system with <code>/structory admin</code></li>
+<li>Added an admin item to inspect and manage structures in-game</li>
+<li>Added admin views for instances, recipes and structures</li>
+<li>Added tab completion for recipes, instances and structures</li>
+<li>Added instance management with owner info, UUID, location, teleport and delete actions</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="recipe-editor">Recipe Editor<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.5.0#recipe-editor" class="hash-link" aria-label="Direct link to Recipe Editor" title="Direct link to Recipe Editor">​</a></h3>
+<ul>
+<li>Added in-game recipe creation and editing</li>
+<li>Added separated editors for ingredients, results and listeners</li>
+<li>Added support for adding, editing, deleting and changing ingredient/result types</li>
+<li>Added listener editing with configurable parameters</li>
+<li>Added recipe display item support using the real recipe item</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="structure-editor">Structure Editor<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.5.0#structure-editor" class="hash-link" aria-label="Direct link to Structure Editor" title="Direct link to Structure Editor">​</a></h3>
+<ul>
+<li>Added in-game structure editor</li>
+<li>Added structure options editor</li>
+<li>Added support for instance-specific option values</li>
+<li>Added safer save behavior that updates only modified values</li>
+<li>Added clearer descriptions for sections, buttons and options</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="effects-and-animations">Effects and Animations<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.5.0#effects-and-animations" class="hash-link" aria-label="Direct link to Effects and Animations" title="Direct link to Effects and Animations">​</a></h3>
+<ul>
+<li>Added structure effect editor</li>
+<li>Added support for editing particles, sounds, flames, box effects and composed decorations</li>
+<li>Added support for structure effect references such as <code>insert</code>, <code>place</code>, <code>take</code>, <code>consume</code>, <code>result</code>, <code>primary</code> and <code>secondary</code></li>
+<li>Added lore explaining when each effect reference is used</li>
+<li>Added animation and strategy editors</li>
+<li>Added support for disabling effects when needed</li>
+</ul>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.20 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.20</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.20</guid>
+            <pubDate>Sat, 30 May 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Support]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="support">Support<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.20#support" class="hash-link" aria-label="Direct link to Support" title="Direct link to Support">​</a></h3>
+<ul>
+<li>Added support for the latest versions</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="optimization">Optimization<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.20#optimization" class="hash-link" aria-label="Direct link to Optimization" title="Direct link to Optimization">​</a></h3>
+<ul>
+<li>Reduced file size by almost half</li>
+</ul>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.19 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.19</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.19</guid>
+            <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Code changes]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="code-changes">Code changes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.19#code-changes" class="hash-link" aria-label="Direct link to Code changes" title="Direct link to Code changes">​</a></h3>
+<ul>
+<li>Just some code changes and optimizations</li>
+</ul>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.18 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.18</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.18</guid>
+            <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Fix]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fix">Fix<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.18#fix" class="hash-link" aria-label="Direct link to Fix" title="Direct link to Fix">​</a></h3>
+<ul>
+<li>Fixed problem with ExecutableItems</li>
+</ul>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.17 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.17</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.17</guid>
+            <pubDate>Wed, 25 Mar 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Addons]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="addons">Addons<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.17#addons" class="hash-link" aria-label="Direct link to Addons" title="Direct link to Addons">​</a></h3>
+<ul>
+<li>Added support for ExecutableItems, ingredient and results.</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.1.12 - FREE]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.12</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.12</guid>
+            <pubDate>Mon, 09 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Someone forgot to keep debug enabled]]></description>
+            <content:encoded><![CDATA[<p>Someone forgot to keep debug enabled</p>]]></content:encoded>
+            <category>Free</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.14 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.14</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.14</guid>
+            <pubDate>Mon, 09 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[New Feature]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.14#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
+<ul>
+<li>Added EcoItems support</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.15 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.15</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.15</guid>
+            <pubDate>Mon, 09 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Fixed]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixed">Fixed<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.15#fixed" class="hash-link" aria-label="Direct link to Fixed" title="Direct link to Fixed">​</a></h3>
+<ul>
+<li>Someone forgot (me) to set the CoinsEngine' scope to Provided, so you got Structory Premium and Coinsengine in a single jar.</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.13 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.13</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.13</guid>
+            <pubDate>Tue, 03 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Someone forgot to keep debug enabled]]></description>
+            <content:encoded><![CDATA[<p>Someone forgot to keep debug enabled</p>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.12 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.12</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.12</guid>
+            <pubDate>Sun, 01 Feb 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[New Ingredients]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-ingredients">New Ingredients<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.12#new-ingredients" class="hash-link" aria-label="Direct link to New Ingredients" title="Direct link to New Ingredients">​</a></h3>
+<ul>
+<li>Added <code>coinsengine</code> ingredient</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-results">New Results<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.12#new-results" class="hash-link" aria-label="Direct link to New Results" title="Direct link to New Results">​</a></h3>
+<ul>
+<li>Added <code>cewithdraw</code>, <code>cedeposit</code> results</li>
+</ul>
+<hr>
+<p>check wiki for updates</p>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.11 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.11</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.11</guid>
+            <pubDate>Sun, 18 Jan 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Fixed]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixed">Fixed<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.11#fixed" class="hash-link" aria-label="Direct link to Fixed" title="Direct link to Fixed">​</a></h3>
+<ul>
+<li>Fixed some problems with Orientations</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.10 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.10</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.10</guid>
+            <pubDate>Thu, 08 Jan 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[New Ingredients]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-ingredients">New Ingredients<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.10#new-ingredients" class="hash-link" aria-label="Direct link to New Ingredients" title="Direct link to New Ingredients">​</a></h3>
+<ul>
+<li>Added <code>vault</code> ingredient</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-results">New Results<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.10#new-results" class="hash-link" aria-label="Direct link to New Results" title="Direct link to New Results">​</a></h3>
+<ul>
+<li>Added <code>withdraw</code>, <code>deposit</code> and <code>message</code> Results</li>
+</ul>
+<hr>
+<p>check wiki for updates</p>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.9 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.9</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.9</guid>
+            <pubDate>Mon, 29 Dec 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Fixes]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.9#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<ul>
+<li>Fixed some listener's priorities</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.8 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.8</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.8</guid>
+            <pubDate>Mon, 22 Dec 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Fixes]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.8#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<ul>
+<li>Fixed MMOItems and ItemsAdder compatibility.</li>
+<li>Fixed inability to break structures in Survival.</li>
+<li>Fixed floating items persisting on quit/join.</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.7 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.7</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.7</guid>
+            <pubDate>Thu, 18 Dec 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Code changes]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="code-changes">Code changes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.7#code-changes" class="hash-link" aria-label="Direct link to Code changes" title="Direct link to Code changes">​</a></h3>
+<ul>
+<li>Improving reloading code</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.7#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<ul>
+<li>Fixed problems when doing <code>/structory reload</code></li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.6 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.6</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.6</guid>
+            <pubDate>Wed, 17 Dec 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Fixes]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.6#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<ul>
+<li>Fixed <code>Crate Option</code> not loading commands when reloading with <code>/structory reload</code> command</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.1.11 - FREE]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.11</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.11</guid>
+            <pubDate>Tue, 16 Dec 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Fixes]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.1.11#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<ul>
+<li>Fixed problem with Adventure API on latest versions</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Free</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.5 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.5</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.5</guid>
+            <pubDate>Mon, 15 Dec 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[New Feature]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.5#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
+<ul>
+<li>Added ItemsAdder support</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.5#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<ul>
+<li>Fixed problem with MMOItems</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.4 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.4</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.4</guid>
+            <pubDate>Sun, 14 Dec 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[New Feature]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.4#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
+<ul>
+<li>Added MMOItems support</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="code-improvements">Code Improvements<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.4#code-improvements" class="hash-link" aria-label="Direct link to Code Improvements" title="Direct link to Code Improvements">​</a></h3>
+<ul>
+<li>Made some changes to the code</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+        <item>
+            <title><![CDATA[Release 1.4.3 - PREMIUM]]></title>
+            <link>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3</link>
+            <guid>https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3</guid>
+            <pubDate>Fri, 12 Dec 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[New Feature]]></description>
+            <content:encoded><![CDATA[<h3 class="anchor anchorWithStickyNavbar_LWe7" id="new-feature">New Feature<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3#new-feature" class="hash-link" aria-label="Direct link to New Feature" title="Direct link to New Feature">​</a></h3>
+<ul>
+<li>Added MythicMobs support, check <code>EntityChecker</code></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fixes">Fixes<a href="https://andreadada.github.io/dadadocu/structory-changelog/release_1.4.3#fixes" class="hash-link" aria-label="Direct link to Fixes" title="Direct link to Fixes">​</a></h3>
+<ul>
+<li>Fixed problem with Adventure API on 1.21.10</li>
+</ul>
+<hr>]]></content:encoded>
+            <category>Premium</category>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkbast_docu=self.webpackChunkbast_docu||[]).push([[5521],{94326:a=>{a.exports=JSON.parse('{"blogBasePath":"/dadadocu/dadaprogressions-changelog","blogTitle":"DadaProgressions Changelog","authorsListPath":"/dadadocu/dadaprogressions-changelog/authors"}')}}]);

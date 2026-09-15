@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>DadaWiki Blog</title>
+        <link>https://andreadada.github.io/dadadocu/dadaprogressions-changelog</link>
+        <description>DadaWiki Blog</description>
+        <lastBuildDate>Wed, 16 Sep 2026 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[DadaProgressions beta-26.6]]></title>
+            <link>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-6</link>
+            <guid>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-6</guid>
+            <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Small stability update for DadaProgressions.]]></description>
+            <content:encoded><![CDATA[<p>This is a smaller update focused on cleaning up a few things and making the current beta more reliable before moving on to bigger features.</p>
+<p>The main fix is related to shift-click crafting. DadaProgressions now takes the space actually available in the player's inventory into account, so crafting goals should no longer count items that the player could not really receive because the inventory was almost full.</p>
+<p>It also includes a few general improvements:</p>
+<ul>
+<li>Better shift-click crafting progress tracking.</li>
+<li>Extra compatibility checks for older Minecraft server versions.</li>
+<li>More release checks before a build is considered ready.</li>
+<li>Cleanup of temporary files that were only needed during the beta-26.5 storage update.</li>
+<li>General stability and maintenance improvements.</li>
+</ul>
+<p>If you're updating from beta-26.5, you don't need to change your current configuration or convert your existing data.</p>
+<p>As usual, I still recommend making a backup of <code>plugins/DadaProgressions/</code> before updating a live server.</p>
+<p>DadaProgressions is still in beta, so if you notice anything unusual after updating, please report it. Feedback from real servers is especially useful while the plugin is still being improved.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[DadaProgressions beta-26.0]]></title>
+            <link>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-0</link>
+            <guid>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-0</guid>
+            <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Public beta release under the DadaProgressions name with GUI, storage, migration, and administration foundations.]]></description>
+            <content:encoded><![CDATA[<p>Beta 26.0 is the public beta package released under the DadaProgressions name.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="rename-and-compatibility">Rename and compatibility<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-0#rename-and-compatibility" class="hash-link" aria-label="Direct link to Rename and compatibility" title="Direct link to Rename and compatibility">​</a></h2>
+<ul>
+<li>Plugin manifest renamed to <code>DadaProgressions</code>.</li>
+<li>Release jar renamed to <code>DadaProgressions-beta-26.0.jar</code>.</li>
+<li>Added safe copy compatibility from the old <code>plugins/DadaAchievements</code> data folder.</li>
+<li>Kept the legacy command alias, permissions, and PlaceholderAPI identifier for older beta configurations.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="runtime-and-distribution">Runtime and distribution<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-0#runtime-and-distribution" class="hash-link" aria-label="Direct link to Runtime and distribution" title="Direct link to Runtime and distribution">​</a></h2>
+<ul>
+<li>Added Java 8 verification for the final distribution jar.</li>
+<li>Shaded and relocated DadaGUIRework, DadaPlatform 26.0, and Kyori dependencies.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="player-interface">Player interface<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-0#player-interface" class="hash-link" aria-label="Direct link to Player interface" title="Direct link to Player interface">​</a></h2>
+<p>Added DadaGUIRework-rendered interfaces for:</p>
+<ul>
+<li>the main menu;</li>
+<li>goal lists;</li>
+<li>goal detail views;</li>
+<li>leaderboards.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="yaml-storage">YAML storage<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-0#yaml-storage" class="hash-link" aria-label="Direct link to YAML storage" title="Direct link to YAML storage">​</a></h2>
+<p>Introduced hybrid YAML storage with:</p>
+<ul>
+<li>migration backups;</li>
+<li>quarantine for problematic data;</li>
+<li>validation;</li>
+<li>repair tools;</li>
+<li>rebuildable indexes.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="administration">Administration<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-0#administration" class="hash-link" aria-label="Direct link to Administration" title="Direct link to Administration">​</a></h2>
+<p>New maintenance commands included:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">/dp admin validate</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">/dp admin backup</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">/dp admin repair</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">/dp admin rebuildindexes</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="safer-defaults-and-documentation">Safer defaults and documentation<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-0#safer-defaults-and-documentation" class="hash-link" aria-label="Direct link to Safer defaults and documentation" title="Direct link to Safer defaults and documentation">​</a></h2>
+<p>Default rewards were simplified to safe <code>say</code> commands so a fresh installation does not accidentally execute economy or permission operations.</p>
+<p>A complete Markdown wiki was added for installation, commands, goals, GUI configuration, notifications, PlaceholderAPI, storage, and troubleshooting.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="known-beta-limitations-at-the-time">Known beta limitations at the time<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-0#known-beta-limitations-at-the-time" class="hash-link" aria-label="Direct link to Known beta limitations at the time" title="Direct link to Known beta limitations at the time">​</a></h2>
+<ul>
+<li>YAML storage only.</li>
+<li>Bossbar announcements used compatibility fallbacks on older servers.</li>
+<li><code>VOTE</code> and <code>CUSTOM</code> were primarily integration/API/admin-trigger oriented.</li>
+<li>Large-network leaderboard scale had not been load-tested.</li>
+</ul>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[DadaProgressions beta-26.2]]></title>
+            <link>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-2</link>
+            <guid>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-2</guid>
+            <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Filter modes, admin debugging, visual goal editing, validation, and runtime updates.]]></description>
+            <content:encoded><![CDATA[<p>Beta 26.2 expands goal filtering, debugging, and the in-game administration workflow.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="filter-groups">Filter groups<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-2#filter-groups" class="hash-link" aria-label="Direct link to Filter groups" title="Direct link to Filter groups">​</a></h2>
+<p>Global and per-criterion filter groups can use:</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">filter-mode</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> ALL</span><br></span></code></pre></div></div>
+<p>or:</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">filter-mode</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> ANY</span><br></span></code></pre></div></div>
+<p><code>ALL</code> requires every filter in the group to pass. <code>ANY</code> requires at least one filter to pass.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="new-filters">New filters<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-2#new-filters" class="hash-link" aria-label="Direct link to New filters" title="Direct link to New filters">​</a></h2>
+<p>The modular filter system gained:</p>
+<ul>
+<li><code>biome</code>;</li>
+<li><code>min-y</code>;</li>
+<li><code>max-y</code>;</li>
+<li><code>min-amount</code>;</li>
+<li><code>max-amount</code>.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="goal-debugging">Goal debugging<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-2#goal-debugging" class="hash-link" aria-label="Direct link to Goal debugging" title="Direct link to Goal debugging">​</a></h2>
+<p>Administrators can use:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">/dp admin debug &lt;goalId&gt; &lt;onlinePlayer&gt;</span><br></span></code></pre></div></div>
+<p>The command explains the next relevant event, filter checks, calculated points, prerequisite state, and cooldown result.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="hierarchical-visual-editor">Hierarchical visual editor<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-2#hierarchical-visual-editor" class="hash-link" aria-label="Direct link to Hierarchical visual editor" title="Direct link to Hierarchical visual editor">​</a></h2>
+<p><code>/dp admin editor</code> was expanded into a hierarchical editor for:</p>
+<ul>
+<li>goals;</li>
+<li>composite criteria;</li>
+<li>modular filters;</li>
+<li>numeric values;</li>
+<li>multi-select filter values;</li>
+<li>prerequisite goals.</li>
+</ul>
+<p>Numeric keypads, paginated selectors, and private-chat fallback make advanced configurations editable without manually opening YAML files.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="safe-editing-and-reloads">Safe editing and reloads<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-2#safe-editing-and-reloads" class="hash-link" aria-label="Direct link to Safe editing and reloads" title="Direct link to Safe editing and reloads">​</a></h2>
+<p>Invalid edits are rolled back atomically. Validation is non-destructive and rejected configurations leave the active registry untouched.</p>
+<p>Validation covers malformed YAML, invalid or duplicate IDs, incompatible filters, missing prerequisites, missing tiers, and prerequisite cycles.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="runtime-and-distribution">Runtime and distribution<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-2#runtime-and-distribution" class="hash-link" aria-label="Direct link to Runtime and distribution" title="Direct link to Runtime and distribution">​</a></h2>
+<p>The bundled DadaPlatform runtime was updated from 26.0 to 26.2 for the shared message API and scheduler primitives.</p>
+<p>All Maven modules and the shaded distribution were updated to <code>beta-26.2</code>.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[DadaProgressions beta-26.3]]></title>
+            <link>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-3</link>
+            <guid>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-3</guid>
+            <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Point-rule logic, visual editing, debug reporting, and schema improvements.]]></description>
+            <content:encoded><![CDATA[<p>Beta 26.3 expands the modular point system and the administration tools used to configure and debug it.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ordered-point-rules">Ordered point rules<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-3#ordered-point-rules" class="hash-link" aria-label="Direct link to Ordered point rules" title="Direct link to Ordered point rules">​</a></h2>
+<p>Every ordered point rule can now define:</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">when-mode</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> ALL</span><br></span></code></pre></div></div>
+<p>or:</p>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">when-mode</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> ANY</span><br></span></code></pre></div></div>
+<p><code>ALL</code> requires every condition in that rule to pass. <code>ANY</code> accepts the rule when at least one condition passes.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="visual-point-rule-editing">Visual point-rule editing<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-3#visual-point-rule-editing" class="hash-link" aria-label="Direct link to Visual point-rule editing" title="Direct link to Visual point-rule editing">​</a></h2>
+<p>The in-game editor can manage:</p>
+<ul>
+<li>point base values;</li>
+<li>rounding;</li>
+<li>ordered <code>set</code> rules;</li>
+<li>ordered <code>multiply</code> rules;</li>
+<li>rule values;</li>
+<li>rule conditions;</li>
+<li>rule order;</li>
+<li><code>when-mode</code>.</li>
+</ul>
+<p>This reduces the amount of YAML that administrators need to edit manually for advanced point calculations.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="improved-debug-command">Improved debug command<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-3#improved-debug-command" class="hash-link" aria-label="Direct link to Improved debug command" title="Direct link to Improved debug command">​</a></h2>
+<p><code>/dp admin debug</code> now reports the winning point rule and shows the base-to-final point calculation for the next relevant event.</p>
+<p>Debug sessions also gained configurable timeouts and can be cancelled with:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">/dp admin debug cancel &lt;onlinePlayer&gt;</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="goal-yaml-schema">Goal YAML schema<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-3#goal-yaml-schema" class="hash-link" aria-label="Direct link to Goal YAML schema" title="Direct link to Goal YAML schema">​</a></h2>
+<p>A JSON Schema was added for goal YAML files, providing autocomplete and inline validation in compatible editors.</p>
+<p>This is especially useful when maintaining larger goal sets outside the in-game editor.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[DadaProgressions beta-26.4]]></title>
+            <link>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-4</link>
+            <guid>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-4</guid>
+            <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Reliability, validation, reward-claim, event-accounting, and build hardening update.]]></description>
+            <content:encoded><![CDATA[<p>Beta 26.4 is the main reliability hardening release preceding beta 26.5. It focuses on safer reward delivery, more accurate event progress, stricter configuration validation, bounded caches, and reproducible builds.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="crash-safe-reward-claims">Crash-safe reward claims<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-4#crash-safe-reward-claims" class="hash-link" aria-label="Direct link to Crash-safe reward claims" title="Direct link to Crash-safe reward claims">​</a></h2>
+<p>Reward claims now create a durable <code>PENDING</code> reservation before external reward commands are executed.</p>
+<p>This protects against automatic duplicate rewards if the server stops after a reward command is dispatched but before the final claimed state reaches disk.</p>
+<p>Administrators can resolve a pending claim with:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">/dp admin resolveclaim &lt;goalId&gt; &lt;player&gt; &lt;tierPercent&gt; &lt;markclaimed|retry&gt;</span><br></span></code></pre></div></div>
+<p>Use <code>markclaimed</code> when the reward was already delivered. Use <code>retry</code> only after confirming that the reward was not delivered.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="corrected-event-accounting">Corrected event accounting<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-4#corrected-event-accounting" class="hash-link" aria-label="Direct link to Corrected event accounting" title="Direct link to Corrected event accounting">​</a></h2>
+<ul>
+<li>Cancelled damage events no longer grant progress.</li>
+<li>Zero final damage no longer grants progress.</li>
+<li>Projectile damage can be attributed to the player shooter.</li>
+<li>Crafting progress accounts for recipe result amount and shift-click multi-crafting.</li>
+<li>Playtime uses actual elapsed online time instead of a global repeating minute tick.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="api-hardening">API hardening<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-4#api-hardening" class="hash-link" aria-label="Direct link to API hardening" title="Direct link to API hardening">​</a></h2>
+<p>Public progress API calls made from asynchronous plugin tasks are marshalled to the Bukkit primary thread before mutating plugin state.</p>
+<p>Progress methods now return booleans based on whether progress was actually applied, rather than merely whether the call was accepted.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="strict-startup-validation">Strict startup validation<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-4#strict-startup-validation" class="hash-link" aria-label="Direct link to Strict startup validation" title="Direct link to Strict startup validation">​</a></h2>
+<p>Invalid goal registries no longer silently become partially active configurations.</p>
+<p>Validation now covers areas including:</p>
+<ul>
+<li>malformed or duplicate goal definitions;</li>
+<li>invalid reset timezones;</li>
+<li>invalid cooldown durations;</li>
+<li>duration overflow cases;</li>
+<li>incompatible configuration values.</li>
+</ul>
+<p>With strict startup enabled, an invalid registry prevents the plugin from enabling instead of leaving the server in a partially configured state.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="storage-and-leaderboard-improvements">Storage and leaderboard improvements<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-4#storage-and-leaderboard-improvements" class="hash-link" aria-label="Direct link to Storage and leaderboard improvements" title="Direct link to Storage and leaderboard improvements">​</a></h2>
+<ul>
+<li>Player YAML caching is bounded instead of retaining every historical player indefinitely.</li>
+<li>Player and community leaderboard ordering is cached in memory.</li>
+<li>Leaderboard caches are invalidated only when relevant progress changes.</li>
+<li>Community contribution counters use saturating arithmetic.</li>
+<li>Atomic YAML saves reduce unnecessary file-copy work while preserving backup recovery behavior.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="build-and-distribution">Build and distribution<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-4#build-and-distribution" class="hash-link" aria-label="Direct link to Build and distribution" title="Direct link to Build and distribution">​</a></h2>
+<p>The Maven build no longer depends on developer-specific PowerShell steps or local <code>F:</code> drive paths.</p>
+<p>DadaGUI and DadaPlatform dependencies are pinned to immutable commits, Linux CI verifies the full Maven reactor, and the final shaded distribution is checked for Java 8 bytecode compatibility.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="updating">Updating<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-4#updating" class="hash-link" aria-label="Direct link to Updating" title="Direct link to Updating">​</a></h2>
+<p>A full server stop is recommended. Back up <code>plugins/DadaProgressions/</code>, replace the shaded plugin jar, start the server, run <code>/dp admin validate</code>, and test at least one progress and reward-claim flow before reopening the server.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[DadaProgressions beta-26.5]]></title>
+            <link>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-5</link>
+            <guid>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-5</guid>
+            <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Async storage and durability update for DadaProgressions production beta servers.]]></description>
+            <content:encoded><![CDATA[<p>Beta 26.5 is a storage and server-performance update. Existing goal files remain compatible with the current beta configuration model.</p>
+<p>Servers upgrading from beta 26.3 or older should also read the <a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-4">beta-26.4 release notes</a>, because 26.4 contains the larger reliability hardening pass.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="periodic-yaml-writes-moved-off-the-bukkit-tick">Periodic YAML writes moved off the Bukkit tick<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-5#periodic-yaml-writes-moved-off-the-bukkit-tick" class="hash-link" aria-label="Direct link to Periodic YAML writes moved off the Bukkit tick" title="Direct link to Periodic YAML writes moved off the Bukkit tick">​</a></h2>
+<p>Periodic storage now serializes immutable YAML snapshots on the Bukkit thread and performs filesystem writes through one dedicated storage writer.</p>
+<p>This removes routine filesystem I/O from the main server tick while keeping Bukkit configuration objects away from concurrent mutation.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="revision-safe-persistence">Revision-safe persistence<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-5#revision-safe-persistence" class="hash-link" aria-label="Direct link to Revision-safe persistence" title="Direct link to Revision-safe persistence">​</a></h2>
+<p>Storage snapshots are revision ordered so an older queued snapshot cannot overwrite a newer synchronous save.</p>
+<p>Durability-sensitive operations remain protected by synchronous barriers where required, including:</p>
+<ul>
+<li>reward claims;</li>
+<li>reloads;</li>
+<li>backups;</li>
+<li>plugin shutdown.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="new-storage-settings">New storage settings<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-5#new-storage-settings" class="hash-link" aria-label="Direct link to New storage settings" title="Direct link to New storage settings">​</a></h2>
+<div class="language-yaml codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-yaml codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token key atrule" style="color:#00a4db">storage</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">async-periodic-writes</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token boolean important" style="color:#36acaa">true</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">save-interval-ticks</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">600</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token key atrule" style="color:#00a4db">writer-flush-timeout-seconds</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">10</span><br></span></code></pre></div></div>
+<p>For normal production beta servers, keep asynchronous periodic writes enabled.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="build-verification">Build verification<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-5#build-verification" class="hash-link" aria-label="Direct link to Build verification" title="Direct link to Build verification">​</a></h2>
+<p>The final shaded distribution remains Java 8-safe and is verified by CI, including regression tests for queued snapshot ordering and synchronous saves.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="recommended-update-procedure">Recommended update procedure<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/beta-26-5#recommended-update-procedure" class="hash-link" aria-label="Direct link to Recommended update procedure" title="Direct link to Recommended update procedure">​</a></h2>
+<p>For an existing production beta server:</p>
+<ol>
+<li>run <code>/dp admin backup</code>;</li>
+<li>stop the server;</li>
+<li>keep the previous jar for rollback;</li>
+<li>install <code>DadaProgressions-beta-26.5.jar</code>;</li>
+<li>start the server and run <code>/dp admin validate</code>;</li>
+<li>test one PLAYER goal, one COMMUNITY goal, a leaderboard, and one reward claim;</li>
+<li>restart once and verify persistence before considering the update accepted.</li>
+</ol>
+<p>See <a href="https://andreadada.github.io/dadadocu/docs/dadaprogressions/getting-started/installation">Installation and updates</a> for the complete update checklist.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[DadaProgressions modular goal engine milestone]]></title>
+            <link>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/goal-engine-modular</link>
+            <guid>https://andreadada.github.io/dadadocu/dadaprogressions-changelog/goal-engine-modular</guid>
+            <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+            <description><![CDATA[Historical milestone for modular filters, composite goals, prerequisites, notifications, and the visual editor.]]></description>
+            <content:encoded><![CDATA[<p>This historical milestone introduced the modular goal-engine foundations used by the later beta-26.x releases.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="goal-model">Goal model<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/goal-engine-modular#goal-model" class="hash-link" aria-label="Direct link to Goal model" title="Direct link to Goal model">​</a></h2>
+<ul>
+<li>Added modular filters and ordered point multipliers.</li>
+<li>Added nested <code>AND</code>/<code>OR</code> goals with independent criterion progress.</li>
+<li>Added automatic modern/legacy <code>ANIMAL_BREED</code> tracking.</li>
+<li>Added <code>CURRENT</code>/<code>EVER</code> prerequisite chains and cycle validation.</li>
+<li>Added criterion storage, placeholders, admin targeting, and GUI detail views.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="notifications">Notifications<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/goal-engine-modular#notifications" class="hash-link" aria-label="Direct link to Notifications" title="Direct link to Notifications">​</a></h2>
+<ul>
+<li>Added compacted FIFO notification queues for chat, actionbar, title, and bossbar channels.</li>
+<li>Added global, event, and per-goal notification overrides.</li>
+<li>Added chat batching for multiple goal updates.</li>
+<li>Added sliding notification debounce with idle, maximum-wait, and large-increment flush conditions.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="administration-and-editor">Administration and editor<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/goal-engine-modular#administration-and-editor" class="hash-link" aria-label="Direct link to Administration and editor" title="Direct link to Administration and editor">​</a></h2>
+<ul>
+<li>Added a visual admin goal editor for enabled state, scope, period, criterion targets, root <code>AND</code>/<code>OR</code> operator, and safe duplication.</li>
+<li>Added hierarchical CRUD for goals, composite criteria, and modular filters.</li>
+<li>Added private chat input for display names, exact targets, and include/exclude values.</li>
+<li>Added guided compatible-filter selection and safe goal/criterion deletion.</li>
+<li>Added GUI-first numeric keypads and paginated multi-select values.</li>
+<li>Added a paginated prerequisite goal selector with ALL/ANY mode and safe removal.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="validation-and-distribution">Validation and distribution<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/goal-engine-modular#validation-and-distribution" class="hash-link" aria-label="Direct link to Validation and distribution" title="Direct link to Validation and distribution">​</a></h2>
+<ul>
+<li>Added non-destructive goal validation and transactional reload.</li>
+<li>Added automatic file rollback for rejected GUI edits.</li>
+<li>Added checks for malformed YAML, invalid goal IDs, and duplicate IDs before runtime commit.</li>
+<li>Added distribution checks that fail the build when required shaded DadaGUI runtime classes are missing.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="defaults">Defaults<a href="https://andreadada.github.io/dadadocu/dadaprogressions-changelog/goal-engine-modular#defaults" class="hash-link" aria-label="Direct link to Defaults" title="Direct link to Defaults">​</a></h2>
+<p>New default community goals and clearer goal-list objective lore were added as part of the same milestone.</p>]]></content:encoded>
+        </item>
+    </channel>
+</rss>
