@@ -10,9 +10,11 @@ title: Installation and Updates
 You need:
 
 - a Bukkit, Spigot, Paper, or compatible Minecraft server;
-- Java 8 or newer;
+- a Java runtime supported by your Minecraft server version;
 - the shaded `DadaProgressions` release jar;
 - access to the server `plugins/` directory.
+
+The DadaProgressions jar itself is built as Java 8 bytecode for broad compatibility. Modern Minecraft server versions may require a newer Java runtime independently of the plugin.
 
 PlaceholderAPI is optional. Install it only if another plugin needs DadaProgressions values in scoreboards, tab lists, holograms, menus, or similar displays.
 
