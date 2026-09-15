@@ -3,6 +3,6 @@
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "Install DadaProgressions and prepare the first server setup."
+    "description": "Install, update, and prepare DadaProgressions for a production beta server."
   }
 }

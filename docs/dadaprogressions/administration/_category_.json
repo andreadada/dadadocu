@@ -3,6 +3,6 @@
   "position": 4,
   "link": {
     "type": "generated-index",
-    "description": "Commands, permissions, storage, backups, migration, and troubleshooting."
+    "description": "Operate a live DadaProgressions server: commands, validation, backups, recovery, storage, and troubleshooting."
   }
 }

@@ -1,40 +1,51 @@
 ---
 sidebar_position: 1
-title: API-DEV
+title: Bukkit API
 ---
 
-# API-DEV
+# Bukkit API
 
-DadaProgressions exposes a Bukkit service for plugins that want to add progress directly.
+DadaProgressions exposes a Bukkit service for plugins that need to add progress directly.
 
-One naming detail matters: the plugin is called `DadaProgressions`, but the Java API still uses the old `com.dadaachievements` package and `DadaAchievementsApi` interface name. That is intentional for compatibility.
+The current public API package is:
+
+```java
+com.dadaprogressions.api
+```
+
+and the service interface is:
+
+```java
+DadaProgressionsApi
+```
 
 ## Interface
 
 ```java
-package com.dadaachievements.api;
+package com.dadaprogressions.api;
 
 import org.bukkit.entity.Player;
-
 import java.util.UUID;
 
-public interface DadaAchievementsApi {
+public interface DadaProgressionsApi {
     boolean addProgress(String goalId, UUID playerUuid, long amount);
-
     boolean addProgress(String goalId, Player player, long amount);
+
+    boolean addCriterionProgress(String goalId, String criterionId, UUID playerUuid, long amount);
+    boolean addCriterionProgress(String goalId, String criterionId, Player player, long amount);
 }
 ```
 
-## plugin.yml dependency
+## Add DadaProgressions to `plugin.yml`
 
-Use a hard dependency if your plugin cannot work without DadaProgressions:
+Hard dependency:
 
 ```yaml
 depend:
   - DadaProgressions
 ```
 
-Use a soft dependency if the integration is optional:
+Optional integration:
 
 ```yaml
 softdepend:
@@ -43,73 +54,78 @@ softdepend:
 
 ## Compile dependency
 
-Add the API jar to your compile classpath as `provided` or `compileOnly`. Do not shade the full DadaProgressions plugin jar into your plugin.
+Depend on the API module as `provided`/`compileOnly`; do not shade the complete plugin distribution into your plugin.
 
-Maven coordinates in the beta source tree:
+Current Maven identity in the source tree:
 
 ```xml
 <dependency>
-    <groupId>com.dadaachievements</groupId>
-    <artifactId>dadaachievements-api</artifactId>
-    <version>beta-26.0</version>
+    <groupId>com.dadaprogressions</groupId>
+    <artifactId>dadaprogressions-api</artifactId>
+    <version>beta-26.5</version>
     <scope>provided</scope>
 </dependency>
 ```
 
-## Getting the service
+How you resolve that artifact depends on where you publish or install your development artifacts.
+
+## Get the Bukkit service
 
 ```java
-import com.dadaachievements.api.DadaAchievementsApi;
+import com.dadaprogressions.api.DadaProgressionsApi;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
-public final class ProgressionsHook {
-    private DadaAchievementsApi api;
+RegisteredServiceProvider<DadaProgressionsApi> registration =
+        Bukkit.getServicesManager().getRegistration(DadaProgressionsApi.class);
 
-    public boolean load() {
-        RegisteredServiceProvider<DadaAchievementsApi> registration =
-                Bukkit.getServicesManager().getRegistration(DadaAchievementsApi.class);
-
-        if (registration == null) {
-            return false;
-        }
-
-        this.api = registration.getProvider();
-        return this.api != null;
-    }
-
-    public boolean addVoteProgress(Player player) {
-        if (api == null || player == null) {
-            return false;
-        }
-
-        return api.addProgress("player_daily_vote", player, 1L);
-    }
-}
+DadaProgressionsApi api = registration == null ? null : registration.getProvider();
 ```
 
-## Notes
+Always handle `null` when using `softdepend`.
 
-- `goalId` must match a loaded goal ID.
-- `amount` must be positive.
-- For player goals, pass a player or player UUID.
-- For community goals, passing a player also records that player's contribution.
-- `addProgress` returns `false` if the goal does not exist or the amount is invalid.
-- Goal cooldowns still apply.
-- With `softdepend`, always handle the API being unavailable.
-
-## Vote listener example
+## Add progress
 
 ```java
-public void onVote(Player player) {
-    if (dadaProgressionsApi != null) {
-        dadaProgressionsApi.addProgress("player_daily_vote", player, 1L);
-    }
-}
+boolean applied = api.addProgress("player_daily_vote", player, 1L);
 ```
 
-If your integration can only run commands, use the admin trigger command instead:
+The boolean tells you whether progress was actually applied, not merely whether the goal ID existed. A locked, complete, disabled, cooldown-blocked, or otherwise non-applicable operation may return `false`.
+
+## Composite criterion progress
+
+For a specific leaf in a composite goal:
+
+```java
+boolean applied = api.addCriterionProgress(
+        "weekly_adventurer",
+        "mining",
+        player,
+        5L
+);
+```
+
+The criterion ID must match a loaded event criterion.
+
+## Threading
+
+API calls are safe to invoke from an asynchronous plugin task. DadaProgressions marshals the mutation to the Bukkit primary thread and waits for the result.
+
+Do not call the API in a tight asynchronous loop: every off-thread call becomes a synchronous server-thread operation.
+
+## Community goals
+
+Passing a player to a community goal allows DadaProgressions to attribute that player's contribution while advancing the shared progress.
+
+## Command-based integrations
+
+If an external plugin cannot use the Java service, execute:
+
+```text
+dp admin trigger <goalId> <player> <amount>
+```
+
+Example for a vote plugin:
 
 ```text
 dp admin trigger player_daily_vote %player% 1
