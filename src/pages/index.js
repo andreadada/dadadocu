@@ -22,11 +22,6 @@ const products = [
     to: '/docs/dadagraves/intro',
   },
   {
-    name: 'EventDirector',
-    description: 'Event setup, actions, conditions, administration, and server management.',
-    to: '/docs/eventdirector/intro',
-  },
-  {
     name: 'DND',
     description: 'Reference material and project documentation for Dada DND content.',
     to: '/docs/dnd/intro',
