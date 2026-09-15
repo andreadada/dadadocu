@@ -64,11 +64,11 @@ Perform the expected action once. The debug report is the best way to identify:
 
 ## Crafting progress is unexpected
 
-Current builds account for recipe result amount and shift-click multi-crafting instead of always counting one craft action as one item.
+DadaProgressions counts the amount produced by the recipe, not just the number of clicks.
 
-Shift-click crafting is estimated from the available recipe inputs, so if another plugin heavily modifies inventory/crafting behaviour, verify the result on your server with a test goal.
+Shift-click crafting also checks the available recipe inputs and, since beta-26.6, the amount of inventory space that can actually receive the result. An almost-full inventory should therefore no longer give progress for items that could not fit.
 
-If you intended to count craft actions rather than produced items, design the point base/rules around that behaviour instead of assuming every craft event is worth one.
+Plugins that replace or heavily modify Bukkit's normal crafting transaction can still change the final behaviour. If your server uses one, test the recipe with `/dp admin debug` and a temporary goal.
 
 ## Damage goals count incorrectly
 
@@ -144,7 +144,7 @@ The old `plugins/DadaAchievements/` folder is copied only when the new `plugins/
 Install the final shaded distribution jar, currently:
 
 ```text
-DadaProgressions-beta-26.5.jar
+DadaProgressions-beta-26.6.jar
 ```
 
 Do not install Maven module jars as plugins.
