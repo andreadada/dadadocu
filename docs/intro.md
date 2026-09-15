@@ -6,7 +6,7 @@ slug: /intro
 
 # DadaWiki
 
-DadaWiki is the maintained documentation hub for Dada plugins, tools, and server projects.
+DadaWiki is the maintained documentation hub for Dada plugins, tools, and Minecraft server projects.
 
 Use the product-specific sections in the navigation bar for setup guides, configuration reference, administration procedures, and release notes.
 
