@@ -66,6 +66,8 @@ Perform the expected action once. The debug report is the best way to identify:
 
 Current builds account for recipe result amount and shift-click multi-crafting instead of always counting one craft action as one item.
 
+Shift-click crafting is estimated from the available recipe inputs, so if another plugin heavily modifies inventory/crafting behaviour, verify the result on your server with a test goal.
+
 If you intended to count craft actions rather than produced items, design the point base/rules around that behaviour instead of assuming every craft event is worth one.
 
 ## Damage goals count incorrectly
