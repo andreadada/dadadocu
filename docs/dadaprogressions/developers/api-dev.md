@@ -62,7 +62,7 @@ Current Maven identity in the source tree:
 <dependency>
     <groupId>com.dadaprogressions</groupId>
     <artifactId>dadaprogressions-api</artifactId>
-    <version>beta-26.5</version>
+    <version>beta-26.6</version>
     <scope>provided</scope>
 </dependency>
 ```
