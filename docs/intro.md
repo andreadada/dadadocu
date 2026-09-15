@@ -1,47 +1,49 @@
 ---
 sidebar_position: 1
+title: DadaWiki
+slug: /intro
 ---
 
-# Tutorial Intro
+# DadaWiki
 
-Let's discover **Docusaurus in less than 5 minutes**.
+DadaWiki is the maintained documentation hub for Dada plugins, tools, and server projects.
 
-## Getting Started
+Use the product-specific sections in the navigation bar for setup guides, configuration reference, administration procedures, and release notes.
 
-Get started by **creating a new site**.
+## Projects
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+### DadaProgressions
 
-### What you'll need
+Progression goals, achievements, reward tiers, community objectives, leaderboards, administration, storage, and integrations.
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+Start with [DadaProgressions](/docs/dadaprogressions/intro) or read the [DadaProgressions changelog](/dadaprogressions-changelog).
 
-## Generate a new site
+### Structory
 
-Generate a new Docusaurus site using the **classic template**.
+Structure configuration, recipes, options, commands, administration, and examples.
 
-The classic template will automatically be added to your project after you run the command:
+Start with [Structory](/docs/structory/intro).
 
-```bash
-npm init docusaurus@latest my-website classic
-```
+### DadaGraves
 
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
+Gravestone configuration, commands, GUIs, and decorations.
 
-The command also installs all necessary dependencies you need to run Docusaurus.
+Start with [DadaGraves](/docs/dadagraves/intro) or read the [DadaGraves changelog](/dadagraves-changelog).
 
-## Start your site
+### EventDirector
 
-Run the development server:
+Event setup, conditions, actions, rewards, administration, and server management.
 
-```bash
-cd my-website
-npm run start
-```
+Start with [EventDirector](/docs/eventdirector/intro).
 
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
+### DND
 
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
+Reference material and project documentation for Dada DND content.
 
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Start with [DND](/docs/dnd/intro).
+
+## Documentation policy
+
+Product documentation should describe the current supported behaviour rather than internal implementation plans. Changelogs document release-specific changes; setup pages describe the current recommended configuration.
+
+For production servers, always follow the backup and update procedure documented for the relevant plugin before replacing a live jar.

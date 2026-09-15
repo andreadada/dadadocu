@@ -4,7 +4,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'DadaWiki',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'Documentation for Dada plugins, tools, and server projects.',
   favicon: 'img/favicon.ico',
 
   future: {
@@ -180,7 +180,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} DadaWiki, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} DadaWiki. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

@@ -1,23 +1,74 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
 .heroBanner {
-  padding: 4rem 0;
+  padding: 5rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
-}
-
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
 }
 
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.main {
+  padding: 3.5rem 0 5rem;
+}
+
+.sectionHeader {
+  max-width: 720px;
+  margin-bottom: 2rem;
+}
+
+.sectionHeader p {
+  margin-bottom: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  display: block;
+  padding: 1.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-card-border-radius);
+  background: var(--ifm-card-background-color);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  transition: transform 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.card:hover {
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  transform: translateY(-2px);
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.card h3 {
+  margin-bottom: 0.75rem;
+}
+
+.card p {
+  margin-bottom: 1.25rem;
+}
+
+.cardLink {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 3rem 1.5rem;
+  }
+
+  .main {
+    padding: 2.5rem 0 4rem;
+  }
 }
