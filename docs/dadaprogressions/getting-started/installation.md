@@ -21,7 +21,7 @@ PlaceholderAPI is optional. Install it only if another plugin needs DadaProgress
 ## Fresh installation
 
 1. Stop the server completely.
-2. Put `DadaProgressions-beta-26.5.jar` in `plugins/`.
+2. Put `DadaProgressions-beta-26.6.jar` in `plugins/`.
 3. Start the server once.
 4. Confirm that `plugins/DadaProgressions/` is created.
 5. Check the console for configuration or compatibility errors.
@@ -71,6 +71,8 @@ For a live server, use a full stop rather than Bukkit `/reload`.
 8. Check `/dp admin list` and `/dp admin info <goalId>` for representative goals.
 9. Test a PLAYER goal, a COMMUNITY goal, a leaderboard, and one reward claim.
 10. Restart once more if you want to verify persistence before opening the server to everyone.
+
+Beta-26.6 does not require a config or storage migration from beta-26.5.
 
 :::warning Do not install module jars
 Use the final distribution jar named `DadaProgressions-beta-<version>.jar`. Do not put the API, Bukkit module, legacy adapter, or modern adapter jars in your server `plugins/` folder.
