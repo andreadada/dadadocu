@@ -1,29 +1,29 @@
 ---
-sidebar_position: 4
-title: PlaceholderAPI
+sidebar_position: 9
+title: PlaceholderAPI and Text Placeholders
 ---
 
-# PlaceholderAPI
+# PlaceholderAPI and text placeholders
 
-PlaceholderAPI is optional. If it is installed, DadaProgressions registers placeholders on startup.
+PlaceholderAPI is optional. When it is installed, DadaProgressions registers a public expansion for other plugins.
 
-Use this identifier for new setups:
+## Public PlaceholderAPI identifier
+
+Use this identifier for new configurations:
 
 ```text
 DadaProgressions
 ```
 
-The old beta identifier is still registered:
+The old beta identifier remains available for compatibility:
 
 ```text
 dadaachievements
 ```
 
-Keep the old one only for legacy configs.
-
 ## Public placeholders
 
-Replace `<goalId>` with the exact goal ID from `goals/*.yml`.
+Replace `<goalId>` with the exact ID from `goals/*.yml`.
 
 ```text
 %DadaProgressions_progress_<goalId>%
@@ -50,45 +50,55 @@ Legacy example:
 %dadaachievements_progress_community_daily_mining%
 ```
 
-## Placeholders inside DadaProgressions text
+## Internal DadaProgressions placeholders
 
-GUI text, messages, notifications, and reward commands can also use plugin placeholders.
+GUI text, messages, notifications, and reward commands can use plugin-provided values such as:
 
-Common values:
+```text
+%goal_id%
+%goal_name%
+%player%
+%tier%
+%tier_name%
+%scope%
+%period%
+%type%
+%progress%
+%player_progress%
+%community_progress%
+%target%
+%percent%
+%remaining%
+%next_reset%
+%rank%
+%contribution%
+%contribution_percent%
+%unlocked_tiers%
+%claimed_tiers%
+%claimable_tiers%
+%next_tier%
+%next_tier_remaining%
+%completed%
+```
 
-- `%goal_id%`
-- `%goal_name%`
-- `%player%`
-- `%tier%`
-- `%tier_name%`
-- `%scope%`
-- `%period%`
-- `%type%`
-- `%progress%`
-- `%player_progress%`
-- `%community_progress%`
-- `%target%`
-- `%percent%`
-- `%remaining%`
-- `%next_reset%`
-- `%rank%`
-- `%contribution%`
-- `%contribution_percent%`
-- `%unlocked_tiers%`
-- `%claimed_tiers%`
-- `%claimable_tiers%`
-- `%next_tier%`
-- `%next_tier_remaining%`
-- `%completed%`
+Reward commands additionally support:
 
-Reward commands also get:
+```text
+%player_uuid%
+```
 
-- `%player_uuid%`
+Progress notifications may also use:
 
-Progress notification messages can use:
+```text
+%amount%
+%progress_before%
+%progress_after%
+%percent_before%
+%percent_after%
+```
 
-- `%amount%`
-- `%progress_before%`
-- `%progress_after%`
-- `%percent_before%`
-- `%percent_after%`
+## Player context
+
+Some placeholders require a player context. A scoreboard or hologram plugin that parses a placeholder globally without a player may not be able to resolve personal progress, personal rank, or contribution data.
+
+When a PlaceholderAPI value is unexpectedly empty, test the same placeholder through a plugin or command that explicitly supplies the target player.

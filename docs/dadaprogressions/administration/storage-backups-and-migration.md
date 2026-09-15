@@ -1,11 +1,11 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 title: Storage, Backups, and Migration
 ---
 
-# Storage, Backups, and Migration
+# Storage, backups, and migration
 
-DadaProgressions beta stores data in YAML files.
+DadaProgressions beta uses a hybrid YAML storage layout designed to keep source data separate from rebuildable leaderboard indexes.
 
 ## Data layout
 
@@ -18,74 +18,87 @@ plugins/DadaProgressions/data/
   indexes/player-goals/<goalId>.yml
 ```
 
-The important source files are:
+Source-of-truth data includes:
 
-- `meta.yml`
-- `player-names.yml`
-- `community-goals/<goalId>.yml`
-- `players/<uuid>.yml`
+- `meta.yml`;
+- `player-names.yml`;
+- `community-goals/<goalId>.yml`;
+- `players/<uuid>.yml`.
 
-Back these up before updates or manual data edits.
+Files under `indexes/player-goals/` are derived and can be rebuilt.
 
-## Leaderboard indexes
+## Beta 26.5 periodic persistence
 
-Files under `data/indexes/player-goals/` are derived indexes. They are useful, but not the source of truth.
+Periodic persistence now works in two phases:
 
-If they go missing or look wrong, rebuild them:
+1. dirty YAML is serialized into immutable snapshots on the Bukkit thread;
+2. filesystem writes are performed by one dedicated writer thread.
 
-```text
-/dp admin rebuildindexes
+This reduces periodic disk I/O on the main server tick while avoiding concurrent mutation of live Bukkit `YamlConfiguration` objects.
+
+The writer protects ordering: an older queued snapshot is not allowed to overwrite a newer synchronous save.
+
+Current global settings are:
+
+```yaml
+storage:
+  async-periodic-writes: true
+  save-interval-ticks: 600
+  writer-flush-timeout-seconds: 10
 ```
 
-or run the broader repair command:
+Explicit operations that require durability, including reward-claim reservation/finalization, reload, backup, and shutdown, wait for the storage state to be safely persisted before continuing.
 
-```text
-/dp admin repair
-```
+## Manual backups
 
-## Backups
-
-Create a manual backup with:
+Create a backup with:
 
 ```text
 /dp admin backup
 ```
 
-The backup is written under:
+Backups are written under:
 
 ```text
 plugins/DadaProgressions/backups/manual-<timestamp>/data/
 ```
 
-Use this before risky changes, updates, or manual storage edits.
+Use this before:
 
-## Validation and repair
+- plugin updates;
+- large goal changes;
+- reset commands;
+- manual recovery work.
 
-Run validation with:
+## Leaderboard indexes
+
+Rebuild derived indexes with:
 
 ```text
-/dp admin validate
+/dp admin rebuildindexes
 ```
 
-It checks for corrupt files, missing indexes, orphan indexes, invalid period keys, and unknown goal IDs.
-
-Run repair with:
+Use the broader repair command when you also want missing storage directories recreated:
 
 ```text
 /dp admin repair
 ```
 
-Repair recreates missing directories and rebuilds derived indexes. It does not quietly rewrite source progress files.
+Repair does not invent or silently replace missing source progress.
 
-## Corrupt files
+## Corrupt YAML handling
 
-Corrupt source YAML is quarantined with a `.corrupt-<timestamp>` suffix.
+Corrupt source YAML is quarantined with a suffix similar to:
 
-Corrupt derived index YAML is deleted and rebuilt.
+```text
+.corrupt-<timestamp>
+```
 
-If a source file is quarantined, restore it manually from backup.
+Corrupt derived index files may be deleted and rebuilt.
 
-## Legacy `data.yml`
+If a source file is quarantined, investigate and restore from a known-good backup rather than creating replacement progress by hand.
+
+## Legacy `data.yml` migration
 
 Older beta data may exist as:
 
@@ -93,28 +106,22 @@ Older beta data may exist as:
 plugins/DadaProgressions/data.yml
 ```
 
-During migration, the plugin backs it up to:
+During migration, DadaProgressions creates a pre-migration backup. After successful conversion, the old file is renamed to `data.yml.bak`. If migration fails, the original is left in place.
 
-```text
-plugins/DadaProgressions/backups/pre-migration-<timestamp>/data.yml
-```
+Migration metadata is recorded in `data/meta.yml`.
 
-After a successful migration, the old file becomes:
+## Old `DadaAchievements` folder
 
-```text
-plugins/DadaProgressions/data.yml.bak
-```
+If `plugins/DadaProgressions/` is missing or empty and an old `plugins/DadaAchievements/` folder exists, DadaProgressions can copy the old data into the new plugin folder.
 
-If migration fails, the original file stays in place.
+The old folder is never deleted automatically.
 
-## Old plugin folder
+## Manual file editing
 
-Old beta builds used:
+Do not edit runtime files in `data/` while the server is running. Use admin commands for normal corrections. If manual recovery is unavoidable:
 
-```text
-plugins/DadaAchievements/
-```
-
-If `plugins/DadaProgressions` is missing or empty and `plugins/DadaAchievements` exists, startup copies the old folder to the new one. The old folder is not deleted.
-
-If `plugins/DadaProgressions` already contains files, nothing is copied. This avoids overwriting live data.
+1. stop the server;
+2. take a full copy of the data folder;
+3. edit only the required source file;
+4. remove/rebuild derived indexes if necessary;
+5. start the server and run `/dp admin validate`.

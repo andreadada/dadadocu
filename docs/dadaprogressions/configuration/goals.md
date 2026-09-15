@@ -1,21 +1,19 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 title: Goals
 ---
 
 # Goals
 
-Goal files live here:
+Goal files live in:
 
 ```text
 plugins/DadaProgressions/goals/
 ```
 
-DadaProgressions loads every `.yml` and `.yaml` file in that folder. Split goals however you like: by period, event, season, server mode, or admin preference.
+Every `.yml` and `.yaml` file in that directory is loaded. You may organize goals by period, event, game mode, or any other structure that makes maintenance easier.
 
-Each file can either use a top-level `goals:` section or put goal IDs directly at the top level. The bundled examples use `goals:`.
-
-## Basic goal
+## Minimal simple goal
 
 ```yaml
 goals:
@@ -30,65 +28,89 @@ goals:
       material: "IRON_SWORD"
       lore:
         - "<gray>Defeat 30 mobs today."
-        - "<gray>Your progress: <white>%player_progress%</white>/<white>%target%</white>"
     tiers:
-      50:
-        name: "<yellow>Hunter's Focus"
-        reward-commands:
-          - "say %player% reached 50% of %goal_name%!"
       100:
         name: "<gold>Hunter Reward"
         reward-commands:
           - "say %player% completed %goal_name%!"
 ```
 
-`player_daily_hunter` is the goal ID. Use stable IDs, because progress and claims are stored by goal ID.
+The top-level `goals:` wrapper is optional. A file may also contain goal IDs directly at the root.
 
-## Fields
+## Goal IDs
 
-| Field | Notes |
+IDs are used in storage, commands, placeholders, prerequisites, and APIs.
+
+Valid IDs are 1-64 characters and may contain:
+
+- letters;
+- numbers;
+- `_`;
+- `-`.
+
+Avoid renaming a goal after players have earned progress unless you intentionally want a new storage identity.
+
+## Core fields
+
+| Field | Meaning |
 |---|---|
-| `enabled` | Set to `false` to keep the goal in the file without loading it as active. |
-| `scope` | `PLAYER` stores progress per player. `COMMUNITY` stores one shared value. |
+| `enabled` | Enables or disables the goal. Default: `true`. |
+| `scope` | `PLAYER` or `COMMUNITY`. |
 | `period` | `DAILY`, `WEEKLY`, `MONTHLY`, or `PERMANENT`. |
-| `type` | The event or trigger that adds progress. |
-| `target` | Required progress amount. Minimum is `1`. |
-| `display` | GUI name, material, and lore. |
-| `tiers` | Claimable milestone rewards. |
-| `claim-mode` | `MANUAL` by default. `AUTO` claims unlocked rewards on completion for the acting player. |
-| `notifications` | Optional overrides for this one goal. |
-| `cooldown` | Optional limit on how often progress can be earned. |
+| `type` | Event type for a simple goal. |
+| `target` | Positive target for a simple goal. |
+| `display` | Name, material, and lore used by the GUI. |
+| `claim-mode` | `MANUAL` or `AUTO`. Default: `MANUAL`. |
+| `tiers` | Milestone reward definitions. |
+| `filters` | Optional event filters applied before progress. |
+| `filter-mode` | `ALL` or `ANY` for the goal-level filter group. |
+| `points` | Optional point calculation rules. |
+| `cooldown` | Optional progress acquisition cooldown. |
+| `prerequisites` | Optional dependency chain. |
+| `notifications` | Optional per-goal notification overrides. |
+| `reset-settings.timezone` | Optional timezone override for this goal. |
 
-## Player and community goals
+## PLAYER and COMMUNITY scope
 
-Use `PLAYER` when every player should have their own progress:
+A PLAYER goal keeps independent progress for every player:
 
 ```yaml
 scope: PLAYER
 ```
 
-Use `COMMUNITY` when the server shares one target:
+A COMMUNITY goal has one server-wide progress value:
 
 ```yaml
 scope: COMMUNITY
 ```
 
-Community goals still track individual contributions, so leaderboards and `%contribution%` can show who helped.
+Community goals still record each player's contribution. This allows contribution leaderboards even though the target itself is shared.
 
 ## Periods
 
-| Period | Notes |
-|---|---|
-| `DAILY` | Current daily period. |
-| `WEEKLY` | Current weekly period. |
-| `MONTHLY` | Current monthly period. |
-| `PERMANENT` | No automatic period reset. |
+```yaml
+period: DAILY
+```
 
-The timezone comes from `settings.timezone` in `config.yml`, unless the goal overrides it.
+Supported values:
+
+- `DAILY`
+- `WEEKLY`
+- `MONTHLY`
+- `PERMANENT`
+
+Daily, weekly, and monthly period keys are calculated from the configured timezone. Permanent goals do not roll into a new period automatically.
+
+For a per-goal timezone override:
+
+```yaml
+reset-settings:
+  timezone: "Europe/Rome"
+```
 
 ## Goal types
 
-Automatically tracked types:
+Automatically tracked event types are:
 
 - `BLOCK_BREAK`
 - `BLOCK_PLACE`
@@ -102,40 +124,86 @@ Automatically tracked types:
 - `ITEM_DROP`
 - `ITEM_ENCHANT`
 - `ITEM_SMELT`
+- `ANIMAL_BREED`
 - `DEATH`
 - `LOGIN`
 - `DAMAGE_DEALT`
 - `DAMAGE_TAKEN`
 
-Manual or integration-oriented types:
+`ANIMAL_BREED` is tracked automatically. Modern servers use native breeder information; old versions can use the configured legacy attribution logic.
 
-- `ANIMAL_BREED`
+Integration-oriented types are:
+
 - `VOTE`
 - `CUSTOM`
 
-For manual types, add progress with `/dp admin trigger` or through the API.
+Those are normally advanced by another plugin through `/dp admin trigger` or the Bukkit API.
 
-## Reward tiers
+## Composite goals
 
-Tier keys are percentages. `50` and `50%` both work.
+Composite goals replace the simple `type` and `target` with a nested `criteria` tree.
+
+Example:
 
 ```yaml
-tiers:
-  25:
-    name: "<green>Starter"
-    reward-commands:
-      - "eco give %player% 100"
-  50:
-    name: "<yellow>Halfway"
-    reward-commands:
-      - "crate key give %player% common 1"
-  100:
-    name: "<gold>Complete"
-    reward-commands:
-      - "lp user %player% permission set server.goal.complete true"
+goals:
+  weekly_adventurer:
+    scope: PLAYER
+    period: WEEKLY
+    display:
+      name: "<aqua>Weekly Adventurer"
+      material: "COMPASS"
+    criteria:
+      operator: AND
+      children:
+        mining:
+          type: BLOCK_BREAK
+          target: 500
+          weight: 1.0
+        hunting:
+          type: MOB_KILL
+          target: 50
+          weight: 1.0
+    tiers:
+      100:
+        name: "<gold>Adventurer Reward"
+        reward-commands:
+          - "say %player% finished the weekly adventurer goal!"
 ```
 
-Reward commands run from console. Do not include `/` at the start.
+Composite groups support `AND` and `OR`. Groups can be nested up to the supported validation depth, and a goal can contain multiple event criteria.
+
+Each event criterion can have its own:
+
+- `type`;
+- `target`;
+- `weight`;
+- `filters` and `filter-mode`;
+- `points`;
+- `cooldown`.
+
+For direct integration progress on one leaf, use `addCriterionProgress` from the Bukkit API.
+
+## Prerequisites
+
+Goals can be locked behind other goals.
+
+```yaml
+prerequisites:
+  mode: ALL
+  requirements:
+    first_steps:
+      state: COMPLETED
+      history: EVER
+    mining_adept:
+      state: TIER_CLAIMED
+      history: EVER
+      tier: 100
+```
+
+`mode` can be `ALL` or `ANY`.
+
+A prerequisite may check completion or a claimed tier. Dependency cycles and missing goals/tiers are rejected by validation.
 
 ## Community example
 
@@ -146,33 +214,30 @@ goals:
     scope: COMMUNITY
     period: DAILY
     type: BLOCK_BREAK
-    target: 500
+    target: 5000
     display:
-      name: "<aqua>Community Daily Mining"
+      name: "<aqua>Community Mining"
       material: "DIAMOND_PICKAXE"
       lore:
-        - "<gray>Mine blocks together today."
+        - "<gray>Mine together before the daily reset."
         - "<gray>Progress: <white>%progress%</white>/<white>%target%</white>"
         - "<gray>Your contribution: <white>%contribution%</white>"
     tiers:
       50:
-        name: "<yellow>Halfway Reward"
+        name: "<yellow>Halfway"
         reward-commands:
-          - "say %player% helped reach 50% of %goal_name%!"
+          - "say %player% claimed the halfway reward!"
       100:
-        name: "<gold>Completion Reward"
+        name: "<gold>Completed"
         reward-commands:
-          - "say %player% claimed %goal_name%!"
+          - "say %player% claimed the completion reward!"
 ```
 
-## Vote example
-
-`VOTE` is not tracked automatically by Bukkit. Trigger it from your vote plugin.
+## Vote integration example
 
 ```yaml
 goals:
   player_daily_vote:
-    enabled: true
     scope: PLAYER
     period: DAILY
     type: VOTE
@@ -180,18 +245,16 @@ goals:
     display:
       name: "<gold>Daily Vote"
       material: "PAPER"
-      lore:
-        - "<gray>Vote for the server today."
-        - "<gray>Progress: <white>%player_progress%</white>/<white>%target%</white>"
     tiers:
       100:
-        name: "<gold>Vote Reward"
         reward-commands:
-          - "say %player% claimed the daily vote reward!"
+          - "say Thanks for voting, %player%!"
 ```
 
-Example reward command in a vote plugin:
+Then configure your vote plugin to run:
 
 ```text
 dp admin trigger player_daily_vote %player% 1
 ```
+
+Continue with [Filters and point rules](filters-and-points.md) and [Rewards and claims](rewards-and-claims.md) for advanced behaviour.

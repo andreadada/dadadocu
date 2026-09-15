@@ -1,56 +1,77 @@
 ---
 sidebar_position: 1
 title: DadaProgressions
+slug: /dadaprogressions/intro
 ---
 
 # DadaProgressions
 
-DadaProgressions adds a progression layer to a Minecraft server: goals that players can see, push forward, complete, and claim rewards from.
+DadaProgressions is a progression and reward system for Bukkit-compatible Minecraft servers. It lets server owners build personal achievements, recurring quests, community objectives, milestone rewards, prerequisite chains, and leaderboards without writing a custom plugin for each event.
 
-It works well for daily quests, weekly objectives, community targets, seasonal events, vote rewards, playtime milestones, and long-term achievements. The idea is simple: give players a clear reason to keep playing, and give staff enough control to tune the goals without writing code.
+The plugin is designed around two kinds of progress:
 
-Progress can be personal, where every player has their own value, or community-based, where the whole server contributes to the same target. Players can use the GUI to browse goals, check tiers, claim rewards, and view leaderboards.
+- **PLAYER** goals keep a separate value for every player.
+- **COMMUNITY** goals use one shared server value while still recording each player's contribution for leaderboards.
 
-## Good fits
+Goals can reset daily, weekly, or monthly, or remain permanent. A goal can be simple, such as breaking 500 blocks, or composite, such as completing several independent criteria joined with `AND` or `OR`.
 
-DadaProgressions is usually a good fit when you want:
+## What players see
 
-- daily or weekly tasks;
-- server-wide mining, building, combat, fishing, or crafting events;
-- milestone rewards before the final target;
-- simple leaderboard competition;
-- vote or custom-plugin progress;
-- PlaceholderAPI values for scoreboards and other displays;
-- a YAML-driven setup that staff can edit.
+Players normally interact with DadaProgressions through `/dp` or a configured GUI alias such as `/achievements`. From the GUI they can:
 
-It is not trying to be a full scripting engine. For custom events from other plugins, use `/dp admin trigger` or the API.
+- browse daily, weekly, monthly, lifetime, community, and personal goals;
+- inspect progress and reward tiers;
+- claim unlocked rewards;
+- view leaderboards;
+- see whether a goal is locked by prerequisites.
 
-## Where to start
+## What server owners configure
 
-New setup:
+Most server configuration lives in three places:
 
-- [Installation](getting-started/installation.md)
-- [Server Admin Workflow](getting-started/server-admin-workflow.md)
+```text
+plugins/DadaProgressions/
+  config.yml
+  guis.yml
+  goals/
+```
 
-Configuration:
+- `config.yml` controls global settings, storage behaviour, command aliases, messages, and notification defaults.
+- `guis.yml` controls menu layouts and visual items.
+- `goals/*.yml` defines the actual progression system.
 
-- [Goals](configuration/goals.md)
-- [GUI Configuration](configuration/gui.md)
-- [Notifications and Cooldowns](configuration/notifications-and-cooldowns.md)
+Runtime progress is stored separately under `data/`. You should not edit those files while the server is running.
+
+## Recommended reading order
+
+If you are installing the plugin for the first time:
+
+1. [Installation and updates](getting-started/installation.md)
+2. [First setup and production checklist](getting-started/server-admin-workflow.md)
+3. [Configuration overview](configuration/overview.md)
+4. [Goals](configuration/goals.md)
+5. [Rewards and claims](configuration/rewards-and-claims.md)
+6. [Commands and permissions](administration/commands-and-permissions.md)
+
+For more advanced setups:
+
+- [Filters and point rules](configuration/filters-and-points.md)
+- [Cooldowns and periods](configuration/cooldowns-and-periods.md)
+- [Notifications](configuration/notifications.md)
+- [GUI configuration](configuration/gui.md)
 - [PlaceholderAPI](configuration/placeholders.md)
-
-Server management:
-
-- [Commands and Permissions](administration/commands-and-permissions.md)
-- [Storage, Backups, and Migration](administration/storage-backups-and-migration.md)
+- [Validation and in-game editor](administration/validation-and-editor.md)
+- [Storage, backups, and migration](administration/storage-backups-and-migration.md)
 - [Troubleshooting](administration/troubleshooting.md)
 
-Developer hooks:
-
-- [API-DEV](developers/api-dev.md)
+Developers integrating another plugin should use the [Bukkit API guide](developers/api-dev.md).
 
 ## Compatibility
 
-DadaProgressions is built as Java 8 bytecode and is meant to load on old and modern Bukkit-compatible servers, from Minecraft 1.8 onward.
+The distributed jar is verified as Java 8 bytecode. DadaProgressions targets Bukkit, Spigot, Paper, and compatible servers from old Minecraft versions through modern releases.
 
-PlaceholderAPI is optional. If it is installed, DadaProgressions registers both the new `DadaProgressions` placeholders and the old `dadaachievements` aliases.
+PlaceholderAPI is optional. DadaProgressions also keeps legacy `dadaachievements` permissions and PlaceholderAPI identifiers for older beta configurations.
+
+:::note Beta status
+DadaProgressions is already suitable for production beta use, but the current beta still uses YAML storage and large multi-server/network deployments are not the primary target. Keep backups before updates and validate configuration changes before exposing them to players.
+:::

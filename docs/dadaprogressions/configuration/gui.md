@@ -1,78 +1,87 @@
 ---
-sidebar_position: 2
+sidebar_position: 8
 title: GUI Configuration
 ---
 
-# GUI Configuration
+# GUI configuration
 
-The GUI file is:
+The player GUI is configured in:
 
 ```text
 plugins/DadaProgressions/guis.yml
 ```
 
-It controls menu titles, slot layouts, materials, names, lore, and navigation buttons.
+It controls menu titles, slot layouts, materials, names, lore, and navigation. Goal logic itself remains in `goals/*.yml`.
 
-## Layouts
+## Layout rules
 
-Layouts use one marker per inventory slot:
+Each character is one inventory slot. Spaces are ignored.
+
+Both examples below represent nine slots:
 
 ```yaml
-layout:
-  - "x x x x x x x x x"
-  - "x D x W x M x L x"
-  - "x x C x A x P x x"
+- "x x x x x x x x x"
+- "xxxxxxxxx"
 ```
 
-Spaces are ignored. Each row must end up as exactly 9 markers, and a menu can have at most 6 rows.
+Every row must resolve to exactly 9 markers and a menu may contain at most 6 rows.
 
-## Markers
+## Built-in markers
 
 | Marker | Meaning |
 |---|---|
-| `x` | Filler. |
-| `D` | Daily goals. |
-| `W` | Weekly goals. |
-| `M` | Monthly goals. |
-| `L` | Lifetime goals. |
-| `C` | Community goals. |
-| `P` | Personal goals, or previous page depending on the menu. |
-| `G` | Goal item in a paginated list. |
-| `T` | Reward tier item. |
-| `E` | Leaderboard entry. |
-| `A` | Claim all. |
-| `B` | Back. |
-| `R` | Refresh. |
-| `N` | Next page. |
-| `Q` | Close. |
+| `x` | Filler |
+| `D` | Daily category |
+| `W` | Weekly category |
+| `M` | Monthly category |
+| `L` | Lifetime category |
+| `C` | Community category |
+| `P` | Personal category or previous page, depending on the menu |
+| `G` | Paginated goal entry |
+| `T` | Reward tier entry |
+| `E` | Leaderboard entry |
+| `A` | Claim all |
+| `B` | Back |
+| `R` | Refresh |
+| `N` | Next page |
+| `Q` | Close |
+| `S` | Goal summary in the detail view |
 
-More `G`, `T`, or `E` markers means more visible entries per page.
+Repeated `G`, `T`, or `E` markers define how many entries fit on one page.
 
 ## Main menu example
 
 ```yaml
 gui:
   main:
-    title: "<blue>DadaProgressions"
+    title: "<blue>DadaProgression"
     layout:
       - "x x x x x x x x x"
       - "x D x W x M x L x"
       - "x x x x x x x x x"
       - "x x C x A x P x x"
       - "x x x x x x x x Q"
-    items:
-      daily:
-        material: "CLOCK"
-        legacy-material: "WATCH"
-        name: "<aqua>Daily Quests"
-      claim-all:
-        material: "CHEST"
-        name: "<green>Claim All Rewards"
-        lore:
-          - "<gray>Claim every available reward tier."
 ```
 
-## Detail menu example
+## Goal list example
+
+```yaml
+gui:
+  list:
+    goal-item:
+      show-state-lore: false
+    layout:
+      - "x x x x x x x x x"
+      - "x G G G G G G G x"
+      - "x G G G G G G G x"
+      - "x G G G G G G G x"
+      - "x G G G G G G G x"
+      - "B x x P R N x x x"
+```
+
+`show-state-lore: false` keeps list items focused on the lore defined in each goal's `display.lore`. Turn it on when you want more technical state information directly in list views.
+
+## Detail menu
 
 ```yaml
 gui:
@@ -85,19 +94,13 @@ gui:
       - "x T T T T T T T x"
       - "x T T T T T T T x"
       - "B x A x R x L x x"
-    items:
-      summary:
-        material: "BOOK"
-        name: "%goal_name%"
-      tier:
-        locked-material: "STAINED_GLASS_PANE"
-        unlocked-material: "CHEST"
-        claimed-material: "EMERALD_BLOCK"
 ```
 
-## Old server materials
+Tier items can use separate materials for locked, unlocked, and claimed state.
 
-For old Minecraft versions, add `legacy-material` and `data` when the modern material does not exist.
+## Old Minecraft material compatibility
+
+When a modern material name does not exist on an old server version, define a legacy fallback:
 
 ```yaml
 personal:
@@ -107,8 +110,27 @@ personal:
   name: "<blue>Personal Goals"
 ```
 
-## Text formatting
+Keep compatibility fallbacks when your jar is deployed across a wide range of Minecraft versions.
 
-DadaProgressions uses the bundled DadaPlatform/Kyori formatter when it is available.
+## Formatting and placeholders
 
-The fallback still supports legacy `&` codes, common color/style tags, `<community>`, `<personal>`, and closing-tag resets. Hover and click events are not preserved through legacy Bukkit string messages.
+GUI names and lore can use DadaProgressions placeholders and the same formatting system used by messages.
+
+Example:
+
+```yaml
+name: "<gold>%goal_name%"
+lore:
+  - "<gray>Progress: <white>%progress%</white>/<white>%target%</white>"
+  - "<gray>Contribution: <white>%contribution%</white>"
+```
+
+## Troubleshooting layouts
+
+If a GUI fails to open after editing `guis.yml`:
+
+1. count every non-space marker in each row;
+2. confirm every row has exactly 9;
+3. confirm the menu has at most 6 rows;
+4. check old-version material names;
+5. restore the previous file if the problem began immediately after a visual edit.
