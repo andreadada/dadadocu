@@ -113,12 +113,6 @@ const config = {
             position: 'left',
             label: 'DND',
           },
-          {
-            type: 'docSidebar',
-            sidebarId: 'dadaEventDirectorSidebar',
-            position: 'left',
-            label: 'EventDirector'
-          }
         ],
       },
       footer: {
@@ -138,10 +132,6 @@ const config = {
               {
                 label: 'DadaProgressions',
                 to: '/docs/dadaprogressions/intro',
-              },
-              {
-                label: 'EventDirector',
-                to: '/docs/eventdirector/intro',
               },
             ],
           },
