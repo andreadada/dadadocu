@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - name: Checkout branch
+      - name: Checkout staging branch
         uses: actions/checkout@v4
 
       - name: Reconstruct documentation payload
@@ -25,14 +25,16 @@ jobs:
               .docs-refactor-payload.part03 \
               .docs-refactor-payload.part04 \
               .docs-refactor-payload.part05 > /tmp/dadadocu-refactor.b64
-          base64 -d /tmp/dadadocu-refactor.b64 | tar -xz -C .
-          rm .docs-refactor-payload.part00 \
-             .docs-refactor-payload.part01 \
-             .docs-refactor-payload.part02 \
-             .docs-refactor-payload.part03 \
-             .docs-refactor-payload.part04 \
-             .docs-refactor-payload.part05
-          rm .github/workflows/apply-dadaprogressions-docs.yml
+          base64 -d /tmp/dadadocu-refactor.b64 > /tmp/dadadocu-refactor.tgz
+
+      - name: Switch to clean target branch and apply docs
+        shell: bash
+        run: |
+          git fetch origin docs/dadaprogressions-beta-26.5-final
+          git checkout -B docs/dadaprogressions-beta-26.5-final origin/docs/dadaprogressions-beta-26.5-final
+          tar -xzf /tmp/dadadocu-refactor.tgz -C . \
+            --exclude='./.github/workflows/docs-ci.yml' \
+            --exclude='.github/workflows/docs-ci.yml'
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -57,4 +59,4 @@ jobs:
             exit 0
           fi
           git commit -m "refactor DadaProgressions documentation for beta-26.5"
-          git push origin "HEAD:${GITHUB_REF_NAME}"
+          git push origin HEAD:docs/dadaprogressions-beta-26.5-final
