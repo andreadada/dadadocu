@@ -359,6 +359,47 @@ crafting:
       type: sequential
 ```
 
+## New kinetic item animations (26.2 Premium)
+
+Premium adds six animation types for physical recipe-slot items:
+
+| Type | Visual movement |
+|---|---|
+| `orbit-items` | The items orbit while moving towards the center. |
+| `rise-and-merge` | Items rise, then merge at the center. |
+| `spiral-to-center` | Items spiral inward. |
+| `explode-and-reform` | Items move outward before returning. |
+| `float-then-consume` | Items float briefly before being consumed. |
+| `beam-to-center` | Items travel directly towards the center. |
+
+Example:
+
+```yaml
+animation:
+  type: orbit-items
+  duration: 40
+  radius: 1.5
+  height: 1.25
+  rotations: 2
+  start:
+    type: particle
+    particle: END_ROD
+    amount: 2
+  trail:
+    type: particle
+    particle: SOUL_FIRE_FLAME
+    amount: 1
+  end:
+    type: sound
+    sound: ENTITY_PLAYER_LEVELUP
+    volume: 1
+    pitch: 1
+```
+
+`duration` is measured in ticks; `radius` and `height` are in blocks; `rotations` controls the number of turns for circular animations. `start`, `trail` and `end` accept ordinary decorations, including references defined in `options.particle`.
+
+These animations act on **physical recipe-slot item entities**. If an ingredient has no matching slot entity, Structory falls back to consuming it without moving a visible item.
+
 ## Notes
 
 - Animations run only after a valid recipe has been selected.
