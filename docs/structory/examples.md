@@ -5,9 +5,9 @@ title: Example Configurations
 
 # Example Configurations
 
-This page contains ready-to-adapt examples.
+These examples show the same structure schema used by Structory's bundled files. Save each structure under `plugins/Structory/structures/<name>.yml`.
 
-## Simple message altar
+## A simple message altar
 
 ```yaml
 message_altar:
@@ -16,7 +16,7 @@ message_altar:
   orientation: false
   options:
     notify:
-      message: "<yellow>You created the Message Altar."
+      message: "<yellow>Message Altar activated!"
   layout:
     levels:
       level0:
@@ -32,87 +32,9 @@ message_altar:
             - "X*X"
 ```
 
-## Crafting altar with one recipe slot
+Build four stone bricks at the corners, place the cauldron in the middle and activate the cauldron. `*` means that the position is ignored.
 
-Structure:
-
-```yaml
-apple_altar:
-  name: "Apple Altar"
-  check-block: GOLD_BLOCK
-  orientation: false
-  options:
-    crafting:
-      recipe: ["default"]
-      recipe-slots:
-        offsets:
-          - "0 1 0"
-  layout:
-    levels:
-      level0:
-        level: 0
-        type: STANDARD
-        checkers:
-          types:
-            G: GOLD_BLOCK
-          main:
-            - "G"
-```
-
-Recipe:
-
-```yaml
-enchanted_apple_test:
-  name: enchanted_apple_test
-  discovers: "default"
-  ingredients:
-    apple:
-      type: item
-      material: APPLE
-  result:
-    item:
-      type: item
-      offset: "0 0 0"
-      item:
-        material: GOLDEN_APPLE
-```
-
-## Nether-only forge
-
-```yaml
-nether_forge:
-  name: "Nether Forge"
-  check-block: ANVIL
-  orientation: true
-  options:
-    validworlds:
-      worlds:
-        - "world_nether"
-      notify:
-        actionbar: "<red>This forge can only be created in the Nether."
-    crafting:
-      recipe: ["forgery"]
-      open-gui: ALWAYS
-      recipe-slots:
-        offsets:
-          - "-1 1 0"
-          - "1 1 0"
-  layout:
-    levels:
-      level0:
-        level: 0
-        type: STANDARD
-        checkers:
-          types:
-            A: ANVIL
-            B: BLACKSTONE
-          main:
-            - "B*B"
-            - "*A*"
-            - "B*B"
-```
-
-## Private player altar
+## A private altar
 
 ```yaml
 private_altar:
@@ -123,7 +45,7 @@ private_altar:
     privacy:
       type: OwnerOnly
     notify:
-      actionbar: "<green>This altar now belongs to you."
+      actionbar: "<green>This altar belongs to you."
   layout:
     levels:
       level0:
@@ -135,3 +57,44 @@ private_altar:
           main:
             - "A"
 ```
+
+## Diamond Core Reactor (26.2 Premium)
+
+A full visual demo is bundled with Premium:
+
+```text
+plugins/Structory/structures/diamond_core_reactor.yml
+plugins/Structory/blockdisplay/diamond_core.json
+```
+
+The example includes a symmetrical copper/deepslate base, lightning rods, a Beacon, a floating diamond core and two animated particle effects.
+
+Its main configuration looks like this:
+
+```yaml
+options:
+  blockdisplay:
+    core:
+      key: diamond_core
+      offset: "0 1.35 0"
+      direction: EAST
+      animation:
+        type: FLOAT_ROTATE
+        interval: 1
+        duration: 0
+        rotation-speed: 2.0
+        vertical-amplitude: 0.22
+        vertical-speed: 0.12
+```
+
+The complete `layout` and both particle shapes are in the bundled YAML. See [Block Displays](./options/blockdisplay.md) to understand the JSON file and centered rotation.
+
+## Copper Generator
+
+The bundled `generator_1.yml` demonstrates a small generator with rebuilding and internal storage. It is a useful reference for the *shape* of `rebuild.build` entries and `storage.containers`.
+
+Don't assume every demo feature is suitable for storing valuable items: see the [Storage limitations](./options/storage.md).
+
+## Before adapting an example
+
+Rename the top-level structure key and its file, then test the base layout before adding complex effects. If you are updating a bundled example, existing files in your plugin folder are not overwritten automatically.
