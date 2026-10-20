@@ -1,78 +1,70 @@
 ---
 sidebar_position: 11
+title: Rebuild
 ---
 
-# Rebuild Option
+# Rebuild (Premium)
 
-The `rebuild` option can rebuild or modify blocks after a structure is broken.
+The `rebuild` option runs a sequence of block builders after a structure is broken. You can place replacement blocks, clear parts of a layout or build a short destruction/reconstruction sequence.
 
-Use it for structures that should restore part of themselves, remove temporary blocks, or spawn display blocks again after a break event.
+Each step belongs under `options.rebuild.build`. **Use `type`, not `class`.**
 
-## Basic format
+## Working example
 
 ```yaml
 options:
   rebuild:
+    mode: BOTTOM_UP
+    delay: 10
+    block-delay: 3
     build:
-      class: place
-      material: STONE
-      offset: "0 0 0"
+      center:
+        order: 0
+        type: place
+        material: COPPER_BLOCK
+        offset: "0 0 0"
+      above:
+        order: 1
+        type: place
+        material: COBBLED_DEEPSLATE_SLAB
+        offset: "0 1 0"
 ```
 
-The `build` section uses Structory builders.
+`delay` is the initial wait in ticks, and `block-delay` is the separation between successive steps.
 
-## Builder types
+## Rebuild modes
 
-| Type | Description |
+| Mode | Behavior |
 |---|---|
-| `place` | Places a block at an offset. |
-| `destroy` | Destroys a block at an offset. |
-| `destroylayout` | Destroys layout-related blocks. |
-| `spawnbd` | Spawns block displays. |
+| `INSTANT` | All steps are executed after the initial delay. |
+| `RANDOM` | Steps run in a deterministic shuffled order. |
+| `BOTTOM_UP` / `TOP_DOWN` | Sorted by height. |
+| `CENTER_OUT` / `OUTSIDE_IN` | Sorted by distance from the center. |
+| `LAYER` | Steps on the same level run together. |
+| `RADIAL` | Sorted by horizontal distance from the center. |
 
-## Place builder
+Use `mode: LAYER` with `direction: TOP_DOWN` to build from above. The ordering modes affect the *timing*, not which blocks are changed.
 
-```yaml
-build:
-  class: place
-  material: CRYING_OBSIDIAN
-  offset: "0 0 0"
-```
+The `build` section uses structure builders such as `place`, `destroy` and `destroylayout`. For example, the bundled `generator_1.yml` contains a rebuild sequence you can adapt.
 
-For player heads:
-
-```yaml
-build:
-  class: place
-  material: PLAYER_HEAD
-  texture: "base64-texture-value"
-  offset: "0 1 0"
-```
-
-## Destroy builder
-
-```yaml
-build:
-  class: destroy
-  offset: "0 1 0"
-```
-
-## Practical use
-
-Example: restore the main block after a structure is broken.
+## Add an effect to each step
 
 ```yaml
 options:
   rebuild:
+    mode: BOTTOM_UP
+    delay: 10
+    block-delay: 4
+    effects:
+      type: particle
+      particle: END_ROD
+      amount: 4
     build:
-      class: place
-      material: CRYING_OBSIDIAN
-      offset: "0 0 0"
+      base:
+        order: 0
+        type: place
+        material: STONE
+        offset: "0 0 0"
 ```
 
-## Recommendations
-
-- Test rebuild behavior in a copy of the world before using it on a public server.
-- Avoid rebuilding large structures automatically unless you have tested performance.
-- Be careful with protected regions and other protection plugins.
-- Use crate or structure recreation systems when you need a complete placeable structure item.
+Test on a copy of your world first: rebuilding can overwrite blocks, and different protection plugins may react differently to scripted placement. Rebuild is not a general backup/rollback system.
