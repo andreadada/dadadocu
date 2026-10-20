@@ -1,81 +1,48 @@
 ---
 sidebar_position: 2
-title: Installation
+title: Installation and Updates
 ---
 
-# Installation
+# Installation and Updates
 
-This page explains how to install Structory on a Minecraft server.
+Structory runs on compatible Spigot/Paper servers. Use the Java runtime required by your **Minecraft server** and install the matching Structory build. The JDK 21 mentioned in the source build scripts is for **building the plugin**, not a requirement to change your live server's Java version to 21.
 
-## Requirements
+## Install
 
-You need:
+1. Stop the server and place the Structory JAR in `plugins/`.
+2. Start the server and check for `[Structory] Plugin loaded!`.
+3. Open `plugins/Structory/` and edit the generated configuration.
+4. Restart after the first major configuration change.
 
-- a Spigot, Paper, or compatible server;
-- Java compatible with your server version;
-- the Structory plugin `.jar` file;
-- access to the server `plugins` folder.
+Optional integrations (Vault, CoinsEngine, CraftEngine, Nexo, Oraxen, MMOItems, ItemsAdder, EcoItems, ExecutableItems and others) are not required for vanilla recipes. Install them only when using their ingredient or result types.
 
-Paper is recommended for better performance and compatibility.
+## Updating to 26.2
 
-## Install Structory
+1. **Back up the entire `plugins/Structory/` folder and your world**.
+2. Stop the server and replace the plugin JAR. Make sure an old copy is not left in `plugins/`.
+3. Start the server and read any migration, dependency or model warnings.
+4. Check your important structures, recipes and saved instances before reopening to players.
 
-1. Stop your server.
-2. Put the Structory `.jar` file inside the `plugins` folder.
-3. Start the server.
-4. Check that the folder `plugins/Structory/` has been created.
-5. Stop the server again before editing the first configuration files.
+Versioned migrations update supported root YAML schema files conservatively. Instance storage remains `yaml` unless you explicitly select SQLite or MariaDB.
 
-After the first start, Structory creates its default files and folders.
+Bundled structure and BlockDisplay examples are copied when missing, but **existing user files are left intact**. If you want the newest bundled `diamond_core.json`, replace your old copy manually after backing it up.
 
-## Optional dependencies
+## Building from source (developers)
 
-Structory can hook into several plugins. These are not all required. Install only the ones you want to use.
+From the Premium repository on Windows:
 
-| Plugin | Used for |
-|---|---|
-| Vault | Main economy support. |
-| CoinsEngine | Custom currency ingredients and results. |
-| CraftEngine | CraftEngine items and blocks. |
-| Oraxen | Oraxen custom items. |
-| Nexo | Nexo custom items. |
-| MMOItems | MMOItems custom items. |
-| ItemsAdder | ItemsAdder custom items. |
-| EcoItems | EcoItems custom items. |
-| ExecutableItems | ExecutableItems custom items. |
-
-If a dependency is missing, do not use its ingredient or result type in your recipes.
-
-## Recommended restart policy
-
-For production servers, restart the server after changing structures, recipes, or plugin files.
-
-`/structory reload` is useful while testing, but a full restart is safer after large edits.
-
-## Checking that Structory loaded correctly
-
-After starting the server, check the console for:
-
-```text
-[Structory] Plugin loaded!
+```powershell
+git checkout hardening/p0-p3-2026-09
+git pull
+.\scripts\build-release.ps1
 ```
 
-You can also run:
+The script looks for an installed **JDK 21** and temporarily sets `JAVA_HOME` / `PATH` for Maven. It doesn't permanently change your system settings.
 
-```text
-/structory
-```
+The resulting file is `target/Structory-Premium-26.2.jar`, with a SHA-256 checksum alongside it. You can override the detected JDK using `-JavaHome21 "C:\path\to\jdk-21"`.
 
-If the command exists and returns a message, the plugin is loaded.
+## First checks
 
-## Updating Structory
+Use `/structory admin validate` and test a simple structure. Check the BlockDisplay load messages if you use custom models.
 
-Before updating:
-
-1. Stop the server.
-2. Back up the full folder `plugins/Structory/`.
-3. Replace the old Structory `.jar` with the new one.
-4. Start the server.
-5. Check the console for configuration warnings.
-
-Structory can create a backup of `config.yml` when it detects a new configuration version. You should still keep a full manual backup before updating.
+After changing plugin JARs, prefer a full restart rather than a plug-in reloader. `/structory reload` is useful for day-to-day YAML testing but cannot replace testing the complete startup path.
