@@ -1,194 +1,122 @@
 ---
 sidebar_position: 1
+title: Particles and Decorations
 ---
 
-# Particle and Decoration Configuration
+# Particles and Decorations
 
-The `particle` option stores reusable effects for a structure.
+The `particle` option defines reusable visual and sound effects for a structure. Some keys have special meaning during crafting (`insert`, `place`, `take`, `consume` and `result`); other names, such as `ambient`, are yours to choose.
 
-These effects are used by crafting, animations, crates, and other options. A decoration can be a particle, a sound, a flame effect, a box area, or a group of decorations.
-
-## Basic structure
-
-```yaml
-options:
-  particle:
-    consume:
-      type: particle
-      particle: SOUL_FIRE_FLAME
-      amount: 10
-    result:
-      type: sound
-      sound: ENTITY_PLAYER_LEVELUP
-      volume: 1
-      pitch: 1
-```
-
-Common crafting keys:
-
-| Key | When used |
-|---|---|
-| `insert` | An item is dropped into the structure and accepted into a recipe slot. |
-| `place` | A player places an item into a recipe slot. |
-| `take` | A player removes an item from a recipe slot. |
-| `consume` | An ingredient is consumed. |
-| `result` | A recipe finishes. |
-| `primary` | General reusable helper effect. |
-| `secondary` | General reusable helper effect. |
-
-## Sound decoration
-
-```yaml
-type: sound
-sound: BLOCK_AMETHYST_BLOCK_CHIME
-volume: 1
-pitch: 1
-```
-
-| Field | Description |
-|---|---|
-| `sound` | Bukkit sound name. |
-| `volume` | Sound volume. |
-| `pitch` | Sound pitch. |
-
-## Particle decoration
-
-```yaml
-type: particle
-particle: SOUL_FIRE_FLAME
-amount: 5
-speed: 0.05
-```
-
-| Field | Description |
-|---|---|
-| `particle` | Bukkit particle name. |
-| `amount` | Number of particles. |
-| `speed` | Particle speed. |
-
-## Box-sized particle decoration
-
-Use `boxsized` for an area effect.
-
-```yaml
-type: boxsized
-amount: 20
-center-offset: "0 1 0"
-start-point-offset: "-2 -1 -2"
-end-point-offset: "2 1 2"
-particle:
-  type: particle
-  particle: PORTAL
-  amount: 1
-  speed: 0.1
-```
-
-| Field | Description |
-|---|---|
-| `amount` | Number of positions sampled inside the box. |
-| `center-offset` | Center of the box relative to the structure. |
-| `start-point-offset` | First corner relative to the center. |
-| `end-point-offset` | Opposite corner relative to the center. |
-| `particle` | Decoration used for each sampled position. |
-
-## Flame decoration
-
-```yaml
-type: flame
-center-offset: "0 1 0"
-amount: 20
-particle:
-  type: particle
-  particle: FLAME
-  amount: 1
-  speed: 0.01
-```
-
-Use this for ritual-like ambient effects.
-
-## Grouped decorations
-
-Use `decorations` to play several effects together.
-
-```yaml
-type: decorations
-sound:
-  type: sound
-  sound: ENTITY_BLAZE_SHOOT
-  volume: 1
-  pitch: 1
-particles:
-  type: particle
-  particle: SOUL_FIRE_FLAME
-  amount: 5
-  speed: 0.05
-```
-
-## Referencing another decoration
-
-Use `instance` to reuse a decoration defined in the same structure.
-
-```yaml
-options:
-  particle:
-    primary:
-      type: particle
-      particle: SOUL_FIRE_FLAME
-      amount: 1
-    consume:
-      type: instance
-      key: primary
-```
-
-This is useful for animations that repeat the same effect in multiple places.
-
-## Scheduled effects
-
-Some decorations can be scheduled to run repeatedly by adding `schedule: true`.
-
-```yaml
-options:
-  particle:
-    ambient:
-      schedule: true
-      type: boxsized
-      amount: 10
-      center-offset: "0 1 0"
-      start-point-offset: "-1 0 -1"
-      end-point-offset: "1 1 1"
-      particle:
-        type: particle
-        particle: END_ROD
-        amount: 1
-```
-
-Use scheduled effects carefully. A high amount on many structures can create performance issues.
-
-## Recommended production setup
+## A simple example
 
 ```yaml
 options:
   particle:
     insert:
       type: sound
-      sound: BLOCK_BREWING_STAND_BREW
+      sound: BLOCK_AMETHYST_BLOCK_CHIME
       volume: 1
       pitch: 1
-    place:
-      type: sound
-      sound: ENTITY_ITEM_FRAME_PLACE
-      volume: 1
-      pitch: 1
-    take:
-      type: sound
-      sound: ENTITY_ITEM_FRAME_REMOVE_ITEM
-      volume: 1
-      pitch: 1
-    consume:
+    result:
       type: particle
-      particle: SOUL_FIRE_FLAME
-      amount: 8
+      particle: END_ROD
+      amount: 5
       speed: 0.02
+```
+
+`primary` and `secondary` are useful reusable names when referenced by other effects. They are not automatically triggered by every event.
+
+## Particle shapes (26.2)
+
+A particle decoration can draw more than one point:
+
+| Shape | Appearance |
+|---|---|
+| `POINT` | Legacy particle effect at one location. |
+| `LINE` / `BEAM` | A straight line / energized beam along a direction. |
+| `RING` / `ORBIT` | Horizontal circle. |
+| `SPHERE` | Particle sphere. |
+| `HELIX` / `DOUBLE_HELIX` | One or two rising spirals. |
+| `SPIRAL` / `VORTEX` | Tapering spiral effects. |
+| `PULSE` | Expanding and contracting ring. |
+| `WAVE` | Wave along a chosen direction. |
+| `BOX` | Rectangular wireframe. |
+| `STRUCTURE_OUTLINE` | The outside silhouette of the structure's **actual layout**, not just its bounding box. |
+
+### Floating ring
+
+```yaml
+options:
+  particle:
+    core-ring:
+      type: particle
+      particle: END_ROD
+      shape: RING
+      amount: 1
+      speed: 0
+      radius: 1.15
+      density: 40
+      offset: "0 1.35 0"
+      duration: 80
+      period: 1
+      animated: true
+      animation-speed: 0.25
+      continuity: true
+      schedule: true
+      schedule-period: 80
+      schedule-delay: 0
+```
+
+`density` controls how many points make up a shape (clamped to 1–256); `amount` is the particle count **at each point**. Increasing both can be expensive.
+
+`radius` and `height` determine the dimensions. `direction` defines the axis for line-like shapes. `rotation-speed` controls the rotating phase; `start-angle` and `end-angle` determine the angular sweep.
+
+### Structure outline
+
+```yaml
+options:
+  particle:
+    outline:
+      type: particle
+      particle: END_ROD
+      shape: STRUCTURE_OUTLINE
+      amount: 1
+      density: 36
+      duration: 60
+      period: 2
+```
+
+The outline follows the exposed outer footprint and surface of the real multiblock layout, including its rotation. Interior/shared edges are excluded. Its geometry is cached per structure, orientation and density and refreshed when structures are reloaded. You don't need to configure `radius` or `height` for this shape.
+
+Regular geometric shapes are centered on the structure's center block when played there. `STRUCTURE_OUTLINE` instead uses block edges to stay aligned with the layout.
+
+## Timing: two different controls
+
+**Rendering duration** is controlled by the particle decoration itself:
+
+| Key | Meaning |
+|---|---|
+| `duration` | How long one effect runs, in ticks. |
+| `period` | Ticks between draws while that effect is active. |
+| `animated` | Enables moving/traversing points on supported shapes. |
+| `animation-speed` | Rate of traversal. |
+| `continuity` | `true` = loop/wrap; `false` = back-and-forth progression. |
+
+**Repeating the entire effect** is configured on the named entry:
+
+| Key | Meaning |
+|---|---|
+| `schedule: true` | Automatically replay the effect for a live structure instance. |
+| `schedule-period` | How frequently it starts, in ticks. |
+| `schedule-delay` | Delay before the scheduled effect starts. |
+
+Avoid setting `schedule-period` shorter than `duration` unless overlapping effects are intentional. When `animated: true` and `duration: 0`, Structory derives a finite run length from the animation speed; `duration: 0` does **not** mean an endless particle task.
+
+## Sounds and groups
+
+```yaml
+options:
+  particle:
     result:
       type: decorations
       sound:
@@ -196,16 +124,34 @@ options:
         sound: ENTITY_PLAYER_LEVELUP
         volume: 1
         pitch: 1
-      particles:
+        at: 0
+      spark:
         type: particle
         particle: END_ROD
-        amount: 12
-        speed: 0.05
+        amount: 8
+        at: 10
 ```
 
-## Tips
+The optional `at` value is a delay in ticks. Leave it out to play that child immediately.
 
-- Use low particle amounts for structures that stay active for a long time.
-- Use sounds for important actions such as crafting completion.
-- Avoid heavy scheduled particles on servers with many structure instances.
-- Put crafting visual effects in `particle`, not directly inside `crafting`.
+To reuse an existing effect:
+
+```yaml
+options:
+  particle:
+    primary:
+      type: particle
+      particle: SOUL_FIRE_FLAME
+      amount: 2
+    consume:
+      type: instance
+      key: primary
+```
+
+Other supported decorations include `boxsized` and `flame`; they have their own pages in this section.
+
+## Performance
+
+Start with `amount: 1`, moderate `density` and `period: 2` or higher. The approximate work per draw rises with **amount × density × active instances**. Large scheduled effects running on dozens of altars are much costlier than one-off crafting effects.
+
+For a working combination of a ring, double helix and animated model, use the bundled Diamond Core Reactor example.
