@@ -1,58 +1,29 @@
 ---
 sidebar_position: 10
+title: Storage
 ---
 
-# Storage Option
+# Storage (Premium)
 
-The `storage` option is intended to attach inventories or containers to a structure.
-
-In the current build, the public configuration surface is limited. Use it carefully and test it before relying on it for important player storage.
-
-## Basic format
-
-```yaml
-options:
-  storage:
-    containers:
-      main:
-        class: inventory
-        key: main
-```
-
-## Fields
-
-| Field | Description |
-|---|---|
-| `containers` | List of storage containers attached to the structure. |
-| `class` | Storage type. The currently available type is `inventory`. |
-| `key` | Internal key for the container. |
-
-## Inventory storage
+The `storage` option creates a named inventory associated with a structure. In the current implementation the supported storage type is `inventory`.
 
 ```yaml
 options:
   storage:
     containers:
       output:
-        class: inventory
+        type: inventory
         key: output
 ```
 
-The current inventory container creates a standard inventory container internally.
+The code currently creates an internal **54-slot Bukkit inventory** for this type. `output` is the logical container key.
 
-## Recommended use
+## What to expect
 
-Use storage only for tested setups where you have confirmed how the container is opened and managed on your server.
+Storage is registered when the structure is created. The current storage implementation does not provide the same complete persistence and recovery guarantees as saved structure instances. Do not use it as the only store for valuable player items without testing your exact workflow.
 
-For normal crafting rewards, prefer recipe results such as:
+Fields like `class: inventory` and `max: 30` found in older example configurations do **not** define inventory type/size in the current parser. Use `type: inventory` and `key`.
 
-- `item`
-- `saveditem`
-- `command`
-- economy deposit results
+For ordinary crafting rewards, an item or command result is generally easier to configure and recover than a temporary inventory.
 
-## Current limitation
-
-The storage option exists in the option system, but the current user-facing behavior is not as complete as crafting, crate, privacy, or particles.
-
-Do not use it as the only place for valuable rewards unless you have tested persistence, access, and reload behavior in your build.
+If a container doesn't appear, check the console for `Invalid storage type` and verify the indentation under `storage.containers`.
