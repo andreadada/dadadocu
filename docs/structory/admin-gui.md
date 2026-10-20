@@ -1,177 +1,82 @@
 ---
 sidebar_position: 8
-title: Admin GUI
+title: Admin Tools and Editor
 ---
 
-# Admin GUI
+# Admin Tools and Editor (Premium)
 
-The Admin GUI is made for server owners and staff members who need to manage Structory without typing every key manually.
+Structory 26.2 includes an in-game editor, structure/recipe browsers and tools for checking problems before players run into them.
 
-Use it to inspect saved items, structure instances and recipes from an in-game interface.
+## Where to start
 
-:::info
-The Admin GUI is an administrator tool. It is not meant for normal players.
-:::
-
-## Opening the Admin GUI
-
-The main admin command is:
+`/structory admin` **shows admin help**; it isn't the GUI itself. To open the editor, run:
 
 ```text
-/structory admin
+/structory admin editor
 ```
 
-The most common sections are:
+You can also open it with `/structory editor`.
 
-| Command | Permission | Description |
-|---|---|---|
-| `/structory admin` | `structory.cmd.admin.use` | Opens the main Admin GUI or shows the available admin sections. |
-| `/structory admin item` | `structory.cmd.admin.item` | Opens the saved item admin page. |
-| `/structory admin recipe` | `structory.cmd.admin.recipe` | Opens the recipe admin page. |
-| `/structory admin instance` | `structory.cmd.admin.instance` | Opens the structure instance admin page. |
-
-If your build only exposes a specific section, use that section command directly.
-
-Example:
-
-```text
-/structory admin item
-```
-
-## Recommended permissions
-
-For a small private server, giving `structory.*` to trusted operators is usually enough.
-
-For a public server, it is safer to give only the admin permissions that the staff member really needs.
-
-| Permission | Suggested use |
+| Command | Purpose |
 |---|---|
-| `structory.cmd.admin.use` | Basic access to the admin command. |
-| `structory.cmd.admin.item` | Staff members who manage saved items. |
-| `structory.cmd.admin.recipe` | Staff members who inspect recipe configuration. |
-| `structory.cmd.admin.instance` | Staff members who inspect placed structures. |
-| `structory.cmd.admin.*` | Trusted administrators who need every Admin GUI page. |
-| `structory.*` | Full Structory access. Give only to trusted owners/admins. |
+| `/structory admin item` | Marks the item in your hand as an admin inspection item; use it on a structure. |
+| `/structory admin editor` | Opens the editor home. |
+| `/structory admin structures` | Browses structure definitions. |
+| `/structory admin structure <key>` | Opens a specific structure. |
+| `/structory admin recipes` | Browses loaded recipes. |
+| `/structory admin recipe <name>` | Opens a recipe. |
+| `/structory admin instances` | Lists placed structures. |
+| `/structory admin instance <uuid>` | Opens one placed instance. |
+| `/structory admin guis` | Opens GUI definition pages. |
 
-:::caution
-The Admin GUI can expose internal keys, saved item names, recipe names and structure instance information. Do not give these permissions to normal players.
-:::
+The editor separates structure options, recipe ingredients/results/listeners and individual instance values. Changes to an *instance* are not necessarily changes to the structure template used for future instances.
 
-## Saved Item Admin GUI
+## Working safely in the editor
 
-Open it with:
+A useful editing sequence:
 
-```text
-/structory admin item
-```
+1. Open the specific structure or recipe from the lists.
+2. Change one field or effect.
+3. Save it and check the result in the world.
+4. Run `/structory admin validate` to identify missing references or invalid configuration.
 
-Click on a structure instance's main block
+The value editors provide typed controls for supported settings and a more generic value-map editor for complex options. If a field isn't available as a control, don't assume it cannot be configured: inspect the underlying YAML.
 
-## Recipe Admin GUI
+## Validation, preview and auto-fix
 
-Open it with:
-
-```text
-/structory admin recipe
-```
-
-Use this page to inspect the recipes loaded by Structory.
-
-This page is useful when a recipe is not working and you want to check what Structory has loaded from the recipe files.
-
-Typical information shown by the recipe page:
-
-- recipe key;
-- recipe display item;
-- linked recipe group or discover key;
-- ingredients;
-- results;
-- listener type, when available;
-- recipe slots or requirements, when available.
-
-The recipe page should use the configured recipe display item when possible.
-
-For example, if a recipe has:
-
-```yaml
-item-display:
-  material: NETHER_STAR
-  name: "&bNether Star Recipe"
-```
-
-then the admin recipe page should use that item to represent the recipe instead of showing only a generic crafting table.
-
-## Structure Instance Admin GUI
-
-Open it with:
-
-```text
-/structory admin instance
-```
-
-Use this page to inspect structures that have already been created in the world.
-
-A structure instance is created when a player builds a valid multiblock structure and activates it with Shift + Right Click.
-
-The instance page is useful for administration because it helps you identify real placed structures, not only structure templates from the `structures` folder.
-
-Typical information shown by the instance page:
-
-- structure key;
-- instance identifier;
-- world;
-- position;
-- owner, when the privacy option is active;
-- enabled options;
-- useful copyable values for commands or configuration.
-
-Use this page when:
-
-- a player says a structure is not working;
-- you need to check if a structure was created correctly;
-- you need the instance identifier for privacy or debugging commands;
-- you want to verify which world and location the structure belongs to.
-
-## Copyable chat messages
-
-Some Admin GUI actions may send clickable or copyable chat messages.
-
-This is meant to avoid mistakes with long keys, UUIDs or recipe names.
-
-Common values worth copying:
-
-| Value | Where it is useful |
+| Command | Behavior |
 |---|---|
-| Saved item key | Recipe ingredients and results. |
-| Recipe key | Crafting whitelist or troubleshooting. |
-| Structure key | Structure configuration and crate commands. |
-| Instance UUID | Privacy commands or instance debugging. |
-| Location | Manual checks in-game. |
+| `/structory admin validate` | Reports configuration and reference problems; also available as `/structory validate`. |
+| `/structory admin fix` | Previews proposed safe repairs. |
+| `/structory admin fix apply` | Applies eligible repairs. Review the preview first. |
+| `/structory admin preview <structure> [north\|south\|east\|west]` | Displays a client-side blueprint of a structure. |
+| `/structory admin preview stop` | Hides the blueprint. |
+| `/structory admin debug <instance-uuid>` | Highlights a live instance to help diagnose layout problems. |
+| `/structory admin debug stop` | Stops the visual debugger. |
+| `/structory performance` | Shows scheduler/performance diagnostics. |
 
-## Troubleshooting
+A preview is not a placed or saved structure; it is a visualization for the admin. This is a convenient way to inspect rotations without rebuilding your altar.
 
-### I cannot see an item, recipe or instance
+## History and recovery
 
-Check the following:
-
-1. The file exists in the correct folder.
-2. The YAML file has no formatting errors.
-3. The plugin was restarted or reloaded after the change.
-4. The item, recipe or structure was actually registered by Structory.
-5. You have permission to use the selected admin page.
-
-### The recipe icon is wrong
-
-Check the recipe `item-display` section.
-
-Example:
-
-```yaml
-item-display:
-  material: NETHER_STAR
-  name: "&bNether Star"
-  lore:
-    - "&7Custom Structory recipe"
+```text
+/structory admin history
+/structory admin undo
+/structory admin redo
+/structory admin rollback <history-id>
 ```
 
-If no valid display item is configured, Structory may fall back to a default item.
+History helps recover supported admin edits. `rollback` targets a specific history entry rather than undoing everything in the world. Use the history IDs shown by the command; keep independent backups before large changes.
+
+## Permissions
+
+Relevant permission nodes:
+
+- `structory.cmd.admin.editor`, `structory.cmd.admin.item`
+- `structory.cmd.admin.structures`, `structory.cmd.admin.recipes`, `structory.cmd.admin.instances`, `structory.cmd.admin.guis`
+- `structory.cmd.admin.validate`, `structory.cmd.admin.fix`
+- `structory.cmd.admin.history`, `structory.cmd.admin.visualize`
+- `structory.cmd.admin.performance` and `structory.cmd.admin.cluster`
+- `structory.cmd.admin.*` for trusted staff
+
+All these commands are intended for operators or staff with specifically assigned permissions. For a full list, see [Commands and Permissions](./commands/commands.md).
