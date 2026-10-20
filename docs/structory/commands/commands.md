@@ -5,130 +5,68 @@ title: Commands and Permissions
 
 # Commands and Permissions
 
-Structory uses `/structory` as its main command.
+Most Structory commands are for administrators and require OP or the relevant permission. `/structory` is the command root; use `/structory help` for the basic help message.
 
-Most commands are intended for administrators and are `op` by default.
+## General and saved items
 
-## Main command
+| Command | Permission |
+|---|---|
+| `/structory reload` | `structory.cmd.reload` |
+| `/structory item save <name>` | `structory.cmd.item.save` |
+| `/structory item get <name>` | `structory.cmd.item.get` |
+| `/structory item replace <name>` | `structory.cmd.item.replace` |
+| `/structory item delete <name>` | `structory.cmd.item.delete` |
 
-| Command | Permission | Description |
-|---|---|---|
-| `/structory` | `structory.cmd.use` | Shows the main Structory command message. |
-| `/structory help` | `structory.cmd.use` | Shows the available command sections. |
-| `/structory reload` | `structory.cmd.reload` | Reloads Structory configuration and systems. |
+`item save` stores the item you're holding in `plugins/Structory/customitem/`. Use that saved key in a recipe or result.
 
-:::caution
-For production servers, a full restart is safer than `/structory reload` after large changes to structures, recipes, or dependencies.
-:::
-
-## Saved item commands
-
-Saved items let you save a custom item from your hand and reuse it in recipes or results.
-
-| Command | Permission | Description |
-|---|---|---|
-| `/structory item save <name>` | `structory.cmd.item.save` | Saves the item in your main hand. |
-| `/structory item get <name>` | `structory.cmd.item.get` | Gives you a saved item. |
-| `/structory item replace <name>` | `structory.cmd.item.replace` | Replaces a saved item with the item in your main hand. |
-| `/structory item delete <name>` | `structory.cmd.item.delete` | Deletes a saved item. |
-
-Examples:
+## Structure layout wizard
 
 ```text
-/structory item save strangeapple
-/structory item get strangeapple
-/structory item replace strangeapple
-/structory item delete strangeapple
+/structory layout item
+/structory layout create <name>
+/structory layout preview
+/structory layout origin
+/structory layout rotate left
+/structory layout rotate right
+/structory layout save [name]
+/structory layout cancel
 ```
 
-Saved items are stored in:
+First hold an item and run `layout item`, then select two corners of the region in-game. `layout create` starts a wizard; **it does not immediately export the final YAML**. Preview, set the origin, rotate if needed and use `layout save` to write the structure file. The scanned volume is limited to 16,384 blocks.
 
-```text
-plugins/Structory/customitem/
-```
+`layout item` requires `structory.cmd.layout.item`; the wizard requires `structory.cmd.layout.create`. Region selection also uses `structory.create.region`.
 
-## Layout commands
+## Admin commands
 
-Layout commands help you create a structure layout from an in-game region.
-
-| Command | Permission | Description |
+| Command | Permission | Use |
 |---|---|---|
-| `/structory layout item` | `structory.cmd.layout.item` | Turns the item in your hand into the region selection tool. |
-| `/structory layout create` | `structory.cmd.layout.create` | Exports the selected region as a layout file. |
+| `/structory admin` | Root admin help | Shows the available tools. |
+| `/structory admin editor` | `structory.cmd.admin.editor` | Open the in-game editor. |
+| `/structory admin item` | `structory.cmd.admin.item` | Mark an inspection item. |
+| `/structory admin structures` / `structure <key>` | `structory.cmd.admin.structures` | Browse/edit structure definitions. |
+| `/structory admin recipes` / `recipe <name>` | `structory.cmd.admin.recipes` | Browse/edit recipes. |
+| `/structory admin instances` / `instance <uuid>` | `structory.cmd.admin.instances` | Inspect placed structures. |
+| `/structory admin guis` | `structory.cmd.admin.guis` | Browse GUI definitions. |
+| `/structory admin validate` | `structory.cmd.admin.validate` | Run health checks. |
+| `/structory admin fix [apply]` | `structory.cmd.admin.fix` | Preview/apply eligible repairs. |
+| `/structory admin history [limit]` | `structory.cmd.admin.history` | Show edit history. |
+| `/structory admin undo` / `redo` | `structory.cmd.admin.history` | Undo/redo supported edits. |
+| `/structory admin rollback <id>` | `structory.cmd.admin.history` | Roll back to a recorded change. |
+| `/structory admin preview <key> [orientation]` | `structory.cmd.admin.visualize` | Client-side blueprint. |
+| `/structory admin debug <uuid>` | `structory.cmd.admin.visualize` | Visual debugging. |
+| `/structory performance` | `structory.cmd.admin.performance` | Scheduler diagnostics. |
+| `/structory cluster` | `structory.cmd.admin.cluster` | Cluster status and maintenance options. |
 
-Basic flow:
+The preview/debug commands also accept `stop`. Consult [Admin Tools and Editor](../admin-gui.md) for examples.
 
-1. Hold any item.
-2. Run `/structory layout item`.
-3. Left-click the first corner of the region.
-4. Right-click the second corner of the region.
-5. Run `/structory layout create`.
-6. Copy the generated layout into your structure file and adjust it.
+## Premium commands
 
+`/structory crate give <player> <crate>` issues a configured structure crate.
 
-## Admin GUI commands
+Privacy commands are available under `/structory option privacy`, including `set` and owner-editing operations. They require the corresponding `structory.cmd.option.privacy.*` permissions.
 
-The Admin GUI is intended for server owners and trusted staff members.
+## Wildcards
 
-It helps you inspect saved items, loaded recipes and placed structure instances without manually typing every key.
+`structory.cmd.admin.*` grants the admin suite; `structory.cmd.*` grants declared command permissions; `structory.*` grants all declared Structory permissions. Use these only for trusted administrators.
 
-| Command | Permission | Description |
-|---|---|---|
-| `/structory admin` | `structory.cmd.admin.use` | Opens the main Admin GUI or shows the available admin sections. |
-| `/structory admin item` | `structory.cmd.admin.item` | Opens the saved item admin page. |
-| `/structory admin recipe` | `structory.cmd.admin.recipe` | Opens the recipe admin page. |
-| `/structory admin instance` | `structory.cmd.admin.instance` | Opens the structure instance admin page. |
-
-Recommended wildcard permissions:
-
-| Permission | Description |
-|---|---|
-| `structory.cmd.admin.*` | Gives access to every Admin GUI section. |
-| `structory.*` | Gives full Structory access. Use only for trusted administrators. |
-
-For a complete explanation, see the Admin GUI page.
-
-## Crate command
-
-This command is part of the premium crate feature.
-
-| Command | Permission | Description |
-|---|---|---|
-| `/structory crate give <player> <crate>` | Administrator access | Gives a crate item for the selected structure key. |
-
-Example:
-
-```text
-/structory crate give Steve elder_altar
-```
-
-The crate key must match a structure that has the `crate` option configured.
-
-## Privacy commands
-
-Privacy commands are part of the premium privacy feature.
-
-| Command | Permission | Description |
-|---|---|---|
-| `/structory option privacy set <instance-uuid> <type>` | Administrator access | Changes a structure instance privacy type. |
-| `/structory option privacy edit public owner <instance-uuid> <player>` | Administrator access | Changes the owner of a public structure by player name. |
-| `/structory option privacy edit public owneruuid <instance-uuid> <player-uuid>` | Administrator access | Changes the owner of a public structure by UUID. |
-
-Available privacy types:
-
-| Type | Meaning |
-|---|---|
-| `OwnerOnly` | Only the owner can interact. |
-| `Public` | Public structure with an owner. |
-| `AllowAll` | Anyone can interact. |
-
-## Permission groups
-
-| Permission | Description |
-|---|---|
-| `structory.cmd.*` | Gives access to the main command and standard item/layout commands. |
-| `structory.*` | Gives all Structory permissions declared by the plugin. |
-
-:::info
-Some premium commands may use internal administrator checks even when they are not explicitly listed in `plugin.yml`. Give them only to trusted staff.
-:::
+After large YAML edits or dependency changes, prefer a full server restart over `reload`. Always back up the plugin data folder before upgrading.
