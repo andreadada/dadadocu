@@ -1,82 +1,48 @@
 ---
 sidebar_position: 9
+title: Troubleshooting
 ---
 
-# Troubleshooting
+# Troubleshooting Structory
 
-This page lists common problems and how to solve them.
+Start with the server console. Many problems are caused by a valid YAML file whose *key or section* is not what Structory expects. For production changes, use a full restart and keep a backup of `plugins/Structory/`.
 
-## The plugin does not load
+## The structure isn't recognized
 
-Check:
+Check the clicked `check-block`, `Shift + Right Click`, and the actual layout including negative Y levels. The levels belong under `layout.levels`. Start with `orientation: false` for a symmetrical altar and use `/structory admin preview <key>` to compare the loaded layout against the real build.
 
-1. The `.jar` file is inside `plugins/`.
-2. The server version is compatible with your Structory version.
-3. The Java version is compatible with your server.
-4. The console does not show dependency errors.
-5. Optional dependencies used by your recipes are installed and enabled.
+If the structure is already registered nearby, the minimum distance setting can also prevent another instance from being created.
 
-Restart the server after changing plugin files.
+## BlockDisplay doesn't appear
 
-## The structure is not detected
+Work through these checks **in order**:
 
-| Cause | Fix |
-|---|---|
-| Wrong block clicked | Click the configured `check-block`. |
-| Player is not sneaking | Use `Shift + Right Click` if your setup requires it. |
-| Layout does not match | Compare each row of the layout with the build. |
-| Wrong level | Check `level: 0`, `level: 1`, and `level: -1`. |
-| Wrong orientation | Set `orientation: false` while testing. |
-| Wrong YAML format | Make sure levels are under `layout.levels`. |
-| Wrong world | Check the `validworlds` option if used. |
+1. Check `plugins/Structory/blockdisplay/<model>.json` exists and is valid JSON.
+2. Make sure the structure entry references the **filename without `.json`**: `key: diamond_core`.
+3. Confirm you are using a `blockdisplay` entry beneath `options`, with `core:` (or another entry name) beneath it.
+4. On startup, look for `BlockDisplay definitions loaded` and `BlockDisplay structure '...': registered ... model(s)`.
+5. When the instance is created/loaded, look for `BlockDisplay spawned ... UUID=...`. If this line is missing, the issue is before entity rendering.
+6. Test with a simple one-passenger `minecraft:block_display` model and no animation before adding complex models.
 
-## The recipe does not craft
+If an option key can't be resolved, the plugin reports `Block display key '...' is not registered`. A missing model might simply be an old JSON: existing files are **not overwritten** by bundled updates.
 
-Check:
+The [BlockDisplay guide](./options/blockdisplay.md) includes a minimal JSON and a working configuration shape.
 
-1. The structure has the `crafting` option.
-2. The structure has enough `recipe-slots`.
-3. The recipe is available through structure `recipe` and recipe `discovers`.
-4. The recipe listener matches the structure listener.
-5. All ingredients are present.
-6. External item plugins are installed if used.
-7. The player has enough experience or currency if required.
+## The display appears, but rotates around a corner
 
-Correct structure recipe access example:
+`ROTATE` and `FLOAT_ROTATE` are meant to spin a simple BlockDisplay about its **visual center**, while `ORBIT` deliberately moves it around a larger circle.
 
-```yaml
-options:
-  crafting:
-    recipe: ["forge"]
-```
+If your model spins around a corner, check that your JAR contains the newest 26.2 center-pivot fix, then retest with the bundled Diamond Core. Custom multi-passenger models may need careful transformation matrices.
 
-Correct recipe discover example:
+Don't blindly add `0.5` to every YAML offset: the JSON transformation can already include the centering translation.
 
-```yaml
-my_recipe:
-  discovers: "forge"
-```
+## Particles are offset by half a block
 
-## The recipe GUI does not open
+Regular shapes play from the center of the structure's center block. `STRUCTURE_OUTLINE` is different: it deliberately traces block edges instead. Check that the effect's `offset` hasn't already been manually compensated for an older version.
 
-The GUI opens automatically when multiple recipes match.
+## The recipe doesn't craft
 
-To always open it, add:
-
-```yaml
-options:
-  crafting:
-    open-gui: ALWAYS
-    recipe: ["default"]
-```
-
-Do not use old `recipe-group` examples for new configurations. Prefer `recipe` on the structure and `discovers` in the recipe.
-
-## `killedentity` does not work
-
-`killedentity` requires the `entity-death` listener.
-
-Structure:
+Verify `options.crafting.recipe`, the recipe's `discovers` key, available recipe slots, ingredients and listener types. If you configure custom listeners, remember to include `interact` if you still want right-click crafting.
 
 ```yaml
 options:
@@ -87,129 +53,38 @@ options:
         range: 8
 ```
 
-Recipe:
+Custom items also require the corresponding dependency plugin to be installed and enabled. `Hooked to 0 item loaders` is **not an error** when you use only vanilla items.
 
-```yaml
-listeners:
-  - entity-death
-ingredients:
-  kill:
-    type: killedentity
-    entities:
-      - ZOMBIE
+## Saved item or recipe icon is missing
+
+Check `plugins/Structory/customitem/`, the saved item key, and the recipe's `item-display`. Use `/structory admin recipes` to inspect registered recipes.
+
+## A structure or default example disappeared after an update
+
+Don't delete your entire config folder. Structory can restore *missing bundled files*, but it never overwrites existing user files. Check that the example is actually bundled with your installed JAR, and look for custom YAML parsing warnings. Re-create missing examples from a backup if you've customized them.
+
+## Instances disappear after a restart
+
+Look for `Structure instance persistence backend: yaml` / `sqlite` / `mariadb` and the loaded instance count. If the count is zero when it shouldn't be, check the configured backend before changing any files.
+
+See [Persistence and Backups](./persistence.md) for safe migration and recovery.
+
+## Particles lag the server
+
+The cost grows with `amount × density × active instances` and update frequency. Decrease `density`, increase `period` and `schedule-period`, and avoid overlapping long-running effects. `STRUCTURE_OUTLINE` caches its geometry, but it still emits particles when drawn.
+
+## Build fails because Maven is using Java 8
+
+On Windows use the current `scripts/build-release.ps1`. It searches for an installed JDK 21 and selects it temporarily. If it can't find one, provide `-JavaHome21 "C:\path\to\jdk-21"`. The build requirement is separate from the runtime Java version required by your Minecraft server.
+
+## Useful admin diagnostics
+
+```text
+/structory admin validate
+/structory admin fix
+/structory admin debug <instance-uuid>
+/structory performance
+/structory cluster
 ```
 
-Also check:
-
-- the mob died within range;
-- the structure instance was loaded;
-- the killer was a player;
-- the entity type matches the recipe.
-
-## Normal right-click crafting stopped after adding entity-death
-
-When you add `crafting.listeners`, include `interact` explicitly.
-
-```yaml
-listeners:
-  interact: {}
-  entity-death:
-    range: 8
-```
-
-## Items disappear or cannot be picked up
-
-Check these settings in `config.yml`:
-
-```yaml
-structures:
-  disable_item_pickup: true
-  shift_to_remove_item: false
-```
-
-If `disable_item_pickup` is true, Structory manages recipe-slot items and players should interact with the structure instead of picking items up normally.
-
-## Saved item does not work
-
-Check:
-
-1. The item was saved with `/structory item save <name>`.
-2. The file exists in `plugins/Structory/customitem/`.
-3. The recipe uses the same key.
-
-Example:
-
-```yaml
-type: saveditem
-key: strangeapple
-```
-
-## Custom item plugin ingredient does not work
-
-Check:
-
-1. The dependency plugin is installed.
-2. The dependency plugin is enabled before Structory hooks into it.
-3. The item key is correct.
-4. The correct ingredient type is used.
-
-Recommended examples:
-
-```yaml
-type: craftengine
-key: "default:topaz"
-```
-
-```yaml
-type: oraxen
-key: "ruby"
-```
-
-For Oraxen ingredients, prefer `type: oraxen` instead of the short alias.
-
-## Particles are too heavy
-
-Reduce:
-
-- `amount`;
-- scheduled effects;
-- large `boxsized` areas;
-- effects used by many structure instances.
-
-Use sounds or small particles for frequent actions such as item insert and take.
-
-## YAML errors
-
-Most YAML errors are caused by indentation.
-
-Correct:
-
-```yaml
-options:
-  notify:
-    message: "Hello"
-```
-
-Incorrect:
-
-```yaml
-options:
-notify:
-message: "Hello"
-```
-
-Use spaces, not tabs.
-
-## Best testing process
-
-When creating a new structure:
-
-1. Start with only the layout and a `notify` message.
-2. Test detection.
-3. Add particles or simple sounds.
-4. Add crafting with one simple recipe.
-5. Add recipe slots.
-6. Add animations.
-7. Add listeners such as `entity-death`.
-8. Add premium features one at a time.
-9. Restart the server after major edits.
+Use `fix` without `apply` first so you can inspect proposed changes. For a difficult problem, test the same setup on a clean server with only Structory and the required dependencies.
